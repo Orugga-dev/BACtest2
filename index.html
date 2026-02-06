@@ -6,6 +6,12 @@
   <title>Business Angels Club — IAE Business School</title>
   <meta name="description" content="Club de inversores ángeles con estándares institucionales impulsado por IAE Business School. Proceso curado, inversión sindicada y seguimiento activo." />
 
+  <!-- Open Graph (placeholder assets) -->
+  <meta property="og:title" content="Business Angels Club — IAE Business School" />
+  <meta property="og:description" content="Rigor institucional. Red curada. Inversión sindicada y seguimiento activo en LATAM." />
+  <meta property="og:image" content="./assets/og.jpg" />
+  <meta property="og:type" content="website" />
+
   <!-- Tailwind (CDN for quick start; switch to build pipeline later) -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
@@ -53,72 +59,8 @@
 </head>
 
 <body class="font-display text-ink bg-cloud antialiased">
-  <!-- ====== HEADER ====== -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
-    <div class="mx-auto max-w-7xl px-6">
-      <div class="flex h-20 items-center justify-between gap-4">
-        <!-- Brand -->
-        <a href="#" class="flex items-center gap-3" aria-label="Inicio">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-sm">
-            <!-- simple mark -->
-            <svg viewBox="0 0 48 48" class="h-6 w-6" fill="none" aria-hidden="true">
-              <path d="M24 4H6v13.333H24V4Zm0 13.333H6v13.333H24V17.333ZM42 17.333H24v13.333h18V17.333ZM42 30.666H24V44h18V30.666Z"
-                    fill="currentColor" opacity="0.95"/>
-            </svg>
-          </div>
-          <div class="leading-tight">
-            <div class="text-sm font-extrabold tracking-tight">Business Angels Club</div>
-            <div class="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">IAE Business School</div>
-          </div>
-        </a>
-
-        <!-- Desktop nav -->
-        <nav class="hidden items-center gap-8 md:flex" aria-label="Navegación principal">
-          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#club">El Club</a>
-          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#process">Proceso</a>
-          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
-          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#apply-startup">Startups</a>
-          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#request-invite">Inversores</a>
-        </nav>
-
-        <!-- Actions -->
-        <div class="hidden items-center gap-3 md:flex">
-          <a href="#apply-startup"
-             class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 hover:border-primary/30 hover:text-primary transition-colors">
-            Aplicar como Startup
-          </a>
-          <a href="#request-invite"
-             class="rounded-xl bg-primary px-5 py-2.5 text-sm font-extrabold text-white shadow-sm hover:brightness-110 transition">
-            Solicitar invitación
-          </a>
-        </div>
-
-        <!-- Mobile menu button -->
-        <button id="menuBtn"
-                class="md:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-700"
-                aria-label="Abrir menú" aria-expanded="false">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile nav -->
-      <div id="mobileNav" class="hidden pb-6 md:hidden">
-        <div class="grid gap-2 rounded-2xl border border-slate-200 bg-white p-4" aria-label="Navegación móvil">
-          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#club">El Club</a>
-          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#process">Proceso</a>
-          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#portfolio">Portfolio</a>
-          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#apply-startup">Startups</a>
-          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#request-invite">Inversores</a>
-          <div class="mt-2 grid gap-2">
-            <a href="#apply-startup" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700 hover:border-primary/30 hover:text-primary transition-colors">Aplicar como Startup</a>
-            <a href="#request-invite" class="rounded-xl bg-primary px-4 py-2.5 text-sm font-extrabold text-white text-center hover:brightness-110 transition">Solicitar invitación</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- Shared header -->
+  <div id="site-header"></div>
 
   <!-- ====== HERO ====== -->
   <main>
@@ -144,15 +86,15 @@
             </p>
 
             <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a href="#apply-startup"
-                 class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white shadow-soft hover:brightness-110 transition">
+              <a href="./startups.html#apply"
+                 class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white shadow-soft hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
                 Aplicar como Startup
               </a>
-              <a href="#request-invite"
-                 class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">
+              <a href="./inversores.html#request"
+                 class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
                 Solicitar invitación
               </a>
-              <a href="#process" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">
+              <a href="./proceso.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">
                 Ver cómo invertimos →
               </a>
             </div>
@@ -271,43 +213,22 @@
         </div>
 
         <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Presidente -->
           <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">
-              Presidente
-            </p>
-            <h3 class="mt-2 text-lg font-extrabold tracking-tight">
-              Silvia Torres Carbonell
-            </h3>
-            <p class="mt-1 text-sm text-slate-600">
-              Business Angels Club · IAE Business School
-            </p>
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Presidente</p>
+            <h3 class="mt-2 text-lg font-extrabold tracking-tight">Silvia Torres Carbonell</h3>
+            <p class="mt-1 text-sm text-slate-600">Business Angels Club · IAE Business School</p>
           </div>
 
-          <!-- Vicepresidente -->
           <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">
-              Vicepresidente
-            </p>
-            <h3 class="mt-2 text-lg font-extrabold tracking-tight">
-              Jose Ugarte
-            </h3>
-            <p class="mt-1 text-sm text-slate-600">
-              Business Angels Club · IAE Business School
-            </p>
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Vicepresidente</p>
+            <h3 class="mt-2 text-lg font-extrabold tracking-tight">Jose Ugarte</h3>
+            <p class="mt-1 text-sm text-slate-600">Business Angels Club · IAE Business School</p>
           </div>
 
-          <!-- Coordinadora General -->
           <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">
-              Coordinación General
-            </p>
-            <h3 class="mt-2 text-lg font-extrabold tracking-tight">
-              Cecilia Lagocki
-            </h3>
-            <p class="mt-1 text-sm text-slate-600">
-              Operación y gestión del club
-            </p>
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Coordinación General</p>
+            <h3 class="mt-2 text-lg font-extrabold tracking-tight">Cecilia Lagocki</h3>
+            <p class="mt-1 text-sm text-slate-600">Operación y gestión del club</p>
           </div>
         </div>
       </div>
@@ -322,13 +243,12 @@
             <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Dos audiencias. Dos experiencias.</h2>
           </div>
           <div class="flex gap-3">
-            <a href="#apply-startup" class="rounded-xl bg-primary px-4 py-2.5 text-sm font-extrabold text-white hover:brightness-110 transition">Para Startups</a>
-            <a href="#request-invite" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">Para Inversores</a>
+            <a href="./startups.html" class="rounded-xl bg-primary px-4 py-2.5 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">Para Startups</a>
+            <a href="./inversores.html" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">Para Inversores</a>
           </div>
         </div>
 
         <div class="mt-8 grid gap-6 lg:grid-cols-2">
-          <!-- Inversores -->
           <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
             <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para inversores</p>
             <h3 class="mt-2 text-xl font-extrabold">Invertí con método, no con intuición.</h3>
@@ -341,12 +261,11 @@
               <li>• Modelo de sindicación con lead investor</li>
               <li>• Gobernanza y seguimiento disciplinado</li>
             </ul>
-            <a href="#request-invite" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+            <a href="./inversores.html#request" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
               Solicitar invitación <span aria-hidden="true">→</span>
             </a>
           </div>
 
-          <!-- Startups -->
           <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
             <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para startups</p>
             <h3 class="mt-2 text-xl font-extrabold">Capital selectivo + apoyo activo.</h3>
@@ -358,7 +277,7 @@
               <li>• Proceso transparente de selección</li>
               <li>• Mentalidad de creación de valor a largo plazo</li>
             </ul>
-            <a href="#apply-startup" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+            <a href="./startups.html#apply" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
               Aplicar al intake <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -366,8 +285,8 @@
       </div>
     </section>
 
-    <!-- ====== PROCESO ====== -->
-    <section id="process" class="bg-white border-y border-slate-200/70">
+    <!-- ====== PROCESO (resumen) ====== -->
+    <section class="bg-white border-y border-slate-200/70">
       <div class="mx-auto max-w-7xl px-6 py-16">
         <div class="max-w-2xl">
           <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Proceso</p>
@@ -413,20 +332,20 @@
         </div>
 
         <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-          <a href="#"
-             class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3 text-sm font-extrabold text-white hover:brightness-110 transition">
+          <a href="./assets/methodology.pdf"
+             class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
             Descargar metodología (PDF)
           </a>
-          <a href="#portfolio"
-             class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">
+          <a href="./portfolio.html"
+             class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
             Ver portfolio
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ====== PORTFOLIO ====== -->
-    <section id="portfolio" class="mx-auto max-w-7xl px-6 py-16">
+    <!-- ====== PORTFOLIO (preview) ====== -->
+    <section class="mx-auto max-w-7xl px-6 py-16">
       <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div class="max-w-2xl">
           <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Portfolio</p>
@@ -435,20 +354,18 @@
             Una selección de compañías del portfolio. (Contenido sujeto a actualización.)
           </p>
         </div>
-        <a href="#"
-           class="rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">
+        <a href="./portfolio.html"
+           class="rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
           Ver portfolio completo →
         </a>
       </div>
 
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Portfolio card (placeholder) -->
-        <article class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
+        <!-- placeholder cards -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div class="flex items-start justify-between gap-4">
             <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">
-                LOGO
-              </div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
               <div>
                 <h3 class="text-base font-extrabold tracking-tight text-ink">Nombre de la compañía</h3>
                 <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">Sector</p>
@@ -456,22 +373,16 @@
             </div>
             <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Portfolio</span>
           </div>
-
-          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-            Descripción breve de lo que hace la compañía (8–14 palabras).
-          </p>
-
-          <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
-            Ver sitio <span aria-hidden="true">→</span>
-          </a>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">Descripción breve (8–14 palabras).</p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-slate-400" aria-label="Placeholder">
+            Sitio (pendiente) <span aria-hidden="true">→</span>
+          </span>
         </article>
 
-        <article class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div class="flex items-start justify-between gap-4">
             <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">
-                LOGO
-              </div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
               <div>
                 <h3 class="text-base font-extrabold tracking-tight text-ink">Nombre de la compañía</h3>
                 <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">Sector</p>
@@ -479,20 +390,16 @@
             </div>
             <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Portfolio</span>
           </div>
-          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-            Descripción breve de lo que hace la compañía (8–14 palabras).
-          </p>
-          <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
-            Ver sitio <span aria-hidden="true">→</span>
-          </a>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">Descripción breve (8–14 palabras).</p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-slate-400" aria-label="Placeholder">
+            Sitio (pendiente) <span aria-hidden="true">→</span>
+          </span>
         </article>
 
-        <article class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div class="flex items-start justify-between gap-4">
             <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">
-                LOGO
-              </div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
               <div>
                 <h3 class="text-base font-extrabold tracking-tight text-ink">Nombre de la compañía</h3>
                 <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">Sector</p>
@@ -500,197 +407,39 @@
             </div>
             <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Portfolio</span>
           </div>
-          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-            Descripción breve de lo que hace la compañía (8–14 palabras).
-          </p>
-          <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
-            Ver sitio <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">
-                LOGO
-              </div>
-              <div>
-                <h3 class="text-base font-extrabold tracking-tight text-ink">Nombre de la compañía</h3>
-                <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">Sector</p>
-              </div>
-            </div>
-            <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Portfolio</span>
-          </div>
-          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-            Descripción breve de lo que hace la compañía (8–14 palabras).
-          </p>
-          <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
-            Ver sitio <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">
-                LOGO
-              </div>
-              <div>
-                <h3 class="text-base font-extrabold tracking-tight text-ink">Nombre de la compañía</h3>
-                <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">Sector</p>
-              </div>
-            </div>
-            <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Portfolio</span>
-          </div>
-          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-            Descripción breve de lo que hace la compañía (8–14 palabras).
-          </p>
-          <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
-            Ver sitio <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 text-xs font-extrabold tracking-widest text-slate-400">
-                LOGO
-              </div>
-              <div>
-                <h3 class="text-base font-extrabold tracking-tight text-ink">Nombre de la compañía</h3>
-                <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">Sector</p>
-              </div>
-            </div>
-            <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Portfolio</span>
-          </div>
-          <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-            Descripción breve de lo que hace la compañía (8–14 palabras).
-          </p>
-          <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
-            Ver sitio <span aria-hidden="true">→</span>
-          </a>
+          <p class="mt-4 text-sm text-slate-600 leading-relaxed">Descripción breve (8–14 palabras).</p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-slate-400" aria-label="Placeholder">
+            Sitio (pendiente) <span aria-hidden="true">→</span>
+          </span>
         </article>
       </div>
     </section>
 
-    <!-- ====== FORMS ====== -->
+    <!-- ====== FORMS (home) ====== -->
     <section class="mx-auto max-w-7xl px-6 py-16">
       <div class="grid gap-8 lg:grid-cols-2">
-        <!-- Startup application -->
-        <div id="apply-startup" class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Startups</p>
-              <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Aplicar al intake</h2>
-              <p class="mt-2 text-sm text-slate-600">Selectivo. Tesis-driven. Proceso transparente.</p>
-            </div>
-            <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Formulario</div>
-          </div>
+        <!-- Startup (short) -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Startups</p>
+          <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Aplicar al intake</h2>
+          <p class="mt-2 text-sm text-slate-600">Usá el formulario completo en la página de Startups.</p>
 
-          <form class="mt-6 grid gap-4" action="#" method="post">
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Compañía</label>
-                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Nombre de la startup" />
-              </div>
-              <div>
-                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Web</label>
-                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="https://..." />
-              </div>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">LinkedIn fundador/a</label>
-              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="https://linkedin.com/in/..." />
-            </div>
-
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Etapa</label>
-                <select class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                  <option>Pre-Seed</option>
-                  <option>Seed</option>
-                  <option>Series A</option>
-                </select>
-              </div>
-              <div>
-                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Sector</label>
-                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Fintech / SaaS / ..." />
-              </div>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Link al pitch deck</label>
-              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="Google Drive / DocSend / Dropbox" />
-            </div>
-
-            <button type="submit" class="mt-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition">
-              Enviar
-            </button>
-
-            <p class="text-xs text-slate-500">
-              Al enviar, aceptás prácticas de confidencialidad y políticas de revisión interna.
-            </p>
-          </form>
+          <a href="./startups.html#apply"
+             class="mt-6 inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
+            Ir a Startups →
+          </a>
         </div>
 
-        <!-- Angel invitation -->
-        <div id="request-invite" class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Inversores</p>
-              <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Solicitar invitación</h2>
-              <p class="mt-2 text-sm text-slate-600">Membresía curada. Privacidad por diseño.</p>
-            </div>
-            <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Invitación</div>
-          </div>
+        <!-- Investors (short) -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Inversores</p>
+          <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Solicitar invitación</h2>
+          <p class="mt-2 text-sm text-slate-600">Usá el formulario completo en la página de Inversores.</p>
 
-          <div class="mt-6 rounded-2xl border border-slate-200 bg-cloud p-5">
-            <p class="text-sm font-extrabold">Proceso de admisión</p>
-            <ol class="mt-2 space-y-2 text-sm text-slate-700">
-              <li>1) Revisión de solicitud</li>
-              <li>2) Entrevista curada</li>
-              <li>3) Inducción &amp; onboarding</li>
-            </ol>
-          </div>
-
-          <form class="mt-6 grid gap-4" action="#" method="post">
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Nombre</label>
-                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Nombre" />
-              </div>
-              <div>
-                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Apellido</label>
-                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Apellido" />
-              </div>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Email profesional</label>
-              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="email" placeholder="nombre@empresa.com" />
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">LinkedIn</label>
-              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="https://linkedin.com/in/..." />
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">¿Cómo contribuirías?</label>
-              <textarea class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" rows="4" placeholder="Experiencia operativa, mentoría, sourcing, gobernanza..."></textarea>
-            </div>
-
-            <button type="submit" class="mt-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition">
-              Enviar solicitud
-            </button>
-
-            <div class="mt-2 rounded-2xl border border-primary/15 bg-primary/5 p-4">
-              <p class="text-xs text-slate-600">
-                Los datos se manejan con confidencialidad institucional. Los datos de contacto de miembros no se divulgan públicamente.
-              </p>
-            </div>
-          </form>
+          <a href="./inversores.html#request"
+             class="mt-6 inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
+            Ir a Inversores →
+          </a>
         </div>
       </div>
     </section>
@@ -706,10 +455,10 @@
             </p>
           </div>
           <div class="lg:col-span-4 flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <a href="#request-invite" class="rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white text-center hover:brightness-110 transition">
+            <a href="./inversores.html#request" class="rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white text-center hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
               Solicitar invitación
             </a>
-            <a href="#apply-startup" class="rounded-2xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-extrabold text-white text-center hover:bg-white/10 transition">
+            <a href="./startups.html#apply" class="rounded-2xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-extrabold text-white text-center hover:bg-white/10 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
               Aplicar como Startup
             </a>
           </div>
@@ -718,79 +467,9 @@
     </section>
   </main>
 
-  <!-- ====== FOOTER ====== -->
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto max-w-7xl px-6 py-12">
-      <div class="grid gap-10 lg:grid-cols-12">
-        <div class="lg:col-span-4">
-          <div class="flex items-center gap-3">
-            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
-              <svg viewBox="0 0 48 48" class="h-6 w-6" fill="none" aria-hidden="true">
-                <path d="M24 4H6v13.333H24V4Zm0 13.333H6v13.333H24V17.333ZM42 17.333H24v13.333h18V17.333ZM42 30.666H24V44h18V30.666Z"
-                      fill="currentColor" opacity="0.95"/>
-              </svg>
-            </div>
-            <div class="leading-tight">
-              <div class="text-sm font-extrabold">Business Angels Club</div>
-              <div class="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">IAE Business School</div>
-            </div>
-          </div>
-          <p class="mt-4 text-sm text-slate-600 max-w-sm leading-relaxed">
-            Una comunidad privada de inversión que conecta capital disciplinado con startups de alto potencial en la región.
-          </p>
-        </div>
+  <!-- Shared footer -->
+  <div id="site-footer"></div>
 
-        <div class="lg:col-span-4">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Explorar</p>
-          <div class="mt-4 grid gap-2 text-sm font-semibold">
-            <a class="text-slate-700 hover:text-primary" href="#club">El Club</a>
-            <a class="text-slate-700 hover:text-primary" href="#process">Proceso</a>
-            <a class="text-slate-700 hover:text-primary" href="#portfolio">Portfolio</a>
-            <a class="text-slate-700 hover:text-primary" href="#apply-startup">Startups</a>
-            <a class="text-slate-700 hover:text-primary" href="#request-invite">Inversores</a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-4">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Contacto</p>
-          <div class="mt-4 text-sm text-slate-700 space-y-2">
-            <div><span class="font-extrabold">Email:</span> angels@iae.edu.ar</div>
-            <div><span class="font-extrabold">Ubicación:</span> Pilar, Buenos Aires</div>
-          </div>
-
-          <div class="mt-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Institucional</p>
-            <div class="mt-3 grid grid-cols-2 gap-3 text-xs font-bold text-slate-500">
-              <div class="rounded-xl border border-slate-200 bg-cloud px-3 py-3 text-center">IAE</div>
-              <div class="rounded-xl border border-slate-200 bg-cloud px-3 py-3 text-center">Universidad Austral</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p class="text-xs text-slate-500">© <span id="year"></span> IAE Business School — Business Angels Club. Todos los derechos reservados.</p>
-        <div class="flex gap-4 text-xs font-bold text-slate-500">
-          <a href="#" class="hover:text-primary">Privacidad</a>
-          <a href="#" class="hover:text-primary">Términos</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ====== JS (tiny) ====== -->
-  <script>
-    // Mobile nav toggle
-    const btn = document.getElementById("menuBtn");
-    const nav = document.getElementById("mobileNav");
-    btn?.addEventListener("click", () => {
-      const isHidden = nav.classList.contains("hidden");
-      nav.classList.toggle("hidden", !isHidden);
-      btn.setAttribute("aria-expanded", String(isHidden));
-    });
-
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="./scripts/main.js"></script>
 </body>
 </html>
