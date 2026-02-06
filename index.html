@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Angels Club — IAE Business School</title>
+  <meta name="description" content="A curated angel investors club powered by IAE Business School. Institutional rigor, disciplined process, and syndicated early-stage investing." />
+
+  <!-- Tailwind (CDN for quick start; switch to build pipeline later) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1152d4",
+            ink: "#0b1220",
+            slatex: "#475569",
+            cloud: "#f6f6f8",
+            navy: "#0d1b3e",
+          },
+          boxShadow: {
+            soft: "0 20px 60px rgba(11, 18, 32, 0.12)",
+          },
+          borderRadius: {
+            xl: "0.9rem",
+            "2xl": "1.1rem",
+          },
+          fontFamily: {
+            display: ["Manrope", "ui-sans-serif", "system-ui"],
+            serif: ["Georgia", "ui-serif", "serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Subtle grain + grid (optional, premium feel) */
+    .bg-grid {
+      background-image:
+        linear-gradient(to right, rgba(17,82,212,0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(17,82,212,0.07) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse at top, black 55%, transparent 75%);
+    }
+  </style>
+</head>
+
+<body class="font-display text-ink bg-cloud antialiased">
+  <!-- ====== HEADER ====== -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="flex h-20 items-center justify-between gap-4">
+        <!-- Brand -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-sm">
+            <!-- simple mark -->
+            <svg viewBox="0 0 48 48" class="h-6 w-6" fill="none" aria-hidden="true">
+              <path d="M24 4H6v13.333H24V4Zm0 13.333H6v13.333H24V17.333ZM42 17.333H24v13.333h18V17.333ZM42 30.666H24V44h18V30.666Z"
+                    fill="currentColor" opacity="0.95"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <div class="text-sm font-extrabold tracking-tight">Business Angels Club</div>
+            <div class="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">IAE Business School</div>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden items-center gap-8 md:flex">
+          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#club">The Club</a>
+          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#process">Process</a>
+          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
+          <a class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#insights">Insights</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="hidden items-center gap-3 md:flex">
+          <a href="#apply-startup"
+             class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 hover:border-primary/30 hover:text-primary transition-colors">
+            Apply as Startup
+          </a>
+          <a href="#request-invite"
+             class="rounded-xl bg-primary px-5 py-2.5 text-sm font-extrabold text-white shadow-sm hover:brightness-110 transition">
+            Request Invitation
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn"
+                class="md:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-700"
+                aria-label="Open menu" aria-expanded="false">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile nav -->
+      <div id="mobileNav" class="hidden pb-6 md:hidden">
+        <div class="grid gap-2 rounded-2xl border border-slate-200 bg-white p-4">
+          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#club">The Club</a>
+          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#process">Process</a>
+          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#portfolio">Portfolio</a>
+          <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="#insights">Insights</a>
+          <div class="mt-2 grid gap-2">
+            <a href="#apply-startup" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700 hover:border-primary/30 hover:text-primary transition-colors">Apply as Startup</a>
+            <a href="#request-invite" class="rounded-xl bg-primary px-4 py-2.5 text-sm font-extrabold text-white text-center hover:brightness-110 transition">Request Invitation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <main>
+    <section class="relative overflow-hidden">
+      <!-- background -->
+      <div class="absolute inset-0 bg-white"></div>
+      <div class="absolute inset-0 bg-grid opacity-80"></div>
+      <div class="absolute inset-x-0 top-[-220px] mx-auto h-[520px] w-[520px] rounded-full bg-primary/10 blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 pt-16 pb-10 lg:pt-24">
+        <div class="grid items-center gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.22em] text-primary">
+              Institutional rigor • Curated network
+            </div>
+
+            <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              A curated angel investors club<br class="hidden sm:block">
+              powered by <span class="text-primary">IAE Business School</span>.
+            </h1>
+
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+              We connect disciplined early-stage capital with high-potential ventures through
+              a structured selection process, syndicated investments, and active follow-up.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a href="#apply-startup"
+                 class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white shadow-soft hover:brightness-110 transition">
+                Apply as Startup
+              </a>
+              <a href="#request-invite"
+                 class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">
+                Request Invitation
+              </a>
+              <a href="#process" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">
+                See how we invest →
+              </a>
+            </div>
+
+            <!-- trust strip -->
+            <div class="mt-10 border-t border-slate-200/70 pt-6">
+              <p class="text-xs font-bold uppercase tracking-[0.26em] text-slate-400">An institutional network powered by</p>
+              <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">IAE Business School</div>
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">Universidad Austral</div>
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">EmprendeIAE</div>
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">Alumni Network</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- hero card -->
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">By the numbers</p>
+                  <h2 class="mt-2 text-xl font-extrabold tracking-tight">Credibility through precision.</h2>
+                </div>
+                <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">BAC</div>
+              </div>
+
+              <div class="mt-6 grid grid-cols-2 gap-4">
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">75+</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Active members</div>
+                </div>
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">$1.5M+</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Syndicated (24m)</div>
+                </div>
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">USD 5k</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">From ticket size</div>
+                </div>
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">Method</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Committee + follow-up</div>
+                </div>
+              </div>
+
+              <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
+                <p class="text-sm font-bold text-slate-800">We are not a marketplace.</p>
+                <p class="mt-1 text-sm text-slate-600">
+                  The network is curated. Member details are protected. Access is invitation-based.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== THE CLUB ====== -->
+    <section id="club" class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">The Club</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight">A private investment community with institutional standards.</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            We combine early-stage investing with academic rigor, an alumni-powered network, and a structured selection process.
+            The outcome is disciplined capital and active value creation—not noise.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Curated dealflow</h3>
+              <p class="mt-2 text-sm text-slate-600">Sourcing through ecosystem channels and members’ operator networks.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Selection committee</h3>
+              <p class="mt-2 text-sm text-slate-600">Structured screening, thesis fit, and quality control before exposure to members.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Syndicated investing</h3>
+              <p class="mt-2 text-sm text-slate-600">A lead investor model enabling small tickets to access disciplined diligence.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Active follow-up</h3>
+              <p class="mt-2 text-sm text-slate-600">Support, reporting cadence, and governance discipline across the portfolio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== DUAL PATHS ====== -->
+    <section class="mx-auto max-w-7xl px-6 pb-16">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Strategic entry points</p>
+            <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Two audiences. Two experiences.</h2>
+          </div>
+          <div class="flex gap-3">
+            <a href="#apply-startup" class="rounded-xl bg-primary px-4 py-2.5 text-sm font-extrabold text-white hover:brightness-110 transition">For Startups</a>
+            <a href="#request-invite" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">For Angels</a>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <!-- Angels card -->
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">For angels</p>
+            <h3 class="mt-2 text-xl font-extrabold">Invest with rigor, not intuition.</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              Access curated opportunities, a structured process, and a community of operators and decision-makers.
+              Member privacy is protected by design.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Curated deal exposure</li>
+              <li>• Lead-investor syndication model</li>
+              <li>• Governance and follow-up discipline</li>
+            </ul>
+            <a href="#request-invite" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+              Request an invitation <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Startups card -->
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">For startups</p>
+            <h3 class="mt-2 text-xl font-extrabold">Selective capital + active support.</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              We look for teams that can leverage the ecosystem: mentorship, institutional credibility,
+              and a network that can open doors.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Clear thesis & scope</li>
+              <li>• Transparent selection process</li>
+              <li>• Long-term value creation mindset</li>
+            </ul>
+            <a href="#apply-startup" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+              Apply for intake <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PROCESS ====== -->
+    <section id="process" class="bg-white border-y border-slate-200/70">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="max-w-2xl">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Process</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight">Process over hype.</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            A structured lifecycle ensures quality control, disciplined diligence, and clear governance.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Phase 1</div>
+            <h3 class="mt-2 text-xl font-extrabold">Sourcing & Screening</h3>
+            <p class="mt-2 text-sm text-slate-600">Dealflow from ecosystem channels + initial thesis fit assessment.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Intake</li>
+              <li>• Screening</li>
+              <li>• Pre-committee review</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Phase 2</div>
+            <h3 class="mt-2 text-xl font-extrabold">Committee & Diligence</h3>
+            <p class="mt-2 text-sm text-slate-600">Multidisciplinary diligence with disciplined criteria and documentation.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Team & integrity</li>
+              <li>• Unit economics</li>
+              <li>• Market defensibility</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Phase 3</div>
+            <h3 class="mt-2 text-xl font-extrabold">Syndication & Follow-up</h3>
+            <p class="mt-2 text-sm text-slate-600">Lead investor model + governance + reporting cadence.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Syndicated investment</li>
+              <li>• Governance framework</li>
+              <li>• Active follow-up</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a href="#"
+             class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3 text-sm font-extrabold text-white hover:brightness-110 transition">
+            Download methodology (PDF)
+          </a>
+          <a href="#portfolio"
+             class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">
+            Explore portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PORTFOLIO PREVIEW ====== -->
+    <section id="portfolio" class="mx-auto max-w-7xl px-6 py-16">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div class="max-w-2xl">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Portfolio</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight">Selected investments.</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            A selection of portfolio companies across strategic categories. (Replace placeholders with real logos.)
+          </p>
+        </div>
+        <a href="#"
+           class="rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">
+          View full portfolio →
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <!-- placeholder logo tiles -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center text-xs font-extrabold tracking-widest text-slate-400">LOGO</div>
+      </div>
+    </section>
+
+    <!-- ====== INSIGHTS PREVIEW ====== -->
+    <section id="insights" class="bg-white border-y border-slate-200/70">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div class="max-w-2xl">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Insights</p>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight">Signal over noise.</h2>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              Short pieces about our thesis, the selection filter, and what we learn by investing early.
+            </p>
+          </div>
+          <a href="#" class="rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors">
+            View all insights →
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+          <article class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Thesis</p>
+            <h3 class="mt-2 text-xl font-extrabold">What we look for in early-stage teams</h3>
+            <p class="mt-2 text-sm text-slate-600">A practical view on traction, integrity, and defensibility.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Process</p>
+            <h3 class="mt-2 text-xl font-extrabold">Why the filter matters more than the pipeline</h3>
+            <p class="mt-2 text-sm text-slate-600">How committee discipline improves outcomes.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Governance</p>
+            <h3 class="mt-2 text-xl font-extrabold">The lead investor model, explained</h3>
+            <p class="mt-2 text-sm text-slate-600">Structured syndication and consistent follow-up.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FORMS ====== -->
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-8 lg:grid-cols-2">
+        <!-- Startup application -->
+        <div id="apply-startup" class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Startups</p>
+              <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Apply for intake</h2>
+              <p class="mt-2 text-sm text-slate-600">Selective. Thesis-driven. Transparent process.</p>
+            </div>
+            <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Form</div>
+          </div>
+
+          <form class="mt-6 grid gap-4" action="#" method="post">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Company</label>
+                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Startup name" />
+              </div>
+              <div>
+                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Website</label>
+                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="https://..." />
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Founder LinkedIn</label>
+              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="https://linkedin.com/in/..." />
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Stage</label>
+                <select class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                  <option>Pre-Seed</option>
+                  <option>Seed</option>
+                  <option>Series A</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Sector</label>
+                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Fintech / SaaS / ..." />
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Pitch deck link</label>
+              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="Google Drive / DocSend / Dropbox" />
+            </div>
+
+            <button type="submit" class="mt-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition">
+              Submit
+            </button>
+
+            <p class="text-xs text-slate-500">
+              By submitting, you agree to confidentiality handling practices and internal review policies.
+            </p>
+          </form>
+        </div>
+
+        <!-- Angel invitation -->
+        <div id="request-invite" class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Angels</p>
+              <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Request an invitation</h2>
+              <p class="mt-2 text-sm text-slate-600">Curated membership. Privacy-first by design.</p>
+            </div>
+            <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Invite</div>
+          </div>
+
+          <div class="mt-6 rounded-2xl border border-slate-200 bg-cloud p-5">
+            <p class="text-sm font-extrabold">Admissions process</p>
+            <ol class="mt-2 space-y-2 text-sm text-slate-700">
+              <li>1) Application review</li>
+              <li>2) Curated interview</li>
+              <li>3) Induction & onboarding</li>
+            </ol>
+          </div>
+
+          <form class="mt-6 grid gap-4" action="#" method="post">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">First name</label>
+                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Name" />
+              </div>
+              <div>
+                <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Last name</label>
+                <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="text" placeholder="Surname" />
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">Professional email</label>
+              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="email" placeholder="name@company.com" />
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">LinkedIn</label>
+              <input class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" type="url" placeholder="https://linkedin.com/in/..." />
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500">How would you contribute?</label>
+              <textarea class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary" rows="4" placeholder="Operator expertise, mentoring, sourcing, governance..."></textarea>
+            </div>
+
+            <button type="submit" class="mt-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition">
+              Submit request
+            </button>
+
+            <div class="mt-2 rounded-2xl border border-primary/15 bg-primary/5 p-4">
+              <p class="text-xs text-slate-600">
+                Data is handled with institutional confidentiality. Member contact details are not disclosed publicly.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FINAL CTA ====== -->
+    <section class="mx-auto max-w-7xl px-6 pb-20">
+      <div class="rounded-2xl bg-navy p-10 text-white shadow-soft">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div class="lg:col-span-8">
+            <h2 class="text-3xl font-extrabold tracking-tight">Invest early with discipline — and build long-term value.</h2>
+            <p class="mt-3 text-white/80 max-w-2xl">
+              If you’re an investor aligned with rigorous selection, governed syndication, and active follow-up, request an invitation.
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <a href="#request-invite" class="rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white text-center hover:brightness-110 transition">
+              Request Invitation
+            </a>
+            <a href="#apply-startup" class="rounded-2xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-extrabold text-white text-center hover:bg-white/10 transition">
+              Apply as Startup
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-6 py-12">
+      <div class="grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white">
+              <svg viewBox="0 0 48 48" class="h-6 w-6" fill="none" aria-hidden="true">
+                <path d="M24 4H6v13.333H24V4Zm0 13.333H6v13.333H24V17.333ZM42 17.333H24v13.333h18V17.333ZM42 30.666H24V44h18V30.666Z"
+                      fill="currentColor" opacity="0.95"/>
+              </svg>
+            </div>
+            <div class="leading-tight">
+              <div class="text-sm font-extrabold">Business Angels Club</div>
+              <div class="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">IAE Business School</div>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-600 max-w-sm leading-relaxed">
+            A private investment community connecting disciplined capital with high-potential ventures across the region.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Explore</p>
+          <div class="mt-4 grid gap-2 text-sm font-semibold">
+            <a class="text-slate-700 hover:text-primary" href="#club">The Club</a>
+            <a class="text-slate-700 hover:text-primary" href="#process">Process</a>
+            <a class="text-slate-700 hover:text-primary" href="#portfolio">Portfolio</a>
+            <a class="text-slate-700 hover:text-primary" href="#insights">Insights</a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Contact</p>
+          <div class="mt-4 text-sm text-slate-700 space-y-2">
+            <div><span class="font-extrabold">Email:</span> angels@iae.edu.ar</div>
+            <div><span class="font-extrabold">Location:</span> Pilar, Buenos Aires</div>
+          </div>
+
+          <div class="mt-6">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Institutional</p>
+            <div class="mt-3 grid grid-cols-2 gap-3 text-xs font-bold text-slate-500">
+              <div class="rounded-xl border border-slate-200 bg-cloud px-3 py-3 text-center">IAE</div>
+              <div class="rounded-xl border border-slate-200 bg-cloud px-3 py-3 text-center">Universidad Austral</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <p class="text-xs text-slate-500">© <span id="year"></span> IAE Business School — Business Angels Club. All rights reserved.</p>
+        <div class="flex gap-4 text-xs font-bold text-slate-500">
+          <a href="#" class="hover:text-primary">Privacy</a>
+          <a href="#" class="hover:text-primary">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== JS (tiny) ====== -->
+  <script>
+    // Mobile nav toggle
+    const btn = document.getElementById("menuBtn");
+    const nav = document.getElementById("mobileNav");
+    btn?.addEventListener("click", () => {
+      const isHidden = nav.classList.contains("hidden");
+      nav.classList.toggle("hidden", !isHidden);
+      btn.setAttribute("aria-expanded", String(isHidden));
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
