@@ -149,75 +149,391 @@
         <div>
           <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Formulario</p>
           <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Aplicar al intake</h2>
-          <p class="mt-2 text-sm text-slate-600">Sin backend por ahora. Dejá listo para integrar Formspree/Tally/Netlify Forms.</p>
+          <p class="mt-2 text-sm text-slate-600">Datos mínimos para evaluar encaje con la tesis. Sin backend por ahora (listo para integrar Formspree/Tally/Netlify Forms).</p>
+          <p class="mt-2 text-xs text-slate-500">Este formulario no constituye una aprobación. La información se usa solo para evaluación interna.</p>
         </div>
         <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Startups</div>
       </div>
 
-      <form data-ux="loading" class="mt-6 grid gap-4" action="#" method="post" novalidate>
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="company">Compañía</label>
-            <input id="company" name="company" required
-                   class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                   type="text" placeholder="Nombre de la startup" autocomplete="organization" />
-            <p class="mt-1 text-xs text-slate-500">Nombre legal o nombre comercial.</p>
+      <form id="bac-apply-form" data-ux="loading" class="mt-6 grid gap-6" action="#" method="post" enctype="multipart/form-data" novalidate>
+        <!-- A. Identificación y contacto -->
+        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">A. Identificación y contacto</p>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="company">Startup</label>
+              <input id="company" name="company" required
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="text" placeholder="Nombre de la startup" autocomplete="organization" />
+              <p class="mt-1 text-xs text-slate-500">Nombre comercial (o legal si aplica).</p>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="web">Sitio web</label>
+              <input id="web" name="website" required
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="url" placeholder="https://..." inputmode="url" />
+            </div>
           </div>
-          <div>
-            <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="web">Web</label>
-            <input id="web" name="website" required
-                   class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                   type="url" placeholder="https://..." inputmode="url" />
-            <p class="mt-1 text-xs text-slate-500">Link público del sitio o landing.</p>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="country">País base</label>
+              <select id="country" name="country" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Argentina</option>
+                <option>Brasil</option>
+                <option>Chile</option>
+                <option>Colombia</option>
+                <option>México</option>
+                <option>Perú</option>
+                <option>Uruguay</option>
+                <option>Estados Unidos</option>
+                <option>Europa</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="market">Mercado principal de operación</label>
+              <select id="market" name="operating_market" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Argentina</option>
+                <option>Brasil</option>
+                <option>Chile</option>
+                <option>Colombia</option>
+                <option>México</option>
+                <option>Perú</option>
+                <option>Uruguay</option>
+                <option>Estados Unidos</option>
+                <option>Europa</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="contact_name">Contacto (nombre y apellido)</label>
+              <input id="contact_name" name="contact_name" required
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="text" placeholder="Nombre y apellido" autocomplete="name" />
+            </div>
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="contact_role">Rol</label>
+              <input id="contact_role" name="contact_role" required
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="text" placeholder="CEO / Co-founder / ..." autocomplete="organization-title" />
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="email">Email</label>
+              <input id="email" name="email" required
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="email" placeholder="nombre@startup.com" autocomplete="email" />
+              <p class="mt-1 text-xs text-slate-500">Canal principal de contacto.</p>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="linkedin">LinkedIn (recomendado)</label>
+              <input id="linkedin" name="linkedin" 
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="url" placeholder="https://linkedin.com/in/..." inputmode="url" />
+              <p class="mt-1 text-xs text-slate-500">Perfil del contacto principal.</p>
+            </div>
           </div>
         </div>
 
-        <div>
-          <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="founder">LinkedIn fundador/a</label>
-          <input id="founder" name="founder_linkedin" required
-                 class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                 type="url" placeholder="https://linkedin.com/in/..." inputmode="url" />
-          <p class="mt-1 text-xs text-slate-500">Perfil principal del/la founder.</p>
-        </div>
+        <!-- B. Resumen -->
+        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">B. Resumen</p>
 
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="stage">Etapa</label>
-            <select id="stage" name="stage" required
-                    class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-              <option value="" selected disabled>Seleccionar</option>
-              <option>Pre-Seed</option>
-              <option>Seed</option>
-              <option>Series A</option>
-            </select>
-          </div>
-          <div>
-            <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="sector">Sector</label>
-            <input id="sector" name="sector" required
-                   class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                   type="text" placeholder="Fintech / SaaS / ..." />
+          <div class="mt-4 grid gap-4">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="one_liner">One-liner (máx. 200 caracteres)</label>
+              <input id="one_liner" name="one_liner" required maxlength="200"
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="text" placeholder="Qué hacen, para quién y por qué importa" />
+              <p class="mt-1 text-xs text-slate-500"><span id="one_liner_count">0</span>/200</p>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="what">Qué vendés y a quién (2 líneas)</label>
+              <textarea id="what" name="what" required rows="3"
+                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                        placeholder="Producto/servicio + cliente objetivo + caso de uso"></textarea>
+            </div>
           </div>
         </div>
 
-        <div>
-          <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="deck">Link al pitch deck</label>
-          <input id="deck" name="deck" required
-                 class="mt-1 w-full rounded-xl border-slate-200 bg-cloud px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                 type="url" placeholder="Google Drive / DocSend / Dropbox" inputmode="url" />
-          <p class="mt-1 text-xs text-slate-500">Asegurá permisos de lectura.</p>
+        <!-- C. Etapa y ronda -->
+        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">C. Etapa y ronda</p>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="stage">Etapa</label>
+              <select id="stage" name="stage" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Pre-Seed</option>
+                <option>Seed</option>
+                <option>Pre-Serie A</option>
+                <option>Serie A o posterior</option>
+              </select>
+              <p class="mt-1 text-xs text-slate-500">Preferente Seed / Pre-Serie A (con excepciones deeptech/biotech).</p>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="industry">Industria</label>
+              <select id="industry" name="industry" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Artificial Intelligence</option>
+                <option>FinTech</option>
+                <option>HealthTech / BioTech</option>
+                <option>EdTech</option>
+                <option>Enterprise SaaS</option>
+                <option>E-Commerce / Marketplace</option>
+                <option>ClimateTech / Sustainability</option>
+                <option>AgTech</option>
+                <option>Logistics / Mobility</option>
+                <option>PropTech</option>
+                <option>Cybersecurity</option>
+                <option>LegalTech / RegTech</option>
+                <option>Otros</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-3">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="round_open">¿Ronda abierta ahora?</label>
+              <select id="round_open" name="round_open" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Sí</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="raise">Monto buscado (USD)</label>
+              <select id="raise" name="raise_amount" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Menos de 100.000</option>
+                <option>100.000 – 250.000</option>
+                <option>250.000 – 500.000</option>
+                <option>500.000 – 1.000.000</option>
+                <option>1.000.000 – 2.500.000</option>
+                <option>Más de 2.500.000</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="instrument">Instrumento</label>
+              <select id="instrument" name="instrument" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Equity</option>
+                <option>SAFE</option>
+                <option>Nota convertible</option>
+                <option>En definición</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="post_money">Post-money (USD) — opcional</label>
+              <select id="post_money" name="post_money"
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected>En definición / prefiero no informar</option>
+                <option>Menos de 2.000.000</option>
+                <option>2.000.000 – 5.000.000</option>
+                <option>5.000.000 – 10.000.000</option>
+                <option>10.000.000 – 20.000.000</option>
+                <option>Más de 20.000.000</option>
+              </select>
+              <p class="mt-1 text-xs text-slate-500">Usamos rangos para evitar fricción. Si hay un número definido, podés indicarlo en el comentario final.</p>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="deck_link">Deck (link) — link o archivo</label>
+              <input id="deck_link" name="deck_link"
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="url" placeholder="Google Drive / DocSend / Dropbox" inputmode="url" />
+              <p class="mt-1 text-xs text-slate-500">Asegurá permisos de lectura. También podés adjuntar un PDF debajo.</p>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="deck_file">Deck (archivo) — opcional</label>
+            <input id="deck_file" name="deck_file" accept="application/pdf"
+                   class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm file:mr-4 file:rounded-xl file:border-0 file:bg-primary/10 file:px-4 file:py-2 file:text-xs file:font-extrabold file:text-primary hover:file:bg-primary/15"
+                   type="file" />
+            <p class="mt-1 text-xs text-slate-500">Formato recomendado: PDF. Si subís archivo, mantené el deck liviano (&lt; 20MB).</p>
+          </div>
         </div>
 
-        <button type="submit"
-                class="mt-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
-          Enviar
-        </button>
+        <!-- D. Validación de mercado -->
+        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">D. Validación de mercado</p>
 
-        <p data-form-message class="hidden text-sm font-semibold text-slate-700"></p>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="traction_type">Estado de tracción</label>
+              <select id="traction_type" name="traction_type" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Revenue (MRR/ARR)</option>
+                <option>Pilotos pagos</option>
+                <option>Contratos firmados</option>
+                <option>Usuarios activos (B2C)</option>
+                <option>Pre-revenue con LOIs/PoCs</option>
+                <option>Deeptech/Biotech — hitos/validación técnica/regulatoria</option>
+              </select>
+            </div>
 
-        <p class="text-xs text-slate-500">
-          Al enviar, aceptás prácticas de confidencialidad y políticas de revisión interna.
-        </p>
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="metric">Métrica principal (valor + unidad)</label>
+              <input id="metric" name="primary_metric" required
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="text" placeholder="Ej: MRR USD 25.000 / 12 clientes pagos / 3 pilotos pagos" />
+              <p class="mt-1 text-xs text-slate-500">Una métrica clara que represente validación.</p>
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="clients">Top 2 clientes o segmento (opcional)</label>
+              <input id="clients" name="top_clients"
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="text" placeholder="Ej: Bancos (AR/MX) / Retail regional / 2 cuentas enterprise" />
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="evidence">Evidencia más fuerte (5–8 líneas)</label>
+              <textarea id="evidence" name="best_evidence" required rows="4"
+                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                        placeholder="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios, etc.)"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- E. Validación institucional previa -->
+        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">E. Validación institucional previa</p>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="inst_prev">¿Inversión institucional previa?</label>
+              <select id="inst_prev" name="institutional_prev" required
+                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
+                <option value="" selected disabled>Seleccionar</option>
+                <option>Sí</option>
+                <option>No</option>
+              </select>
+              <p class="mt-1 text-xs text-slate-500">Fondos, clubes, organismos especializados, grants competitivos, etc.</p>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="inst_detail">Si Sí: quién + año (condicional)</label>
+              <input id="inst_detail" name="institutional_detail"
+                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                     type="text" placeholder="Ej: Fondo X (2024), Club Y (2023)" />
+              <p class="mt-1 text-xs text-slate-500">Si no aplica, dejalo en blanco.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- F. Competencia + cierre -->
+        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">F. Competencia y cierre</p>
+
+          <div class="mt-4 grid gap-4">
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="competition">Competidores / alternativa actual</label>
+              <textarea id="competition" name="competition" required rows="4"
+                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                        placeholder="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos"></textarea>
+            </div>
+
+            <div>
+              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="notes">Comentario final (opcional)</label>
+              <textarea id="notes" name="notes" rows="3"
+                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
+                        placeholder="Si querés, agregá detalles de la ronda (incl. post-money exacto si está definido) o contexto relevante."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <button type="submit"
+                  class="rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
+            Enviar
+          </button>
+
+          <p class="text-xs text-slate-500">
+            Al enviar, aceptás que la información será utilizada solo para evaluación interna del IAE Business Angels Club.
+          </p>
+        </div>
+
+        <p id="bac-form-message" class="hidden text-sm font-semibold text-slate-700"></p>
       </form>
+
+      <script>
+        // Minimal client-side helpers (no backend): character counter + deck link/file validation
+        (function () {
+          const form = document.getElementById('bac-apply-form');
+          if (!form) return;
+
+          const oneLiner = document.getElementById('one_liner');
+          const counter = document.getElementById('one_liner_count');
+          const deckLink = document.getElementById('deck_link');
+          const deckFile = document.getElementById('deck_file');
+          const message = document.getElementById('bac-form-message');
+
+          function updateCount() {
+            if (!oneLiner || !counter) return;
+            counter.textContent = String(oneLiner.value.length);
+          }
+
+          updateCount();
+          oneLiner?.addEventListener('input', updateCount);
+
+          form.addEventListener('submit', function (e) {
+            // Require at least one: deck link OR deck file
+            const hasLink = !!(deckLink && deckLink.value && deckLink.value.trim().length > 0);
+            const hasFile = !!(deckFile && deckFile.files && deckFile.files.length > 0);
+
+            if (!hasLink && !hasFile) {
+              e.preventDefault();
+              if (message) {
+                message.classList.remove('hidden');
+                message.textContent = 'Por favor, adjuntá el deck con un link o subiendo un PDF.';
+              }
+              deckLink?.focus();
+              return;
+            }
+
+            // If HTML5 validation fails, show a neutral message (browser will highlight fields)
+            if (!form.checkValidity()) {
+              e.preventDefault();
+              if (message) {
+                message.classList.remove('hidden');
+                message.textContent = 'Revisá los campos marcados y volvé a intentar.';
+              }
+            }
+          });
+        })();
+      </script>
     </section>
   </main>
 
