@@ -2,6 +2,7 @@
    BAC — main.js
    - Inject header/footer partials
    - Mobile menu toggle
+   - Header shrink on scroll
    - Active nav link
    - Dynamic year
    - Form UX placeholders (loading/disabled + message)
@@ -44,6 +45,33 @@ function setupMobileMenu() {
       btn.setAttribute("aria-expanded", "false");
     });
   });
+}
+
+function setupHeaderShrink() {
+  const header = document.getElementById("siteHeader");
+  const inner = document.getElementById("headerInner");
+  if (!header || !inner) return;
+
+  const SHRINK_AT = 40;
+
+  const apply = () => {
+    const scrolled = window.scrollY > SHRINK_AT;
+
+    // Background + shadow when scrolled
+    header.classList.toggle("bg-white/95", scrolled);
+    header.classList.toggle("shadow-soft", scrolled);
+
+    // Optional: make border slightly more defined when scrolled (subtle)
+    header.classList.toggle("border-slate-200/90", scrolled);
+    header.classList.toggle("border-slate-200/70", !scrolled);
+
+    // Padding shrink (must exist on inner)
+    inner.classList.toggle("py-3", scrolled);
+    inner.classList.toggle("py-5", !scrolled);
+  };
+
+  window.addEventListener("scroll", apply, { passive: true });
+  apply(); // run once on load (important if page loads mid-scroll)
 }
 
 function setActiveNav() {
@@ -146,7 +174,10 @@ function setupPortfolioFilters() {
   await injectPartial("site-header", "./partials/header.html");
   await injectPartial("site-footer", "./partials/footer.html");
 
+  // Must run AFTER header partial is injected (otherwise elements don't exist)
   setupMobileMenu();
+  setupHeaderShrink();
+
   setActiveNav();
   setYear();
   setupFormUX();
