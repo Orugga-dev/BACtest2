@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IAE Business Angels Club</title>
-  <meta name="description" content="Club de inversores ángeles de la red Alumni del IAE. Proceso riguroso, sindicación y seguimiento en LATAM. Los socios invierten a título personal." />
+  <meta name="description" content="Club de inversores ángeles de la red Alumni del IAE. Selección rigurosa, inversión sindicada y seguimiento activo en LATAM." />
 
-  <!-- Open Graph (placeholder assets) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="IAE Business Angels Club" />
-  <meta property="og:description" content="Rigor institucional. Red curada. Proceso riguroso, sindicación y seguimiento en LATAM." />
+  <meta property="og:description" content="Rigor institucional. Red curada. Inversión sindicada y seguimiento activo en LATAM." />
   <meta property="og:image" content="./assets/og.jpg" />
   <meta property="og:type" content="website" />
 
-  <!-- Tailwind (CDN for quick start; switch to build pipeline later) -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
     tailwind.config = {
@@ -47,7 +47,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Subtle grain + grid (optional, premium feel) */
     .bg-grid {
       background-image:
         linear-gradient(to right, rgba(17,82,212,0.07) 1px, transparent 1px),
@@ -59,50 +58,59 @@
 </head>
 
 <body class="font-display text-ink bg-cloud antialiased">
-  <!-- Shared header -->
+
   <div id="site-header"></div>
 
-  <!-- ====== HERO ====== -->
+  <!-- ================= HERO ================= -->
   <main>
     <section class="relative overflow-hidden">
-      <!-- background -->
       <div class="absolute inset-0 bg-white"></div>
       <div class="absolute inset-0 bg-grid opacity-80"></div>
       <div class="absolute inset-x-0 top-[-220px] mx-auto h-[520px] w-[520px] rounded-full bg-primary/10 blur-3xl"></div>
 
       <div class="relative mx-auto max-w-7xl px-6 pt-16 pb-10 lg:pt-24">
         <div class="grid items-center gap-12 lg:grid-cols-12">
+
           <div class="lg:col-span-7">
             <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.22em] text-primary">
               Rigor institucional • Red curada
             </div>
 
-            <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            <h1 class="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
               El club de inversión ángel de la red <span class="text-primary">Alumni</span> del IAE.
             </h1>
 
             <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-              Facilitamos la conexión entre startups e inversores del Club mediante un proceso estructurado de evaluación,
-              sindicación y seguimiento en LATAM. Los socios invierten a título personal: el Club aporta método, disciplina y acceso.
+              Conectamos emprendedores de alto potencial con inversores de la comunidad del BAC mediante un proceso estructurado de selección,
+              inversión sindicada y seguimiento activo en LATAM.
+              <strong>Cada miembro invierte a título personal.</strong>
             </p>
 
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-start">
+
               <a href="./startups.html#apply"
                  class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white shadow-soft hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
                 Postular startup
               </a>
-              <a href="./inversores.html#request"
-                 class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
-                Solicitar invitación
-              </a>
-              <a href="./proceso.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">
+
+              <div class="flex flex-col">
+                <a href="./inversores.html#request"
+                   class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
+                  Solicitar invitación
+                </a>
+                <span class="mt-1 text-xs text-slate-500">Para sumarte como inversor del BAC.</span>
+              </div>
+
+              <a href="./proceso.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors self-center">
                 Ver cómo invertimos →
               </a>
             </div>
 
-            <!-- trust strip -->
+            <!-- Trust strip -->
             <div class="mt-10 border-t border-slate-200/70 pt-6">
-              <p class="text-xs font-bold uppercase tracking-[0.26em] text-slate-400">Un marco institucional impulsado por</p>
+              <p class="text-xs font-bold uppercase tracking-[0.26em] text-slate-400">
+                Un ecosistema institucional impulsado por
+              </p>
               <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">IAE Business School</div>
                 <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">Universidad Austral</div>
@@ -112,13 +120,13 @@
             </div>
           </div>
 
-          <!-- hero card -->
+          <!-- Hero card -->
           <div class="lg:col-span-5">
             <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
               <div class="flex items-start justify-between gap-4">
                 <div>
                   <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Indicadores clave</p>
-                  <p class="mt-1 text-xs font-bold uppercase tracking-[0.22em] text-slate-400">A Diciembre 2025</p>
+                  <p class="mt-1 text-xs font-bold uppercase tracking-[0.22em] text-slate-400">A diciembre 2025</p>
                   <h2 class="mt-2 text-xl font-extrabold tracking-tight">Credibilidad con método.</h2>
                 </div>
                 <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">BAC</div>
@@ -126,56 +134,91 @@
 
               <div class="mt-6 grid grid-cols-2 gap-4">
                 <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold tracking-tight text-ink">75+</div>
+                  <div class="text-3xl font-extrabold">75+</div>
                   <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Miembros activos</div>
                 </div>
                 <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold tracking-tight text-ink">$4.5M+</div>
-                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Inversiones</div>
+                  <div class="text-3xl font-extrabold">$4.5M+</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Invertidos</div>
                 </div>
                 <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold tracking-tight text-ink">USD 5k</div>
+                  <div class="text-3xl font-extrabold">USD 5k</div>
                   <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Ticket desde</div>
                 </div>
                 <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold tracking-tight text-ink">2005</div>
+                  <div class="text-3xl font-extrabold">2005</div>
                   <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">En actividad</div>
                 </div>
               </div>
 
               <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-                <p class="text-sm font-bold text-slate-800">No constituimos un fondo.</p>
+                <p class="text-sm font-bold">No constituimos un fondo.</p>
                 <p class="mt-1 text-sm text-slate-600">
-                  Cada socio invierte individualmente con capital propio. El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento.
+                  Cada miembro invierte individualmente con capital propio.
+                  El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento.
                 </p>
               </div>
 
               <div class="mt-4 rounded-2xl border border-primary/15 bg-primary/5 p-4">
                 <p class="text-sm text-slate-700">
-                  <span class="font-extrabold">Los datos de contacto de los miembros no se divulgan públicamente.</span>
-                  Las presentaciones entre inversores y startups son <span class="font-extrabold">facilitadas exclusivamente por el Club</span>, en el marco de su proceso curado.
+                  <strong>Los datos de contacto de los miembros no se divulgan públicamente.</strong>
+                  Las presentaciones entre inversores y startups son facilitadas exclusivamente por el Club.
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ====== EL CLUB ====== -->
-    <section id="club" class="mx-auto max-w-7xl px-6 py-16">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
-        <div class="lg:col-span-5">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">El Club</p>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight">Asociación civil, con respaldo institucional.</h2>
-          <p class="mt-4 text-slate-600 leading-relaxed">
-            Nacimos en 2005 como club de inversores ángeles de la comunidad Alumni del IAE.
-            Operamos como una asociación civil independiente, con criterios claros, disciplina de inversión y foco en creación de valor para el portfolio.
-          </p>
+    <!-- ================= DOS AUDIENCIAS ================= -->
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Puntos de entrada</p>
+            <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Dos audiencias. Dos experiencias.</h2>
+          </div>
         </div>
 
-        <div class="lg:col-span-7">
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 class="text-lg font-extrabold">Red Alumni, curada</h3>
-              <p
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+
+          <!-- Inversores -->
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para inversores</p>
+            <h3 class="mt-2 text-xl font-extrabold">Invertí con método, no con intuición.</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              Accedé a oportunidades curadas, un proceso estructurado y una comunidad de operadores.
+              <strong>Para sumarte como inversor del BAC, solicitá invitación.</strong>
+            </p>
+            <a href="./inversores.html#request"
+               class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+              Solicitar invitación →
+            </a>
+          </div>
+
+          <!-- Startups -->
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para startups</p>
+            <h3 class="mt-2 text-xl font-extrabold">Capital selectivo + apoyo activo.</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              Buscamos equipos con validación real y potencial de escala que puedan aprovechar el ecosistema del Club.
+            </p>
+            <a href="./startups.html#apply"
+               class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+              Postular startup →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="./scripts/main.js"></script>
+</body>
+</html>
