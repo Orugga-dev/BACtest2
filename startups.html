@@ -3,541 +3,564 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Startups — Business Angels Club</title>
-  <meta name="description" content="Proceso de intake, criterios y formulario para startups." />
+  <title>IAE Business Angels Club</title>
+  <meta name="description" content="Club de inversores ángeles de la red Alumni del IAE. Proceso riguroso, sindicación y seguimiento en LATAM. Los socios invierten a título personal." />
 
+  <!-- Open Graph (placeholder assets) -->
+  <meta property="og:title" content="IAE Business Angels Club" />
+  <meta property="og:description" content="Rigor institucional. Red curada. Proceso riguroso, sindicación y seguimiento en LATAM." />
+  <meta property="og:image" content="./assets/og.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind (CDN for quick start; switch to build pipeline later) -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { primary:"#1152d4", ink:"#0b1220", slatex:"#475569", cloud:"#f6f6f8", navy:"#0d1b3e" },
-          boxShadow: { soft:"0 20px 60px rgba(11, 18, 32, 0.12)" },
-          borderRadius: { xl:"0.9rem", "2xl":"1.1rem" },
-          fontFamily: { display:["Manrope","ui-sans-serif","system-ui"], serif:["Georgia","ui-serif","serif"] },
+          colors: {
+            primary: "#1152d4",
+            ink: "#0b1220",
+            slatex: "#475569",
+            cloud: "#f6f6f8",
+            navy: "#0d1b3e",
+          },
+          boxShadow: {
+            soft: "0 20px 60px rgba(11, 18, 32, 0.12)",
+          },
+          borderRadius: {
+            xl: "0.9rem",
+            "2xl": "1.1rem",
+          },
+          fontFamily: {
+            display: ["Manrope", "ui-sans-serif", "system-ui"],
+            serif: ["Georgia", "ui-serif", "serif"],
+          },
         },
       },
     };
   </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Bullet alignment fix (hanging indent) -->
   <style>
-    /* Applies only to lists explicitly opting-in with .bac-bullets */
-    .bac-bullets {
-      list-style: disc;
-      list-style-position: outside;
-      padding-left: 1.25rem; /* controls where the text block starts */
-    }
-    .bac-bullets > li {
-      padding-left: 0.25rem; /* small spacing between marker and text */
+    /* Subtle grain + grid (optional, premium feel) */
+    .bg-grid {
+      background-image:
+        linear-gradient(to right, rgba(17,82,212,0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(17,82,212,0.07) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse at top, black 55%, transparent 75%);
     }
   </style>
 </head>
 
 <body class="font-display text-ink bg-cloud antialiased">
+  <!-- Shared header -->
   <div id="site-header"></div>
 
-  <main class="mx-auto max-w-7xl px-6 py-14">
-    <div class="max-w-3xl">
-      <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Startups</p>
-      <h1 class="mt-3 text-4xl font-extrabold tracking-tight">Postulá tu startup. Proceso transparente.</h1>
-      <p class="mt-4 text-slate-600 leading-relaxed">
-        Buscamos equipos con potencial de escala y encaje con la tesis, que puedan aprovechar el ecosistema del IAE Business Angels Club.
-      </p>
-    </div>
+  <!-- ====== HERO ====== -->
+  <main>
+    <section class="relative overflow-hidden">
+      <!-- background -->
+      <div class="absolute inset-0 bg-white"></div>
+      <div class="absolute inset-0 bg-grid opacity-80"></div>
+      <div class="absolute inset-x-0 top-[-220px] mx-auto h-[520px] w-[520px] rounded-full bg-primary/10 blur-3xl"></div>
 
-    <section class="mt-10 grid gap-6 lg:grid-cols-2">
-      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
-        <h2 class="text-2xl font-extrabold tracking-tight">Criterios de selección</h2>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-          Evaluamos oportunidades con un enfoque de riesgo disciplinado: innovación con señales claras de tracción y validación externa.
-        </p>
-
-        <!-- Tesis -->
-        <div class="mt-6 rounded-2xl border border-slate-200 bg-cloud p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Tesis de inversión</p>
-          <p class="mt-2 text-sm text-slate-700 leading-relaxed">
-            El IAE Business Angels Club invierte en compañías escalables, con foco en
-            validación de mercado y creación de valor de largo plazo.
-          </p>
-
-          <div class="mt-4 grid gap-4">
-            <div class="rounded-2xl border border-slate-200 bg-white p-5">
-              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">1. Validación de mercado</p>
-              <ul class="bac-bullets mt-2 space-y-2 text-sm text-slate-700">
-                <li>Propuesta de valor validada con clientes reales que hayan contratado la solución.</li>
-                <li>Preferentemente con ingresos recurrentes; en deeptech y biotech también consideramos pilotos, contratos estratégicos, partnerships o hitos regulatorios.</li>
-              </ul>
+      <div class="relative mx-auto max-w-7xl px-6 pt-16 pb-10 lg:pt-24">
+        <div class="grid items-center gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.22em] text-primary">
+              Rigor institucional • Red curada
             </div>
 
-            <div class="rounded-2xl border border-slate-200 bg-white p-5">
-              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">2. Etapa</p>
-              <ul class="bac-bullets mt-2 space-y-2 text-sm text-slate-700">
-                <li>Preferentemente Seed o posterior.</li>
-                <li>En etapas anteriores exclusivamente cuando el perfil tecnológico/científico lo justifica.</li>
-              </ul>
+            <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              El club de inversión ángel de la red <span class="text-primary">Alumni</span> del IAE.
+            </h1>
+
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+              Facilitamos la conexión entre startups e inversores del Club mediante un proceso estructurado de evaluación,
+              sindicación y seguimiento en LATAM. Los socios invierten a título personal: el Club aporta método, disciplina y acceso.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a href="./startups.html#apply"
+                 class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white shadow-soft hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
+                Postular startup
+              </a>
+              <a href="./inversores.html#request"
+                 class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
+                Solicitar invitación
+              </a>
+              <a href="./proceso.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">
+                Ver cómo invertimos →
+              </a>
             </div>
 
-            <div class="rounded-2xl border border-slate-200 bg-white p-5">
-              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">3. Validación institucional previa</p>
-              <ul class="bac-bullets mt-2 space-y-2 text-sm text-slate-700">
-                <li>Valoramos inversión previa de fondos, clubes u organismos especializados.</li>
-                <li>Especialmente relevante en deeptech/biotech o cuando aún no existe revenue recurrente.</li>
-              </ul>
+            <!-- trust strip -->
+            <div class="mt-10 border-t border-slate-200/70 pt-6">
+              <p class="text-xs font-bold uppercase tracking-[0.26em] text-slate-400">Un marco institucional impulsado por</p>
+              <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">IAE Business School</div>
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">Universidad Austral</div>
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">EmprendeIAE</div>
+                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">Red Alumni</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Sí / No -->
-        <div class="mt-6 grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Sí buscamos</p>
-            <ul class="bac-bullets mt-3 space-y-2 text-sm text-slate-700">
-              <li>Tracción verificable o validación sólida (según industria)</li>
-              <li>Etapa Seed o posterior (preferente)</li>
-              <li>Equipo fundador sólido y ejecutor</li>
-              <li>Claridad de mercado y propuesta de valor</li>
-              <li>Inversión/validación externa previa (ideal)</li>
-            </ul>
-          </div>
+          <!-- hero card -->
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Indicadores clave</p>
+                  <p class="mt-1 text-xs font-bold uppercase tracking-[0.22em] text-slate-400">A Diciembre 2025</p>
+                  <h2 class="mt-2 text-xl font-extrabold tracking-tight">Credibilidad con método.</h2>
+                </div>
+                <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">BAC</div>
+              </div>
 
-          <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Fuera de alcance</p>
-            <ul class="bac-bullets mt-3 space-y-2 text-sm text-slate-700">
-              <li>Consultoras o negocios de servicios no escalables</li>
-              <li>Etapa de idea o MVP sin validación de mercado</li>
-              <li>Falta de foco comercial o narrativa de mercado confusa</li>
-              <li>Estructura societaria / cap table sin orden</li>
-              <li>Riesgos críticos no abordables (regulatorios, legales, reputacionales, compliance)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+              <div class="mt-6 grid grid-cols-2 gap-4">
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">75+</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Miembros activos</div>
+                </div>
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">$4.5M+</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Inversiones</div>
+                </div>
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">USD 5k</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Ticket desde</div>
+                </div>
+                <div class="rounded-2xl bg-cloud p-4">
+                  <div class="text-3xl font-extrabold tracking-tight text-ink">2005</div>
+                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">En actividad</div>
+                </div>
+              </div>
 
-      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
-        <h2 class="text-2xl font-extrabold tracking-tight">Cómo funciona el intake</h2>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-          Aseguramos un proceso consistente: recepción, screening, comité, análisis y decisión.
-        </p>
+              <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
+                <p class="text-sm font-bold text-slate-800">No constituimos un fondo.</p>
+                <p class="mt-1 text-sm text-slate-600">
+                  Cada socio invierte individualmente con capital propio. El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento.
+                </p>
+              </div>
 
-        <div class="mt-6 grid gap-4">
-          <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Paso 1</p>
-            <p class="mt-2 font-extrabold">Pitch deck + datos mínimos</p>
-            <p class="mt-1 text-sm text-slate-600">Revisión inicial de encaje con tesis y documentación.</p>
-          </div>
-          <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Paso 2</p>
-            <p class="mt-2 font-extrabold">Screening y comité</p>
-            <p class="mt-1 text-sm text-slate-600">Validación rápida, dudas clave, paquete estándar.</p>
-          </div>
-          <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">Paso 3</p>
-            <p class="mt-2 font-extrabold">Pitch a los socios &amp; Due Diligence</p>
-            <p class="mt-1 text-sm text-slate-600">Análisis multidisciplinario y decisión.</p>
+              <div class="mt-4 rounded-2xl border border-primary/15 bg-primary/5 p-4">
+                <p class="text-sm text-slate-700">
+                  <span class="font-extrabold">Los datos de contacto de los miembros no se divulgan públicamente.</span>
+                  Las presentaciones entre inversores y startups son <span class="font-extrabold">facilitadas exclusivamente por el Club</span>, en el marco de su proceso curado.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Form -->
-    <section id="apply" class="mt-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
-      <div class="flex items-start justify-between gap-4">
+    <!-- ====== EL CLUB ====== -->
+    <section id="club" class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">El Club</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight">Asociación civil, con respaldo institucional.</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            Nacimos en 2005 como club de inversores ángeles de la comunidad Alumni del IAE.
+            Operamos como una asociación civil independiente, con criterios claros, disciplina de inversión y foco en creación de valor para el portfolio.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Red Alumni, curada</h3>
+              <p class="mt-2 text-sm text-slate-600">Comunidad de operadores y referentes del ecosistema que invierten a título personal.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Selección estructurada</h3>
+              <p class="mt-2 text-sm text-slate-600">Criterios claros, screening y comité antes de presentar oportunidades a los socios.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Sindicación</h3>
+              <p class="mt-2 text-sm text-slate-600">Modelo con lead investor que habilita tickets más pequeños con diligencia disciplinada.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="text-lg font-extrabold">Formación &amp; comunidad</h3>
+              <p class="mt-2 text-sm text-slate-600">Mentoría, educación y espacios de intercambio para fortalecer cultura inversora.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== AUTORIDADES ====== -->
+    <section class="mx-auto max-w-7xl px-6 pb-16">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+        <div class="max-w-2xl">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">
+            Gobernanza
+          </p>
+          <h2 class="mt-2 text-2xl font-extrabold tracking-tight">
+            Autoridades del Club
+          </h2>
+          <p class="mt-3 text-slate-600 leading-relaxed">
+            El Business Angels Club opera con una estructura de gobierno clara,
+            alineada a estándares institucionales del IAE Business School.
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Presidente -->
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-6 text-center">
+            <img
+              src="assets/authorities/silvia-torres.png"
+              alt="Silvia Torres Carbonell"
+              class="mx-auto h-28 w-28 rounded-full object-cover border border-slate-200 shadow-sm"
+              loading="lazy"
+            />
+            <p class="mt-4 text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">
+              Presidente
+            </p>
+            <h3 class="mt-1 text-lg font-extrabold tracking-tight">
+              Silvia Torres Carbonell
+            </h3>
+
+            <a
+              href="https://www.linkedin.com/in/silvia-torres-carbonell-021390/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn de Silvia Torres Carbonell"
+              class="mt-3 inline-flex items-center justify-center text-[#0A66C2] hover:scale-110 transition"
+            >
+              <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.6 0 4.266 2.368 4.266 5.451v6.29zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.813 20.452H3.861V9h2.952v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Vicepresidente -->
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-6 text-center">
+            <img
+              src="assets/authorities/jose-ugarte.jpeg"
+              alt="José Ugarte"
+              class="mx-auto h-28 w-28 rounded-full object-cover border border-slate-200 shadow-sm"
+              loading="lazy"
+            />
+            <p class="mt-4 text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">
+              Vicepresidente
+            </p>
+            <h3 class="mt-1 text-lg font-extrabold tracking-tight">
+              José Ugarte
+            </h3>
+
+            <a
+              href="https://www.linkedin.com/in/jfugarte/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn de José Ugarte"
+              class="mt-3 inline-flex items-center justify-center text-[#0A66C2] hover:scale-110 transition"
+            >
+              <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.6 0 4.266 2.368 4.266 5.451v6.29zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.813 20.452H3.861V9h2.952v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Coordinación General -->
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-6 text-center">
+            <img
+              src="assets/authorities/cecilia-lagocki.png"
+              alt="Cecilia Lagocki"
+              class="mx-auto h-28 w-28 rounded-full object-cover border border-slate-200 shadow-sm"
+              loading="lazy"
+            />
+            <p class="mt-4 text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">
+              Coordinación General
+            </p>
+            <h3 class="mt-1 text-lg font-extrabold tracking-tight">
+              Cecilia Lagocki
+            </h3>
+
+            <a
+              href="https://www.linkedin.com/in/cecilia-lagocki-1597b830/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn de Cecilia Lagocki"
+              class="mt-3 inline-flex items-center justify-center text-[#0A66C2] hover:scale-110 transition"
+            >
+              <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.6 0 4.266 2.368 4.266 5.451v6.29zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.813 20.452H3.861V9h2.952v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== DOS AUDIENCIAS ====== -->
+    <section class="mx-auto max-w-7xl px-6 pb-16">
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Puntos de entrada</p>
+            <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Dos audiencias. Dos experiencias.</h2>
+          </div>
+          <div class="flex gap-3">
+            <a href="./startups.html" class="rounded-xl bg-primary px-4 py-2.5 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">Para Startups</a>
+            <a href="./inversores.html" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">Para Inversores</a>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para inversores</p>
+            <h3 class="mt-2 text-xl font-extrabold">Invertí con método, no con intuición.</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              Accedé a oportunidades curadas, un proceso estructurado y una comunidad de operadores y tomadores de decisión.
+              La privacidad de los miembros está protegida por diseño.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Exposición a oportunidades curadas</li>
+              <li>• Modelo de sindicación con lead investor</li>
+              <li>• Gobernanza y seguimiento disciplinado</li>
+            </ul>
+            <a href="./inversores.html#request" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+              Solicitar invitación <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para startups</p>
+            <h3 class="mt-2 text-xl font-extrabold">Capital selectivo + apoyo activo.</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              Buscamos startups con potencial de escala, que valoren un proceso riguroso y el acompañamiento de inversores con experiencia.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Tesis y alcance claros</li>
+              <li>• Proceso transparente de selección</li>
+              <li>• Mentalidad de creación de valor a largo plazo</li>
+            </ul>
+            <a href="./startups.html#apply" class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all">
+              Postular startup <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PROCESO (resumen) ====== -->
+    <section class="bg-white border-y border-slate-200/70">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="max-w-2xl">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Proceso</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight">Método antes que hype.</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            Un ciclo estructurado asegura control de calidad, due diligence disciplinada y gobernanza clara.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Fase 1</div>
+            <h3 class="mt-2 text-xl font-extrabold">Origen &amp; screening</h3>
+            <p class="mt-2 text-sm text-slate-600">Dealflow desde canales del ecosistema + evaluación inicial de encaje con tesis.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Postulación</li>
+              <li>• Screening</li>
+              <li>• Revisión pre-comité</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Fase 2</div>
+            <h3 class="mt-2 text-xl font-extrabold">Comité &amp; Due Diligence</h3>
+            <p class="mt-2 text-sm text-slate-600">Diligencia multidisciplinaria con criterios y documentación consistentes.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Equipo &amp; integridad</li>
+              <li>• Unit economics</li>
+              <li>• Defensibilidad de mercado</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Fase 3</div>
+            <h3 class="mt-2 text-xl font-extrabold">Sindicación &amp; Follow-up</h3>
+            <p class="mt-2 text-sm text-slate-600">Modelo con lead investor + gobernanza + cadencia de reporting.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li>• Sindicación</li>
+              <li>• Marco de gobernanza</li>
+              <li>• Seguimiento</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a href="./assets/methodology.pdf"
+             class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
+            Descargar metodología (PDF)
+          </a>
+          <a href="./portfolio.html"
+             class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
+            Ver portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PORTFOLIO (HOME) ================= -->
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Formulario</p>
-          <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Postular startup</h2>
-          <p class="mt-2 text-sm text-slate-600">Datos mínimos para evaluar encaje con la tesis. Sin backend por ahora (listo para integrar Formspree/Tally/Netlify Forms).</p>
-          <p class="mt-2 text-xs text-slate-500">Este formulario no constituye una aprobación. La información se usa solo para evaluación interna.</p>
-        </div>
-        <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">Startups</div>
-      </div>
-
-      <form id="bac-apply-form" data-ux="loading" class="mt-6 grid gap-6" action="#" method="post" enctype="multipart/form-data" novalidate>
-        <!-- A. Identificación y contacto -->
-        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">A. Identificación y contacto</p>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="company">Startup</label>
-              <input id="company" name="company" required
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="text" placeholder="Nombre de la startup" autocomplete="organization" />
-              <p class="mt-1 text-xs text-slate-500">Nombre comercial (o legal si aplica).</p>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="web">Sitio web</label>
-              <input id="web" name="website" required
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="url" placeholder="https://..." inputmode="url" />
-            </div>
-          </div>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="country">País base</label>
-              <select id="country" name="country" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Argentina</option>
-                <option>Brasil</option>
-                <option>Chile</option>
-                <option>Colombia</option>
-                <option>México</option>
-                <option>Perú</option>
-                <option>Uruguay</option>
-                <option>Estados Unidos</option>
-                <option>Europa</option>
-                <option>Otro</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="market">Mercado principal de operación</label>
-              <select id="market" name="operating_market" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Argentina</option>
-                <option>Brasil</option>
-                <option>Chile</option>
-                <option>Colombia</option>
-                <option>México</option>
-                <option>Perú</option>
-                <option>Uruguay</option>
-                <option>Estados Unidos</option>
-                <option>Europa</option>
-                <option>Otro</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="contact_name">Contacto (nombre y apellido)</label>
-              <input id="contact_name" name="contact_name" required
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="text" placeholder="Nombre y apellido" autocomplete="name" />
-            </div>
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="contact_role">Rol</label>
-              <input id="contact_role" name="contact_role" required
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="text" placeholder="CEO / Co-founder / ..." autocomplete="organization-title" />
-            </div>
-          </div>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="email">Email</label>
-              <input id="email" name="email" required
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="email" placeholder="nombre@startup.com" autocomplete="email" />
-              <p class="mt-1 text-xs text-slate-500">Canal principal de contacto.</p>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="linkedin">LinkedIn (recomendado)</label>
-              <input id="linkedin" name="linkedin" 
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="url" placeholder="https://linkedin.com/in/..." inputmode="url" />
-              <p class="mt-1 text-xs text-slate-500">Perfil del contacto principal.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- B. Resumen -->
-        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">B. Resumen</p>
-
-          <div class="mt-4 grid gap-4">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="one_liner">One-liner (máx. 200 caracteres)</label>
-              <input id="one_liner" name="one_liner" required maxlength="200"
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="text" placeholder="Qué hacen, para quién y por qué importa" />
-              <p class="mt-1 text-xs text-slate-500"><span id="one_liner_count">0</span>/200</p>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="what">Qué vendés y a quién (2 líneas)</label>
-              <textarea id="what" name="what" required rows="3"
-                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                        placeholder="Producto/servicio + cliente objetivo + caso de uso"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- C. Etapa y ronda -->
-        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">C. Etapa y ronda</p>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="stage">Etapa</label>
-              <select id="stage" name="stage" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Pre-Seed</option>
-                <option>Seed</option>
-                <option>Pre-Serie A</option>
-                <option>Serie A o posterior</option>
-              </select>
-              <p class="mt-1 text-xs text-slate-500">Preferente Seed / Pre-Serie A (con excepciones deeptech/biotech).</p>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="industry">Industria</label>
-              <select id="industry" name="industry" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Artificial Intelligence</option>
-                <option>FinTech</option>
-                <option>HealthTech / BioTech</option>
-                <option>EdTech</option>
-                <option>Enterprise SaaS</option>
-                <option>E-Commerce / Marketplace</option>
-                <option>ClimateTech / Sustainability</option>
-                <option>AgTech</option>
-                <option>Logistics / Mobility</option>
-                <option>PropTech</option>
-                <option>Cybersecurity</option>
-                <option>LegalTech / RegTech</option>
-                <option>Otros</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-3">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="round_open">¿Ronda abierta ahora?</label>
-              <select id="round_open" name="round_open" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Sí</option>
-                <option>No</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="raise">Monto buscado (USD)</label>
-              <select id="raise" name="raise_amount" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Menos de 100.000</option>
-                <option>100.000 – 250.000</option>
-                <option>250.000 – 500.000</option>
-                <option>500.000 – 1.000.000</option>
-                <option>1.000.000 – 2.500.000</option>
-                <option>Más de 2.500.000</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="instrument">Instrumento</label>
-              <select id="instrument" name="instrument" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Equity</option>
-                <option>SAFE</option>
-                <option>Nota convertible</option>
-                <option>En definición</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="post_money">Post-money (USD) — opcional</label>
-              <select id="post_money" name="post_money"
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected>En definición / prefiero no informar</option>
-                <option>Menos de 2.000.000</option>
-                <option>2.000.000 – 5.000.000</option>
-                <option>5.000.000 – 10.000.000</option>
-                <option>10.000.000 – 20.000.000</option>
-                <option>Más de 20.000.000</option>
-              </select>
-              <p class="mt-1 text-xs text-slate-500">Usamos rangos para evitar fricción. Si hay un número definido, podés indicarlo en el comentario final.</p>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="deck_link">Deck (link) — link o archivo</label>
-              <input id="deck_link" name="deck_link"
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="url" placeholder="Google Drive / DocSend / Dropbox" inputmode="url" />
-              <p class="mt-1 text-xs text-slate-500">Asegurá permisos de lectura. También podés adjuntar un PDF debajo.</p>
-            </div>
-          </div>
-
-          <div class="mt-4">
-            <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="deck_file">Deck (archivo) — opcional</label>
-            <input id="deck_file" name="deck_file" accept="application/pdf"
-                   class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm file:mr-4 file:rounded-xl file:border-0 file:bg-primary/10 file:px-4 file:py-2 file:text-xs file:font-extrabold file:text-primary hover:file:bg-primary/15"
-                   type="file" />
-            <p class="mt-1 text-xs text-slate-500">Formato recomendado: PDF. Si subís archivo, mantené el deck liviano (&lt; 20MB).</p>
-          </div>
-        </div>
-
-        <!-- D. Validación de mercado -->
-        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">D. Validación de mercado</p>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="traction_type">Estado de tracción</label>
-              <select id="traction_type" name="traction_type" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Revenue (MRR/ARR)</option>
-                <option>Pilotos pagos</option>
-                <option>Contratos firmados</option>
-                <option>Usuarios activos (B2C)</option>
-                <option>Pre-revenue con LOIs/PoCs</option>
-                <option>Deeptech/Biotech — hitos/validación técnica/regulatoria</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="metric">Métrica principal (valor + unidad)</label>
-              <input id="metric" name="primary_metric" required
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="text" placeholder="Ej: MRR USD 25.000 / 12 clientes pagos / 3 pilotos pagos" />
-              <p class="mt-1 text-xs text-slate-500">Una métrica clara que represente validación.</p>
-            </div>
-          </div>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="clients">Top 2 clientes o segmento (opcional)</label>
-              <input id="clients" name="top_clients"
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="text" placeholder="Ej: Bancos (AR/MX) / Retail regional / 2 cuentas enterprise" />
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="evidence">Evidencia más fuerte (5–8 líneas)</label>
-              <textarea id="evidence" name="best_evidence" required rows="4"
-                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                        placeholder="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios, etc.)"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- E. Validación institucional previa -->
-        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">E. Validación institucional previa</p>
-
-          <div class="mt-4 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="inst_prev">¿Inversión institucional previa?</label>
-              <select id="inst_prev" name="institutional_prev" required
-                      class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary">
-                <option value="" selected disabled>Seleccionar</option>
-                <option>Sí</option>
-                <option>No</option>
-              </select>
-              <p class="mt-1 text-xs text-slate-500">Fondos, clubes, organismos especializados, grants competitivos, etc.</p>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="inst_detail">Si Sí: quién + año (condicional)</label>
-              <input id="inst_detail" name="institutional_detail"
-                     class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                     type="text" placeholder="Ej: Fondo X (2024), Club Y (2023)" />
-              <p class="mt-1 text-xs text-slate-500">Si no aplica, dejalo en blanco.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- F. Competencia + cierre -->
-        <div class="rounded-2xl border border-slate-200 bg-cloud p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-500">F. Competencia y cierre</p>
-
-          <div class="mt-4 grid gap-4">
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="competition">Competidores / alternativa actual</label>
-              <textarea id="competition" name="competition" required rows="4"
-                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                        placeholder="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos"></textarea>
-            </div>
-
-            <div>
-              <label class="text-xs font-extrabold uppercase tracking-widest text-slate-500" for="notes">Comentario final (opcional)</label>
-              <textarea id="notes" name="notes" rows="3"
-                        class="mt-1 w-full rounded-xl border-slate-200 bg-white px-4 py-3 text-sm focus:ring-primary focus:border-primary"
-                        placeholder="Si querés, agregá detalles de la ronda (incl. post-money exacto si está definido) o contexto relevante."></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <button type="submit"
-                  class="rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
-            Enviar
-          </button>
-
-          <p class="text-xs text-slate-500">
-            Al enviar, aceptás que la información será utilizada solo para evaluación interna del IAE Business Angels Club.
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Portfolio</p>
+          <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-ink">
+            Inversiones realizadas
+          </h2>
+          <p class="mt-4 max-w-2xl text-slate-600 leading-relaxed">
+            Contenido sujeto a actualización.
           </p>
         </div>
 
-        <p id="bac-form-message" class="hidden text-sm font-semibold text-slate-700"></p>
-      </form>
+        <a
+          href="./portfolio.html"
+          class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-extrabold text-ink hover:bg-slate-50 transition"
+        >
+          Ver portfolio completo →
+        </a>
+      </div>
 
-      <script>
-        // Minimal client-side helpers (no backend): character counter + deck link/file validation
-        (function () {
-          const form = document.getElementById('bac-apply-form');
-          if (!form) return;
+      <!-- Cards -->
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-          const oneLiner = document.getElementById('one_liner');
-          const counter = document.getElementById('one_liner_count');
-          const deckLink = document.getElementById('deck_link');
-          const deckFile = document.getElementById('deck_file');
-          const message = document.getElementById('bac-form-message');
+        <!-- Chill it -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 overflow-hidden">
+                <img src="./assets/portfolio/chillit.svg" alt="Chill it" class="h-10 w-10 object-contain">
+              </div>
+              <div>
+                <h3 class="text-base font-extrabold tracking-tight text-ink">Chill it</h3>
+                <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">
+                  Deeptech
+                </p>
+              </div>
+            </div>
+            <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">
+              Portfolio
+            </span>
+          </div>
 
-          function updateCount() {
-            if (!oneLiner || !counter) return;
-            counter.textContent = String(oneLiner.value.length);
-          }
+          <a
+            href="https://www.chillit.com/es"
+            target="_blank"
+            rel="noreferrer"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all"
+          >
+            Sitio →
+          </a>
+        </article>
 
-          updateCount();
-          oneLiner?.addEventListener('input', updateCount);
+        <!-- Siloreal -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 overflow-hidden">
+                <img src="./assets/portfolio/siloreal.png" alt="Siloreal" class="h-10 w-10 object-contain">
+              </div>
+              <div>
+                <h3 class="text-base font-extrabold tracking-tight text-ink">Siloreal</h3>
+                <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">
+                  Ag · Fintech
+                </p>
+              </div>
+            </div>
+            <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">
+              Portfolio
+            </span>
+          </div>
 
-          form.addEventListener('submit', function (e) {
-            // Require at least one: deck link OR deck file
-            const hasLink = !!(deckLink && deckLink.value && deckLink.value.trim().length > 0);
-            const hasFile = !!(deckFile && deckFile.files && deckFile.files.length > 0);
+          <a
+            href="https://siloreal.com/"
+            target="_blank"
+            rel="noreferrer"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all"
+          >
+            Sitio →
+          </a>
+        </article>
 
-            if (!hasLink && !hasFile) {
-              e.preventDefault();
-              if (message) {
-                message.classList.remove('hidden');
-                message.textContent = 'Por favor, adjuntá el deck con un link o subiendo un PDF.';
-              }
-              deckLink?.focus();
-              return;
-            }
+        <!-- Oncoprecision -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-soft transition">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cloud border border-slate-200 overflow-hidden">
+                <img src="./assets/portfolio/oncoprecision.svg" alt="Oncoprecision" class="h-10 w-10 object-contain">
+              </div>
+              <div>
+                <h3 class="text-base font-extrabold tracking-tight text-ink">Oncoprecision</h3>
+                <p class="mt-0.5 text-xs font-bold uppercase tracking-widest text-slate-500">
+                  Healthtech
+                </p>
+              </div>
+            </div>
+            <span class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">
+              Portfolio
+            </span>
+          </div>
 
-            // If HTML5 validation fails, show a neutral message (browser will highlight fields)
-            if (!form.checkValidity()) {
-              e.preventDefault();
-              if (message) {
-                message.classList.remove('hidden');
-                message.textContent = 'Revisá los campos marcados y volvé a intentar.';
-              }
-            }
-          });
-        })();
-      </script>
+          <a
+            href="https://www.oncoprecision.bio/"
+            target="_blank"
+            rel="noreferrer"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-primary hover:gap-3 transition-all"
+          >
+            Sitio →
+          </a>
+        </article>
+
+      </div>
     </section>
-  </main>
+    <!-- ================= END PORTFOLIO ================= -->
 
-  <div id="site-footer"></div>
-  <script src="./scripts/main.js"></script>
+    <!-- ====== FORMS (home) ====== -->
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-8 lg:grid-cols-2">
+        <!-- Startup (short) -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Startups</p>
+          <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Postular startup</h2>
+          <p class="mt-2 text-sm text-slate-600">Si tu compañía encaja con la tesis de inversión, postulá acá.</p>
+
+          <a href="./startups.html#apply"
+             class="mt-6 inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-extrabold text-white hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
+            Ir a Startups →
+          </a>
+        </div>
+
+        <!-- Investors (short) -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+          <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Inversores</p>
+          <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Solicitar invitación</h2>
+          <p class="mt-2 text-sm text-slate-600">Si querés sumarte como inversor ángel, solicitá una invitación.</p>
+
+          <a href="./inversores.html#request"
+             class="mt-6 inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
+            Ir a Inversores →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shared footer -->
+    <div id="site-footer"></div>
+
+    <script src="./scripts/main.js"></script>
+  </main>
 </body>
 </html>
