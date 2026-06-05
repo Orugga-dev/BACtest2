@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BAC Business Angels Club · EmprendeIAE</title>
-  <meta name="description" content="Invertí en startups de alto potencial con método, comunidad y respaldo institucional. BAC Business Angels Club · EmprendeIAE." />
+  <title>BAC · Business Angels Club EmprendeIAE</title>
+  <meta name="description" content="El BAC conecta inversores con startups de alto potencial mediante due diligence, sindicación y seguimiento activo. Business Angels Club · EmprendeIAE." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="BAC Business Angels Club · EmprendeIAE" />
-  <meta property="og:description" content="Invertí en startups de alto potencial con método, comunidad y respaldo institucional." />
+  <meta property="og:title" content="BAC · Business Angels Club EmprendeIAE" />
+  <meta property="og:description" content="Capital e ideas que se encuentran. Inversión ángel con método, comunidad y respaldo institucional." />
   <meta property="og:image" content="./assets/og.jpg" />
   <meta property="og:type" content="website" />
 
@@ -20,22 +20,20 @@
         extend: {
           colors: {
             primary: "#7F77DD",
-            ink: "#1A1025",
-            slatex: "#534AB7",
-            cloud: "#F0EFFD",
-            navy: "#26215C",
+            ink:     "#1A1025",
+            indigo:  "#26215C",
+            nexus:   "#7F77DD",
+            polar:   "#F0EFFD",
+            noche:   "#1A1025",
+            cloud:   "#F0EFFD",
+            navy:    "#26215C",
           },
           boxShadow: {
-            soft: "0 20px 60px rgba(11, 18, 32, 0.12)",
-          },
-          borderRadius: {
-            xl: "0.9rem",
-            "2xl": "1.1rem",
+            soft: "0 20px 60px rgba(26, 16, 37, 0.14)",
           },
           fontFamily: {
             display: ["Space Grotesk", "ui-sans-serif", "system-ui"],
-            body: ["DM Sans", "ui-sans-serif", "system-ui"],
-            serif: ["Georgia", "ui-serif", "serif"],
+            body:    ["DM Sans", "ui-sans-serif", "system-ui"],
           },
         },
       },
@@ -46,121 +44,68 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <style>
-    .bg-grid {
-      background-image:
-        linear-gradient(to right, rgba(127,119,221,0.09) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(127,119,221,0.09) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: radial-gradient(ellipse at top, black 55%, transparent 75%);
-    }
-  </style>
 </head>
 
-<body class="font-display text-ink bg-cloud antialiased">
+<body class="font-display text-ink bg-white antialiased">
 
   <div id="site-header"></div>
 
-  <!-- ================= HERO ================= -->
   <main>
-    <section class="relative overflow-hidden">
-      <div class="absolute inset-0 bg-white"></div>
-      <div class="absolute inset-0 bg-grid opacity-80"></div>
-      <div class="absolute inset-x-0 top-[-220px] mx-auto h-[520px] w-[520px] rounded-full bg-primary/10 blur-3xl"></div>
 
-      <div class="relative mx-auto max-w-7xl px-6 pt-16 pb-10 lg:pt-24">
-        <div class="grid items-center gap-12 lg:grid-cols-12">
+    <!-- ═══════════════════════════════════════════
+         HERO — fondo Noche
+    ═══════════════════════════════════════════ -->
+    <section class="relative overflow-hidden bg-[#1A1025]">
 
-          <div class="lg:col-span-7">
-            <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.22em] text-primary">
-              Rigor institucional • Red curada
-            </div>
+      <!-- Glow sutil -->
+      <div class="pointer-events-none absolute inset-0">
+        <div class="absolute left-[-10%] top-[-20%] h-[600px] w-[600px] rounded-full bg-primary/10 blur-[120px]"></div>
+        <div class="absolute right-[-5%] bottom-[-10%] h-[400px] w-[400px] rounded-full bg-primary/8 blur-[100px]"></div>
+      </div>
 
-            <h1 class="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-              Invertí en startups de alto potencial con <span class="text-primary">método, comunidad</span> y respaldo institucional.
-            </h1>
+      <div class="relative mx-auto max-w-7xl px-6 py-24 lg:py-32">
+        <div class="grid items-center gap-16 lg:grid-cols-2">
 
-            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-              El BAC conecta inversores con emprendedores seleccionados mediante un proceso estructurado de due diligence, sindicación y seguimiento activo.
-              <strong>Cada miembro invierte a título personal.</strong>
-            </p>
-
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-start">
-
-              <a href="./inversores.html#request"
-                 class="inline-flex items-center justify-center rounded-full bg-primary w-full sm:w-auto px-6 py-3.5 whitespace-nowrap text-sm font-extrabold text-white shadow-soft hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
-                Quiero invertir
-              </a>
-
-              <a href="./startups.html#apply"
-                 class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white w-full sm:w-auto px-6 py-3.5 whitespace-nowrap text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
-                Postular mi startup
-              </a>
-
-              <a href="./proceso.html" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors self-center">
-                Ver cómo invertimos →
-              </a>
-            </div>
-
-            <!-- Trust strip -->
-            <div class="mt-10 border-t border-slate-200/70 pt-6">
-              <p class="text-xs font-bold uppercase tracking-[0.26em] text-slate-400">
-                Parte del ecosistema
-              </p>
-              <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
-                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">EmprendeIAE</div>
-                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">IAE Business School</div>
-                <div class="rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-600 text-center">Universidad Austral</div>
-              </div>
-            </div>
+          <!-- Símbolo ala (SVG escalado) -->
+          <div class="flex justify-center lg:justify-end order-2 lg:order-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 80" class="h-56 w-auto opacity-90 lg:h-72" aria-hidden="true">
+              <path d="M6,72 Q10,42 32,18 Q46,6 60,8 Q50,16 40,26 Q26,42 20,70 Z" fill="#26215C" stroke="#AFA9EC" stroke-width="0.5" opacity="0.6"/>
+              <path d="M20,70 Q22,50 34,32" fill="none" stroke="#26215C" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M26,63 Q30,44 42,26" fill="none" stroke="#3C3489" stroke-width="2" stroke-linecap="round"/>
+              <path d="M32,56 Q38,40 50,24" fill="none" stroke="#534AB7" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M38,48 Q46,34 58,20" fill="none" stroke="#7F77DD" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M44,40 Q52,28 60,16" fill="none" stroke="#9B8FE8" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M32,18 Q46,8 60,10" fill="none" stroke="#CCC8F7" stroke-width="0.9" stroke-linecap="round"/>
+            </svg>
           </div>
 
-          <!-- Hero card -->
-          <div class="lg:col-span-5">
-            <div class="rounded-3xl border border-slate-200 bg-white w-full p-6 shadow-soft">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Indicadores clave</p>
-                  <p class="mt-1 text-xs font-bold uppercase tracking-[0.22em] text-slate-400">A diciembre 2025</p>
-                  <h2 class="mt-2 text-xl font-extrabold tracking-tight">20 años. 9 compañías. USD 4.5M+ invertidos.</h2>
-                </div>
-                <div class="rounded-xl bg-primary/10 px-3 py-2 text-xs font-extrabold text-primary">BAC</div>
-              </div>
+          <!-- Texto -->
+          <div class="order-1 lg:order-2">
+            <!-- Tag -->
+            <div class="inline-flex items-center gap-2">
+              <span class="h-px w-8 bg-[#CC0000]"></span>
+              <span class="text-xs font-semibold uppercase tracking-[0.22em] text-[#9B8FE8]">Business Angels Club · EmprendeIAE</span>
+            </div>
 
-              <div class="mt-6 grid grid-cols-2 gap-4">
-                <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold">75+</div>
-                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Miembros activos</div>
-                </div>
-                <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold">$4.5M+</div>
-                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Invertidos</div>
-                </div>
-                <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold">USD 5k</div>
-                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">Ticket desde</div>
-                </div>
-                <div class="rounded-2xl bg-cloud p-4">
-                  <div class="text-3xl font-extrabold">2005</div>
-                  <div class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">En actividad</div>
-                </div>
-              </div>
+            <h1 class="mt-5 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Capital e ideas<br>
+              <span class="text-primary">que se encuentran.</span>
+            </h1>
 
-              <div class="mt-6 rounded-3xl border border-slate-200 bg-white w-full p-4">
-                <p class="text-sm font-bold">No constituimos un fondo.</p>
-                <p class="mt-1 text-sm text-slate-600">
-                  Cada miembro invierte individualmente con capital propio.
-                  El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento.
-                </p>
-              </div>
+            <p class="mt-6 max-w-lg font-body text-lg font-light leading-relaxed text-[#9B8FE8]">
+              El BAC conecta inversores con startups seleccionados mediante
+              due diligence estructurada, sindicación y seguimiento activo.
+            </p>
 
-              <div class="mt-4 rounded-2xl border border-primary/15 bg-primary/5 p-4">
-                <p class="text-sm text-slate-700">
-                  <strong>Los datos de contacto de los miembros no se divulgan públicamente.</strong>
-                  Las presentaciones entre inversores y startups son facilitadas exclusivamente por el Club.
-                </p>
-              </div>
+            <div class="mt-10 flex flex-wrap items-center gap-4">
+              <a href="./inversores.html#request"
+                 class="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-white shadow-soft hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/40">
+                Quiero invertir
+              </a>
+              <a href="./startups.html#apply"
+                 class="text-sm font-semibold text-[#9B8FE8] hover:text-white transition-colors">
+                Postular mi startup →
+              </a>
             </div>
           </div>
 
@@ -168,47 +113,194 @@
       </div>
     </section>
 
-    <!-- ================= DOS AUDIENCIAS ================= -->
-    <section class="mx-auto max-w-7xl px-6 py-16">
-      <div class="rounded-3xl border border-slate-200 bg-white w-full p-8 shadow-soft">
-
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-slate-400">Puntos de entrada</p>
-            <h2 class="mt-2 text-2xl font-extrabold tracking-tight">Dos audiencias. Dos experiencias.</h2>
+    <!-- ═══════════════════════════════════════════
+         NÚMEROS
+    ═══════════════════════════════════════════ -->
+    <section class="bg-[#F0EFFD]">
+      <div class="mx-auto max-w-7xl px-6 py-10">
+        <dl class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div class="text-center">
+            <dt class="text-3xl font-bold text-[#26215C]">20+</dt>
+            <dd class="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#534AB7]">Años activos</dd>
           </div>
+          <div class="text-center">
+            <dt class="text-3xl font-bold text-[#26215C]">75+</dt>
+            <dd class="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#534AB7]">Miembros</dd>
+          </div>
+          <div class="text-center">
+            <dt class="text-3xl font-bold text-[#26215C]">9</dt>
+            <dd class="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#534AB7]">Compañías</dd>
+          </div>
+          <div class="text-center">
+            <dt class="text-3xl font-bold text-[#26215C]">USD 4.5M+</dt>
+            <dd class="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#534AB7]">Invertidos</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         DOS COLUMNAS: INVERSORES / STARTUPS
+    ═══════════════════════════════════════════ -->
+    <section class="grid lg:grid-cols-2">
+
+      <!-- Inversores — blanco -->
+      <div class="bg-white px-10 py-16 lg:px-16 lg:py-20">
+        <span class="inline-block rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+          Para inversores
+        </span>
+        <h2 class="mt-5 text-2xl font-bold tracking-tight text-[#26215C] sm:text-3xl">
+          Invertí con método,<br>no con intuición.
+        </h2>
+        <p class="mt-4 font-body text-sm leading-relaxed text-slate-600">
+          Accedés a deals que no están en el mercado abierto,
+          con due diligence hecha, vehículo sindicado listo
+          y seguimiento activo post-inversión.
+        </p>
+        <ul class="mt-6 space-y-3 font-body text-sm text-slate-700">
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Deals curados y due diligence estructurada
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Sindicación: vehículo listo para invertir
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Seguimiento activo post-inversión
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Membresía privada — comunidad de operadores
+          </li>
+        </ul>
+        <a href="./inversores.html#request"
+           class="mt-8 inline-flex items-center justify-center rounded-full border-2 border-[#26215C] px-7 py-3 text-sm font-bold text-[#26215C] hover:bg-[#26215C] hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30">
+          Solicitar invitación →
+        </a>
+      </div>
+
+      <!-- Startups — polar -->
+      <div class="bg-[#F0EFFD] px-10 py-16 lg:px-16 lg:py-20">
+        <span class="inline-block rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+          Para startups
+        </span>
+        <h2 class="mt-5 text-2xl font-bold tracking-tight text-[#26215C] sm:text-3xl">
+          Capital selectivo<br>+ apoyo activo.
+        </h2>
+        <p class="mt-4 font-body text-sm leading-relaxed text-slate-600">
+          Buscamos equipos con validación real y potencial de escala.
+          El BAC es agnóstico a la industria e invierte en etapa Seed o posterior.
+        </p>
+        <ul class="mt-6 space-y-3 font-body text-sm text-slate-700">
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Evaluación rigurosa con criterios explícitos
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Acceso a red de inversores senior
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Seguimiento real después del cheque
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"></span>
+            Tickets desde USD 5k — inversión sindicada
+          </li>
+        </ul>
+        <a href="./startups.html#apply"
+           class="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-bold text-white shadow-soft hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30">
+          Postular mi startup →
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PORTFOLIO PREVIEW
+    ═══════════════════════════════════════════ -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="flex items-end justify-between gap-4">
+          <h2 class="text-xl font-bold tracking-tight text-[#26215C]">Algunas compañías del portfolio</h2>
+          <a href="./portfolio.html" class="text-sm font-semibold text-primary hover:brightness-90 transition-colors whitespace-nowrap">
+            Ver portfolio completo →
+          </a>
         </div>
 
-        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <div class="mt-8 grid grid-cols-3 gap-4 sm:grid-cols-5">
+          <div class="flex items-center justify-center rounded-2xl border border-slate-100 bg-[#F0EFFD] px-4 py-5">
+            <img src="./assets/portfolio/chocorisimo.png" alt="Chocorísimo" class="h-8 w-auto object-contain">
+          </div>
+          <div class="flex items-center justify-center rounded-2xl border border-slate-100 bg-[#F0EFFD] px-4 py-5">
+            <img src="./assets/portfolio/chillit.svg" alt="Chill it" class="h-8 w-auto object-contain">
+          </div>
+          <div class="flex items-center justify-center rounded-2xl border border-slate-100 bg-[#F0EFFD] px-4 py-5">
+            <img src="./assets/portfolio/dynami.png" alt="Dynami" class="h-8 w-auto object-contain">
+          </div>
+          <div class="flex items-center justify-center rounded-2xl border border-slate-100 bg-[#F0EFFD] px-4 py-5">
+            <img src="./assets/portfolio/siloreal.png" alt="Siloreal" class="h-8 w-auto object-contain">
+          </div>
+          <div class="flex items-center justify-center rounded-2xl border border-slate-100 bg-[#F0EFFD] px-4 py-5">
+            <img src="./assets/portfolio/teramot.png" alt="Teramot" class="h-8 w-auto object-contain">
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Inversores -->
-          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para inversores</p>
-            <h3 class="mt-2 text-xl font-extrabold">Invertí con método, no con intuición.</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Accedé a oportunidades curadas, un proceso estructurado y una comunidad de operadores.
-              <strong>Para sumarte como inversor del BAC, solicitá invitación.</strong>
+    <!-- ═══════════════════════════════════════════
+         PROCESO TEASER — fondo Noche
+    ═══════════════════════════════════════════ -->
+    <section class="bg-[#1A1025]">
+      <div class="mx-auto max-w-7xl px-6 py-16 lg:py-20">
+
+        <div class="flex items-end justify-between gap-4">
+          <h2 class="text-xl font-bold text-white">Cómo invertimos</h2>
+          <a href="./proceso.html" class="text-sm font-semibold text-primary hover:brightness-125 transition-colors whitespace-nowrap">
+            Ver proceso completo →
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-8 sm:grid-cols-3">
+
+          <div class="relative">
+            <span class="text-5xl font-bold text-primary/30">01</span>
+            <div class="mt-3 h-px w-12 bg-primary/40"></div>
+            <h3 class="mt-4 font-bold text-white">Sourcing &amp; Screening</h3>
+            <p class="mt-2 font-body text-sm font-light text-[#9B8FE8]">
+              Intake estandarizado, criterios mínimos y paquete de documentación antes del comité.
             </p>
-            <a href="./inversores.html#request"
-               class="mt-6 inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-extrabold text-slate-800 hover:border-primary/30 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30 sm:w-auto">
-              Solicitar invitación como inversor
-            </a>
           </div>
 
-          <!-- Startups -->
-          <div class="rounded-2xl border border-slate-200 bg-cloud p-7">
-            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">Para startups</p>
-            <h3 class="mt-2 text-xl font-extrabold">Capital selectivo + apoyo activo.</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Buscamos equipos con validación real y potencial de escala que puedan aprovechar el ecosistema del Club.
+          <div class="relative">
+            <span class="text-5xl font-bold text-primary/30">02</span>
+            <div class="mt-3 h-px w-12 bg-primary/40"></div>
+            <h3 class="mt-4 font-bold text-white">Comité &amp; Due Diligence</h3>
+            <p class="mt-2 font-body text-sm font-light text-[#9B8FE8]">
+              Análisis multidisciplinario: equipo, mercado, unit economics y defensibilidad.
             </p>
-            <a href="./startups.html#apply"
-               class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-soft hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-primary/30 sm:w-auto">
-              Postular startup
-            </a>
+          </div>
+
+          <div class="relative">
+            <span class="text-5xl font-bold text-primary/30">03</span>
+            <div class="mt-3 h-px w-12 bg-primary/40"></div>
+            <h3 class="mt-4 font-bold text-white">Sindicación &amp; Follow-up</h3>
+            <p class="mt-2 font-body text-sm font-light text-[#9B8FE8]">
+              SPV o inversión directa, documentación de derechos y seguimiento activo post-cierre.
+            </p>
           </div>
 
         </div>
+
+        <!-- Disclaimer -->
+        <p class="mt-12 font-body text-xs font-light text-[#534AB7]">
+          El BAC no administra un fondo. Cada miembro invierte individualmente con capital propio.
+          El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento.
+        </p>
+
       </div>
     </section>
 
