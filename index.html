@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BAC · Business Angels Club — Dirección B</title>
+<link rel="stylesheet" href="bac-core.css">
+<style>
+/* ================= DIRECCIÓN B · CAPITAL / PREMIUM (oscuro) ================= */
+.B{ background:var(--noche); color:var(--niebla); }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
+.B ::selection{ background:var(--nexus); color:#fff; }
+
+/* header */
+.hdr{ position:sticky; top:0; z-index:50; background:rgba(26,16,37,.72);
+  backdrop-filter:blur(16px); border-bottom:1px solid rgba(159,143,232,.14); }
+.hdr__in{ display:flex; align-items:center; gap:32px; height:78px; }
+.hdr [data-bac-logo]{ width:152px; flex:none; }
+.nav{ display:flex; align-items:center; gap:28px; margin-left:auto; }
+.nav a{ font-weight:500; font-size:.92rem; color:var(--niebla); text-decoration:none; opacity:.78; transition:.2s; }
+.nav a:hover{ opacity:1; color:#fff; }
+.lang{ display:flex; gap:2px; align-items:center; font-family:var(--font-display); font-size:.74rem; font-weight:600; }
+.lang button{ background:none; border:0; cursor:pointer; color:var(--violeta-300); padding:4px 6px; border-radius:6px; }
+.lang button[aria-pressed="true"]{ color:var(--noche); background:var(--niebla); }
+.lang span{ color:var(--violeta-600); }
+.btn{ font-family:var(--font-display); font-weight:600; font-size:.9rem; display:inline-flex; align-items:center;
+  gap:.5em; padding:.72em 1.25em; border-radius:999px; text-decoration:none; cursor:pointer;
+  border:1.5px solid transparent; transition:.2s; white-space:nowrap; }
+.btn--solid{ background:var(--nexus); color:#fff; }
+.btn--solid:hover{ background:var(--violeta-600); }
+.btn--ghost{ border-color:rgba(159,143,232,.45); color:var(--niebla); }
+.btn--ghost:hover{ border-color:var(--nexus); color:#fff; background:rgba(127,119,221,.12); }
+.btn--lg{ padding:.95em 1.7em; font-size:1rem; }
+.nav-toggle{ display:none; }
+
+/* glow scaffolding */
+.glow{ position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0; }
+
+/* HERO */
+.heroB{ position:relative; overflow:hidden; padding:clamp(54px,8vw,104px) 0 clamp(40px,5vw,70px); }
+.heroB .glow--1{ width:620px; height:620px; background:radial-gradient(circle,rgba(83,74,183,.55),transparent 62%);
+  top:-220px; right:-120px; }
+.heroB .glow--2{ width:460px; height:460px; background:radial-gradient(circle,rgba(127,119,221,.32),transparent 62%);
+  bottom:-220px; left:-160px; }
+.heroB__grid{ position:relative; z-index:2; display:grid; grid-template-columns:1.1fr .9fr;
+  gap:50px; align-items:center; }
+.eyebrowrow{ display:flex; align-items:center; gap:14px; margin-bottom:26px; }
+.redrule{ width:46px; height:3px; background:var(--rojo); flex:none; }
+.eyebrowrow .k-eyebrow{ color:var(--violeta-300); }
+.heroB h1{ font-size:clamp(2.6rem,6vw,4.8rem); color:#fff; max-width:15ch; }
+.heroB h1 em{ font-style:normal; background:linear-gradient(100deg,var(--violeta-300),var(--niebla));
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.heroB__lead{ font-size:clamp(1.05rem,1.5vw,1.26rem); line-height:1.55; color:var(--violeta-200);
+  max-width:46ch; margin-top:26px; }
+.heroB__cta{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+.heroB__art{ position:relative; display:flex; align-items:center; justify-content:center; }
+.heroB__art [data-bac-wing]{ width:min(420px,80%); filter:drop-shadow(0 30px 60px rgba(83,74,183,.45)); }
+.heroB__ring{ position:absolute; inset:8% ; border:1px solid rgba(159,143,232,.22); border-radius:50%; }
+.heroB__ring.r2{ inset:20%; border-color:rgba(159,143,232,.14); }
+
+/* metric bar */
+.metricwrap{ position:relative; z-index:2; margin-top:clamp(40px,6vw,72px); }
+.metric-caps{ display:grid; grid-template-columns:1fr 3fr; margin-bottom:11px; }
+.cap{ font-family:var(--font-display); font-weight:600; font-size:.68rem; letter-spacing:.16em;
+  text-transform:uppercase; padding-left:26px; }
+.cap--now{ color:var(--violeta-300); }
+.cap--period{ color:var(--niebla); display:flex; align-items:center; gap:14px; }
+.cap--period::after{ content:""; flex:1; height:1px; background:rgba(159,143,232,.32); }
+.metricbar{ position:relative; z-index:2;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(159,143,232,.16);
+  border:1px solid rgba(159,143,232,.16); border-radius:18px; overflow:hidden; }
+.metricbar > div{ background:var(--noche); padding:30px 26px; }
+.metricbar dt{ font-family:var(--font-display); font-weight:700; font-size:clamp(2rem,3vw,2.8rem); color:#fff; line-height:1; }
+.metricbar dd{ margin:10px 0 0; font-size:.86rem; color:var(--violeta-300); line-height:1.4; }
+.note-illustr{ font-size:.72rem; color:var(--violeta-600); margin-top:14px; text-align:right; }
+
+/* sections */
+section{ position:relative; padding:clamp(64px,8vw,110px) 0; }
+.sec-head{ max-width:64ch; margin-bottom:54px; }
+.sec-head .eyebrowrow{ margin-bottom:18px; }
+.sec-head .eyebrowrow .k-eyebrow{ color:var(--violeta-300); }
+.sec-head h2{ font-size:clamp(1.9rem,3.4vw,2.9rem); color:#fff; }
+.sec-head p{ margin-top:18px; font-size:1.1rem; line-height:1.55; color:var(--violeta-200); }
+
+/* audience cards (dark) */
+.split{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.card-aud{ position:relative; border:1px solid rgba(159,143,232,.22); border-radius:20px; padding:40px;
+  background:linear-gradient(180deg,rgba(127,119,221,.07),rgba(127,119,221,0)); overflow:hidden;
+  display:flex; flex-direction:column; transition:.25s; }
+.card-aud:hover{ border-color:var(--nexus); transform:translateY(-3px); }
+.card-aud .tag{ font-family:var(--font-display); font-weight:600; font-size:.74rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--violeta-300); }
+.card-aud h3{ font-size:1.7rem; color:#fff; margin-top:14px; }
+.card-aud p{ margin-top:14px; color:var(--violeta-200); line-height:1.55; }
+.card-aud ul{ list-style:none; padding:0; margin:22px 0 30px; }
+.card-aud li{ display:flex; gap:11px; padding:10px 0; border-top:1px solid rgba(159,143,232,.16); font-size:.96rem; color:var(--niebla); }
+.card-aud li::before{ content:""; width:7px; height:7px; margin-top:8px; border-radius:50%; background:var(--rojo); flex:none; }
+.card-aud .btn{ margin-top:auto; align-self:flex-start; }
+
+/* portfolio grid */
+.pfgrid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+.pfgrid .ph{ aspect-ratio:3/2; border-radius:12px; }
+.pf-note{ margin-top:18px; font-size:.84rem; color:var(--violeta-600); }
+
+/* portfolio carousel */
+.pf__head{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.pf__head .sec-head{ margin-bottom:0; }
+.pf__link{ font-family:var(--font-display); font-weight:600; font-size:.96rem; color:var(--violeta-300);
+  text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; transition:.2s; }
+.pf__link:hover{ color:#fff; gap:9px; }
+.pfcar{ position:relative; margin-top:36px; }
+.pfcar__viewport{ overflow:hidden; }
+.pfcar__track{ display:flex; gap:16px; padding:4px 2px 8px; }
+.pfcar--auto .pfcar__track{ will-change:transform; }
+.pfcar--scroll .pfcar__viewport{ overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.pfcar--scroll .pfcar__viewport::-webkit-scrollbar{ display:none; }
+.pfcar--scroll .pfcard{ scroll-snap-align:start; }
+.pfcard{ flex:0 0 clamp(196px,22vw,244px); scroll-snap-align:start; height:152px; padding:14px;
+  border:1px solid rgba(159,143,232,.22); border-radius:16px; text-decoration:none;
+  background:linear-gradient(180deg,rgba(127,119,221,.08),rgba(127,119,221,0));
+  display:flex; flex-direction:column; gap:11px; transition:.25s; }
+.pfcard:hover{ border-color:var(--nexus); background:rgba(127,119,221,.14); transform:translateY(-3px); }
+.pfcard__plaque{ flex:1; width:100%; background:#fff; border-radius:11px; display:flex; align-items:center;
+  justify-content:center; gap:8px; padding:12px 16px; overflow:hidden; }
+.pfcard__img{ height:30px; width:auto; max-width:74%; object-fit:contain; }
+.pfcard__img--wide{ height:21px; max-width:88%; }
+.pfcard__img--tile{ height:48px; border-radius:9px; }
+.pfcard__lock{ height:28px; width:auto; flex:none; object-fit:contain; }
+.pfcard__lock--tile{ height:26px; border-radius:7px; }
+.pfcard__name{ font-family:var(--font-display); font-weight:600; font-size:.98rem; color:var(--indigo-700);
+  letter-spacing:-.01em; line-height:1.05; white-space:nowrap; }
+.pfcard__dom{ font-family:'Space Mono',ui-monospace,monospace; font-size:.71rem; color:var(--violeta-300); text-align:center; }
+.pfcard:hover .pfcard__dom{ color:var(--niebla); }
+.pfcar__btn{ position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:44px; height:44px;
+  border-radius:50%; border:1px solid rgba(159,143,232,.3); background:rgba(26,16,37,.92); color:#fff;
+  font-family:var(--font-display); font-size:1.3rem; line-height:1; cursor:pointer; display:flex;
+  align-items:center; justify-content:center; transition:.2s; }
+.pfcar__btn:hover{ border-color:var(--nexus); background:var(--indigo); }
+.pfcar__btn:disabled{ opacity:.28; cursor:default; }
+.pfcar__btn--prev{ left:-16px; } .pfcar__btn--next{ right:-16px; }
+@media (max-width:560px){ .pfcar__btn{ display:none; } }
+
+/* CONTRAST section (Polar) */
+.contrast{ background:var(--polar); color:var(--tinta); }
+.contrast .eyebrowrow .k-eyebrow{ color:var(--violeta-600); }
+.contrast h2{ color:var(--indigo-700); }
+.steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.step{ position:relative; padding-top:30px; }
+.step::before{ content:""; position:absolute; top:0; left:0; width:100%; height:3px;
+  background:linear-gradient(90deg,var(--nexus),transparent); }
+.step__n{ font-family:var(--font-display); font-weight:700; font-size:.85rem; color:var(--nexus); }
+.step h3{ font-size:1.18rem; color:var(--indigo-700); margin-top:14px; }
+.step p{ margin-top:10px; color:var(--gris); font-size:.95rem; line-height:1.5; }
+.model-note{ display:flex; align-items:center; gap:22px; margin-top:clamp(34px,4vw,46px); max-width:none;
+  padding:24px 30px; background:#fff; border:1px solid var(--polar-3); border-left:4px solid var(--nexus);
+  border-radius:14px; box-shadow:0 18px 44px -34px rgba(38,33,92,.5); }
+.model-note__wing{ width:46px; flex:none; }
+.model-note__text{ font-size:1.04rem; line-height:1.55; color:var(--tinta); }
+.model-note__text b{ color:var(--indigo-700); font-weight:600; font-family:var(--font-display); }
+@media (max-width:560px){ .model-note{ flex-direction:column; align-items:flex-start; gap:14px; } }
+
+/* case */
+.case{ display:grid; grid-template-columns:.95fr 1.05fr; gap:0; border:1px solid rgba(159,143,232,.22);
+  border-radius:24px; overflow:hidden; }
+.case__media{ min-height:360px; }
+.case__body{ padding:clamp(36px,4vw,58px); display:flex; flex-direction:column; }
+.case__body .tag{ color:var(--violeta-300); font-family:var(--font-display); font-weight:600;
+  font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; }
+.case__quote{ font-family:var(--font-display); font-weight:500; font-size:clamp(1.4rem,2.4vw,2rem);
+  line-height:1.3; margin-top:22px; color:#fff; }
+.case__metrics{ display:flex; gap:34px; margin-top:30px; }
+.case__metrics dt{ font-family:var(--font-display); font-weight:700; font-size:1.9rem; color:#fff; }
+.case__metrics dd{ margin:4px 0 0; font-size:.82rem; color:var(--violeta-300); }
+.case__who{ margin-top:auto; padding-top:30px; display:flex; align-items:center; gap:14px; }
+.case__avatar{ width:46px; height:46px; border-radius:50%; }
+.case__who b{ display:block; font-family:var(--font-display); font-size:.98rem; color:#fff; }
+.case__who span{ font-size:.85rem; color:var(--violeta-300); }
+
+/* team */
+.team__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.member{ display:flex; flex-direction:column; }
+.member__photo{ aspect-ratio:4/5; border-radius:16px; border:1px solid rgba(159,143,232,.22); }
+img.member__photo{ width:100%; height:auto; object-fit:cover; object-position:center 22%; display:block; }
+.member__photo.ph--dark{ transition:.25s; }
+.member:hover .member__photo{ border-color:var(--nexus); transform:translateY(-3px); }
+.member h3{ font-family:var(--font-display); font-weight:600; font-size:1.12rem; color:#fff; margin-top:16px; }
+.member .role{ font-size:.88rem; color:var(--violeta-300); margin-top:4px; line-height:1.4; }
+.member .ln{ margin-top:12px; font-family:var(--font-display); font-weight:600; font-size:.8rem;
+  color:var(--niebla); text-decoration:none; opacity:.8; display:inline-flex; gap:5px; align-items:center; }
+.member .ln:hover{ opacity:1; color:#fff; }
+.team__backing{ display:flex; align-items:center; gap:18px; margin-top:36px; padding:24px 28px;
+  border:1px solid rgba(159,143,232,.22); border-radius:18px;
+  background:linear-gradient(120deg,rgba(127,119,221,.08),transparent); flex-wrap:wrap; }
+.team__backing [data-bac-wing]{ width:46px; flex:none; }
+.team__backing p{ font-size:.98rem; color:var(--violeta-200); line-height:1.5; flex:1; min-width:240px; }
+.team__backing b{ color:#fff; font-weight:600; }
+.team-note{ font-size:.82rem; color:var(--violeta-600); margin-top:16px; }
+
+/* closing */
+.closeB{ position:relative; overflow:hidden; text-align:center; }
+.closeB .glow--3{ width:560px; height:560px; background:radial-gradient(circle,rgba(83,74,183,.5),transparent 62%);
+  top:-180px; left:50%; transform:translateX(-50%); }
+.closeB__in{ position:relative; z-index:2; }
+.closeB h2{ font-size:clamp(2.2rem,4.6vw,3.6rem); color:#fff; max-width:18ch; margin:0 auto; }
+.closeB p{ margin:22px auto 0; max-width:50ch; color:var(--violeta-200); font-size:1.14rem; line-height:1.55; }
+.closeB .heroB__cta{ justify-content:center; }
+
+/* footer */
+.ftr{ border-top:1px solid rgba(159,143,232,.16); padding:60px 0 36px; }
+.ftr__top{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; }
+.ftr [data-bac-logo]{ width:182px; }
+.ftr__top p{ margin-top:18px; font-size:.92rem; line-height:1.6; color:var(--violeta-200); max-width:30ch; }
+.ftr h4{ font-family:var(--font-display); font-weight:600; font-size:.78rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--violeta-300); margin:0 0 16px; }
+.ftr a{ display:block; color:var(--niebla); text-decoration:none; font-size:.95rem; padding:6px 0; opacity:.85; }
+.ftr a:hover{ opacity:1; color:#fff; }
+.ftr__bot{ display:flex; justify-content:space-between; gap:16px 28px; margin-top:48px; padding-top:24px;
+  border-top:1px solid rgba(159,143,232,.16); font-size:.82rem; color:var(--violeta-300); flex-wrap:wrap; }
+.ftr__bot a{ display:inline; color:var(--niebla); text-decoration:underline; text-underline-offset:2px; }
+.ftr__bot a:hover{ color:#fff; }
+
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+
+@media (max-width:900px){
+  .nav{ display:none; } .nav-toggle{ display:inline-flex; }
+  .heroB__grid{ grid-template-columns:1fr; gap:36px; } .heroB__art{ order:-1; }
+  .heroB__art [data-bac-wing]{ width:200px; }
+  .metricbar{ grid-template-columns:1fr 1fr; } .metric-caps{ display:none; } .split{ grid-template-columns:1fr; }
+  .pfgrid{ grid-template-columns:repeat(3,1fr); } .steps{ grid-template-columns:1fr 1fr; }
+  .case{ grid-template-columns:1fr; } .case__media{ min-height:220px; }
+  .team__grid{ grid-template-columns:1fr 1fr; }
+  .ftr__top{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:560px){ .metricbar{ grid-template-columns:1fr 1fr; } .steps{ grid-template-columns:1fr; }
+  .pfgrid{ grid-template-columns:repeat(2,1fr); } .team__grid{ grid-template-columns:1fr 1fr; } .ftr__top{ grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; } }
+</style>
+</head>
+<body class="B">
+
+<template id="__bundler_thumbnail" data-bg-color="#1A1025">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1A1025"/>
+    <circle cx="600" cy="320" r="260" fill="#3C3489" opacity="0.35"/>
+    <text x="600" y="395" font-family="'Space Grotesk', system-ui, sans-serif" font-size="200" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="12">BAC</text>
+    <rect x="445" y="430" width="310" height="9" fill="#CC0000"/>
+    <text x="600" y="495" font-family="'DM Sans', system-ui, sans-serif" font-size="34" fill="#9B8FE8" text-anchor="middle" letter-spacing="7">BUSINESS ANGELS CLUB</text>
+  </svg>
+</template>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a href="#" data-bac-logo="dark" aria-label="BAC — inicio"></a>
+    <nav class="nav">
+      <a href="#club" data-es="El club" data-en="The club">El club</a>
+      <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
+      <a href="para-inversores.html" data-es="Para inversores" data-en="For investors">Para inversores</a>
+      <a href="#portfolio" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
+      <a href="#equipo" data-es="Equipo" data-en="Team">Equipo</a>
+      <div class="lang"><button data-lang-btn="es">ES</button><span>/</span><button data-lang-btn="en">EN</button></div>
+      <a class="btn btn--solid" href="#aplicar" data-es="Aplicar" data-en="Apply">Aplicar</a>
+    </nav>
+    <button class="btn btn--ghost nav-toggle" data-nav-toggle=".nav" aria-label="Menú">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="heroB">
+    <span class="glow glow--1"></span>
+    <span class="glow glow--2"></span>
+    <div class="wrap">
+      <div class="heroB__grid">
+        <div>
+          <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Business Angels Club · EmprendeIAE" data-en="Business Angels Club · EmprendeIAE">Business Angels Club · EmprendeIAE</span></div>
+          <h1 data-es-html="Donde el capital encuentra a quien <em>construye</em>." data-en-html="Where capital meets those who <em>build</em>.">Donde el capital encuentra a quien <em>construye</em>.</h1>
+          <p class="heroB__lead" data-es="Una red de inversores ángeles que invierte en startups, decide rápido y acompaña después del cheque. Para fundadores que buscan más que dinero." data-en="A network of angel investors that backs startups, decides fast, and stays involved after the check. For founders who want more than money.">Una red de inversores ángeles que invierte en startups, decide rápido y acompaña después del cheque. Para fundadores que buscan más que dinero.</p>
+          <div class="heroB__cta">
+            <a class="btn btn--solid btn--lg" href="#aplicar" data-es="Buscás inversión →" data-en="Looking for funding →">Buscás inversión →</a>
+            <a class="btn btn--ghost btn--lg" href="para-inversores.html" data-es="Quiero invertir" data-en="I want to invest">Quiero invertir</a>
+          </div>
+        </div>
+        <div class="heroB__art">
+          <span class="heroB__ring"></span><span class="heroB__ring r2"></span>
+          <div data-bac-wing="dark"></div>
+        </div>
+      </div>
+
+      <div class="metricwrap">
+        <div class="metric-caps">
+          <span class="cap cap--now" data-es="Activos hoy" data-en="Active today">Activos hoy</span>
+          <span class="cap cap--period" data-es="Desde sept. 2023" data-en="Since Sep 2023">Desde sept. 2023</span>
+        </div>
+        <dl class="metricbar">
+          <div><dt>80</dt><dd data-es="Socios inversores activos" data-en="Active investor members">Socios inversores activos</dd></div>
+          <div><dt>US$2M+</dt><dd data-es="Invertidos en startups" data-en="Invested in startups">Invertidos en startups</dd></div>
+          <div><dt>12+</dt><dd data-es="Compañías invertidas" data-en="Companies funded">Compañías invertidas</dd></div>
+          <div><dt>+300</dt><dd data-es="Startups en el dealflow" data-en="Startups in the dealflow">Startups en el dealflow</dd></div>
+        </dl>
+      </div>
+      <p class="note-illustr" data-es="Acumulado desde septiembre de 2023 · datos del club a febrero 2026." data-en="Cumulative since September 2023 · club data as of February 2026.">Acumulado desde septiembre de 2023 · datos del club a febrero 2026.</p>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section id="club">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Cómo funciona" data-en="How it works">Cómo funciona</span></div>
+        <h2 data-es="Un club, dos lados de la mesa." data-en="One club, both sides of the table.">Un club, dos lados de la mesa.</h2>
+        <p data-es="Conectamos a fundadores con inversores que ya recorrieron el camino." data-en="We connect founders with investors who've already walked the path.">Conectamos a fundadores con inversores que ya recorrieron el camino.</p>
+      </div>
+      <div class="split">
+        <div class="card-aud reveal" id="fundadores">
+          <span class="tag" data-es="Para fundadores" data-en="For founders">Para fundadores</span>
+          <h3 data-es="Levantá tu ronda ángel" data-en="Raise your angel round">Levantá tu ronda ángel</h3>
+          <p data-es="Una presentación, un comité, una decisión clara. Y una red que sigue trabajando después de la inversión." data-en="One pitch, one committee, one clear decision. And a network that keeps working after the investment.">Una presentación, un comité, una decisión clara. Y una red que sigue trabajando después de la inversión.</p>
+          <ul>
+            <li data-es="Acceso a una red de +80 inversores ángeles activos" data-en="Access to a network of 80+ active angel investors">Acceso a una red de +80 inversores ángeles activos</li>
+            <li data-es="Respuesta en semanas, no meses" data-en="An answer in weeks, not months">Respuesta en semanas, no meses</li>
+            <li data-es="Acompañamiento post-inversión" data-en="Post-investment support">Acompañamiento post-inversión</li>
+          </ul>
+          <a class="btn btn--solid" href="para-fundadores.html" data-es="Conocer más →" data-en="Learn more →">Conocer más →</a>
+        </div>
+        <div class="card-aud reveal" id="inversores">
+          <span class="tag" data-es="Para inversores" data-en="For investors">Para inversores</span>
+          <h3 data-es="Invertí junto al club" data-en="Invest alongside the club">Invertí junto al club</h3>
+          <p data-es="Deal flow curado, due diligence compartida y co-inversión flexible. La experiencia colectiva del club de tu lado." data-en="Curated deal flow, shared due diligence, flexible co-investment. The club's collective experience on your side.">Deal flow curado, due diligence compartida y co-inversión flexible. La experiencia colectiva del club de tu lado.</p>
+          <ul>
+            <li data-es="Oportunidades filtradas por el comité" data-en="Deals screened by the committee">Oportunidades filtradas por el comité</li>
+            <li data-es="Co-inversión sin mínimos rígidos" data-en="Co-investment, no rigid minimums">Co-inversión sin mínimos rígidos</li>
+            <li data-es="Comunidad de pares" data-en="A community of peers">Comunidad de pares</li>
+          </ul>
+          <a class="btn btn--ghost" href="para-inversores.html" data-es="Sumarme a la red →" data-en="Join the network →">Sumarme a la red →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS (Polar contrast) -->
+  <section class="contrast">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="El proceso" data-en="The process">El proceso</span></div>
+        <h2 data-es="De la postulación al cierre, sin laberintos." data-en="From application to close, without mazes.">De la postulación al cierre, sin laberintos.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="step__n">01</span><h3 data-es="Postulás" data-en="You apply">Postulás</h3><p data-es="Revisás la tesis de inversión. Si tu startup la cumple, completás un formulario y nos compartís tu deck. Directo, sin intermediarios." data-en="Review our investment thesis. If your startup fits, you fill out a form and share your deck. Direct, no middlemen.">Revisás la tesis de inversión. Si tu startup la cumple, completás un formulario y nos compartís tu deck. Directo, sin intermediarios.</p></div>
+        <div class="step reveal"><span class="step__n">02</span><h3 data-es="Screening" data-en="Screening">Screening</h3><p data-es="El comité revisa y devuelve feedback claro en cualquier caso." data-en="The committee reviews and returns clear feedback either way.">El comité revisa y devuelve feedback claro en cualquier caso.</p></div>
+        <div class="step reveal"><span class="step__n">03</span><h3 data-es="Pitch al club" data-en="Pitch to the club">Pitch al club</h3><p data-es="Si tu startup es seleccionada por el comité, se te asigna un slot para presentar a nuestros socios en una sesión en vivo." data-en="If the committee selects your startup, you get a slot to present to our members in a live session.">Si tu startup es seleccionada por el comité, se te asigna un slot para presentar a nuestros socios en una sesión en vivo.</p></div>
+        <div class="step reveal"><span class="step__n">04</span><h3 data-es="Cierre" data-en="Close">Cierre</h3><p data-es="Si hay interés, se sindica el ticket, se firma y arranca el trabajo conjunto." data-en="If there's interest, the ticket gets syndicated, you sign, and the joint work begins.">Si hay interés, se sindica el ticket, se firma y arranca el trabajo conjunto.</p></div>
+      </div>
+      <div class="model-note reveal">
+        <div data-bac-wing="light" class="model-note__wing"></div>
+        <p class="model-note__text" data-es-html="<b>El BAC no administra un fondo.</b> Cada socio invierte con capital propio y de forma individual. El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento." data-en-html="<b>The BAC does not manage a fund.</b> Each member invests individually, with their own capital. The Club structures the process, facilitates syndication, and sustains the follow-up."><b>El BAC no administra un fondo.</b> Cada socio invierte con capital propio y de forma individual. El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="pf__head reveal">
+        <div class="sec-head">
+          <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Portfolio" data-en="Portfolio">Portfolio</span></div>
+          <h2 data-es="Últimas compañías invertidas por el BAC." data-en="The latest companies the BAC has invested in.">Últimas compañías invertidas por el BAC.</h2>
+        </div>
+        <a class="pf__link" href="portfolio.html" data-es="Ver el portfolio →" data-en="See the portfolio →">Ver el portfolio →</a>
+      </div>
+      <div class="pfcar reveal" data-carousel data-carousel-auto>
+        <div class="pfcar__viewport">
+        <div class="pfcar__track">
+          <a class="pfcard" href="https://www.chocorisimo.com/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__img pfcard__img--wide" src="assets/logo-chocorisimo.png" alt="Chocorísimo"></span><span class="pfcard__dom">chocorisimo.com</span></a>
+          <a class="pfcard" href="https://wecircular.co/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__lock" src="assets/logo-wecircular.png" alt="WeCircular"><span class="pfcard__name">WeCircular</span></span><span class="pfcard__dom">wecircular.co</span></a>
+          <a class="pfcard" href="https://www.chillit.com" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__img pfcard__img--wide" src="assets/logo-chillit.png" alt="Chill it"></span><span class="pfcard__dom">chillit.com</span></a>
+          <a class="pfcard" href="https://dynami-battery.com/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__lock" src="assets/logo-dynami.png" alt="Dynami"><span class="pfcard__name">Dynami</span></span><span class="pfcard__dom">dynami-battery.com</span></a>
+          <a class="pfcard" href="https://www.xspheres.com/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__lock" src="assets/logo-spherebio.png" alt="SphereBio"><span class="pfcard__name">SphereBio</span></span><span class="pfcard__dom">xspheres.com</span></a>
+          <a class="pfcard" href="https://siloreal.com/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__img pfcard__img--tile" src="assets/logo-siloreal.png" alt="Silo Real"></span><span class="pfcard__dom">siloreal.com</span></a>
+          <a class="pfcard" href="https://home.ldptech.ai/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__lock pfcard__lock--tile" src="assets/logo-ldp.jpg" alt="LDP Tech"><span class="pfcard__name">LDP Tech</span></span><span class="pfcard__dom">ldptech.ai</span></a>
+          <a class="pfcard" href="https://oncoprecision.bio/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__lock" src="assets/logo-oncoprecision.png" alt="OncoPrecision"><span class="pfcard__name">OncoPrecision</span></span><span class="pfcard__dom">oncoprecision.bio</span></a>
+          <a class="pfcard" href="https://zite.co/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__lock pfcard__lock--tile" src="assets/logo-zite.jpg" alt="Zite"><span class="pfcard__name">Zite</span></span><span class="pfcard__dom">zite.co</span></a>
+          <a class="pfcard" href="https://teramot.com/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__img pfcard__img--wide" src="assets/logo-teramot.png" alt="Teramot"></span><span class="pfcard__dom">teramot.com</span></a>
+          <a class="pfcard" href="https://www.satellitesonfire.com/" target="_blank" rel="noopener"><span class="pfcard__plaque"><img class="pfcard__img pfcard__img--wide" src="assets/logo-satellitesonfire.png" alt="Satellites on Fire"></span><span class="pfcard__dom">satellitesonfire.com</span></a>
+        </div>
+        </div>
+        <button class="pfcar__btn pfcar__btn--prev" data-car-prev aria-label="Anterior">‹</button>
+        <button class="pfcar__btn pfcar__btn--next" data-car-next aria-label="Siguiente">›</button>
+      </div>
+      <p class="pf-note" data-es="Una selección de las compañías invertidas por los socios del BAC." data-en="A selection of the companies funded by BAC members.">Una selección de las compañías invertidas por los socios del BAC.</p>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="equipo">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Equipo · Quienes lo hacen posible" data-en="Team · The people behind it">Equipo · Quienes lo hacen posible</span></div>
+        <h2 data-es="Las personas que lo operan." data-en="The people who run it.">Las personas que lo operan.</h2>
+        <p data-es="Entre los socios del BAC hay personas que ya construyeron, invirtieron y operaron. No es un fondo anónimo: este es el equipo que lo coordina." data-en="Among the BAC's members are people who have already built, invested, and operated. It's not an anonymous fund: this is the team that coordinates it.">Entre los socios del BAC hay personas que ya construyeron, invirtieron y operaron. No es un fondo anónimo: este es el equipo que lo coordina.</p>
+      </div>
+      <div class="team__grid">
+        <div class="member reveal">
+          <img class="member__photo" src="assets/team-silvia.png" alt="Silvia Torres Carbonell">
+          <h3>Silvia Torres Carbonell</h3>
+          <span class="role" data-es="Founder y Presidente" data-en="Founder & President">Founder y Presidente</span>
+          <a class="ln" href="https://www.linkedin.com/in/silvia-torres-carbonell-021390" target="_blank" rel="noopener" aria-label="LinkedIn de Silvia Torres Carbonell">in · LinkedIn</a>
+        </div>
+        <div class="member reveal">
+          <img class="member__photo" src="assets/team-jose.png" alt="Jose Ugarte">
+          <h3>Jose Ugarte</h3>
+          <span class="role" data-es="Vicepresidente" data-en="Vice President">Vicepresidente</span>
+          <a class="ln" href="https://www.linkedin.com/in/jfugarte/" target="_blank" rel="noopener" aria-label="LinkedIn de Jose Ugarte">in · LinkedIn</a>
+        </div>
+        <div class="member reveal">
+          <img class="member__photo" src="assets/team-cecilia.png" alt="Cecilia Lagocki">
+          <h3>Cecilia Lagocki</h3>
+          <span class="role" data-es="Coordinadora general" data-en="General coordinator">Coordinadora general</span>
+          <a class="ln" href="https://www.linkedin.com/in/cecilia-lagocki-1597b830" target="_blank" rel="noopener" aria-label="LinkedIn de Cecilia Lagocki">in · LinkedIn</a>
+        </div>
+        <div class="member reveal">
+          <img class="member__photo" src="assets/team-ines.png" alt="Ines Agote">
+          <h3>Ines Agote</h3>
+          <span class="role" data-es="Coordinadora" data-en="Coordinator">Coordinadora</span>
+          <a class="ln" href="https://www.linkedin.com/in/inesagote" target="_blank" rel="noopener" aria-label="LinkedIn de Ines Agote">in · LinkedIn</a>
+        </div>
+      </div>
+      <div class="team__backing reveal">
+        <div data-bac-wing="dark"></div>
+        <p data-es-html="Con el respaldo de <b>EmprendeIAE</b> y su red de mentores, alumni y operadores del ecosistema emprendedor." data-en-html="Backed by <b>EmprendeIAE</b> and its network of mentors, alumni, and operators across the entrepreneurial ecosystem.">Con el respaldo de <b>EmprendeIAE</b> y su red de mentores, alumni y operadores del ecosistema emprendedor.</p>
+        <a class="btn btn--ghost" href="#" data-es="Ver todo el equipo →" data-en="See the full team →">Ver todo el equipo →</a>
+      </div>
+      <p class="team-note" data-es="" data-en=""></p>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section id="aplicar" class="closeB">
+    <span class="glow glow--3"></span>
+    <div class="wrap closeB__in reveal">
+      <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow" style="color:var(--violeta-300)" data-es="Convocatoria abierta" data-en="Applications open">Convocatoria abierta</span></div>
+      <h2 data-es="Tu próxima ronda puede empezar con una conversación." data-en="Your next round can start with a conversation.">Tu próxima ronda puede empezar con una conversación.</h2>
+      <p data-es="Contanos qué construís. Si hay fit, el comité te responde en días." data-en="Tell us what you're building. If there's a fit, the committee replies in days.">Contanos qué construís. Si hay fit, el comité te responde en días.</p>
+      <div class="heroB__cta">
+        <a class="btn btn--solid btn--lg" href="#" data-es="Aplicar al club →" data-en="Apply to the club →">Aplicar al club →</a>
+        <a class="btn btn--ghost btn--lg" href="para-inversores.html" data-es="Sumarme como inversor" data-en="Join as an investor">Sumarme como inversor</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr" id="contacto">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div>
+        <span data-bac-logo="dark"></span>
+        <p data-es="Business Angels Club EmprendeIAE. Conectamos capital y talento emprendedor." data-en="Business Angels Club EmprendeIAE. We connect capital and entrepreneurial talent.">Business Angels Club EmprendeIAE. Conectamos capital y talento emprendedor.</p>
+      </div>
+      <div><h4 data-es="Club" data-en="Club">Club</h4>
+        <a href="#" data-es="Sobre el BAC" data-en="About BAC">Sobre el BAC</a>
+        <a href="#" data-es="Equipo" data-en="Team">Equipo</a>
+        <a href="#" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
+      </div>
+      <div><h4 data-es="Participar" data-en="Get involved">Participar</h4>
+        <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
+        <a href="para-inversores.html" data-es="Para inversores" data-en="For investors">Para inversores</a>
+        <a href="#" data-es="Eventos" data-en="Events">Eventos</a>
+      </div>
+      <div><h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+        <a href="#" data-es="hola@bac.iae" data-en="hola@bac.iae">hola@bac.iae</a>
+        <a href="#" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+        <a href="https://www.iae.edu.ar/minisitio/entrepreneurship/" target="_blank" rel="noopener" data-es="EmprendeIAE" data-en="EmprendeIAE">EmprendeIAE</a>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <span>© 2026 Business Angels Club · EmprendeIAE</span>
+      <span data-es="Buenos Aires, Argentina" data-en="Buenos Aires, Argentina">Buenos Aires, Argentina</span>
+      <span class="ftr__credit" data-es-html="Desarrollado por el equipo de <a href=&quot;https://www.orugga.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Orugga AI</a>" data-en-html="Built by the <a href=&quot;https://www.orugga.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Orugga AI</a> team">Desarrollado por el equipo de <a href="https://www.orugga.com" target="_blank" rel="noopener">Orugga AI</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="bac.js"></script>
+</body>
+</html>

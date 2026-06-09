@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BAC · Para inversores</title>
+<link rel="stylesheet" href="bac-core.css">
+<link rel="stylesheet" href="bac-chrome.css">
+<style>
+.F{ background:var(--noche); color:var(--niebla); min-height:100vh; display:flex; flex-direction:column; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); width:100%; }
+.glow{ position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0; }
+.eyebrowrow{ display:flex; align-items:center; gap:14px; margin-bottom:22px; position:relative; }
+.redrule{ width:46px; height:3px; background:var(--rojo); flex:none; }
+.k-eyebrow{ color:var(--violeta-300); }
+
+main{ flex:1; }
+section{ position:relative; }
+
+/* hero */
+.fhero{ position:relative; overflow:hidden; padding:clamp(54px,8vw,104px) 0 clamp(34px,5vw,56px); }
+.fhero .glow--1{ width:620px; height:620px; background:radial-gradient(circle,rgba(83,74,183,.5),transparent 62%); top:-240px; right:-140px; }
+.fhero .glow--2{ width:420px; height:420px; background:radial-gradient(circle,rgba(127,119,221,.28),transparent 62%); bottom:-200px; left:-160px; }
+.fhero__in{ position:relative; z-index:2; max-width:62ch; }
+.fhero h1{ font-size:clamp(2.5rem,5.6vw,4.4rem); color:#fff; max-width:16ch; }
+.fhero h1 em{ font-style:normal; background:linear-gradient(100deg,var(--violeta-300),var(--niebla)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.fhero__lead{ margin-top:24px; max-width:52ch; color:var(--violeta-200); font-size:clamp(1.05rem,1.5vw,1.24rem); line-height:1.55; }
+.fhero__cta{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+/* why (cards) */
+.thesis{ padding:clamp(56px,7vw,96px) 0; }
+.sec-head{ max-width:64ch; margin-bottom:48px; }
+.sec-head h2{ font-size:clamp(1.9rem,3.4vw,2.9rem); color:#fff; }
+.sec-head p{ margin-top:18px; font-size:1.1rem; line-height:1.55; color:var(--violeta-200); }
+.crit{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.crit__card{ border:1px solid rgba(159,143,232,.22); border-radius:18px; padding:30px 26px;
+  background:linear-gradient(180deg,rgba(127,119,221,.07),rgba(127,119,221,0)); display:flex; flex-direction:column; gap:10px; }
+.crit__k{ font-family:var(--font-display); font-weight:600; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--violeta-300); }
+.crit__v{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.3rem,2vw,1.7rem); color:#fff; line-height:1.1; }
+.crit__d{ font-size:.92rem; color:var(--violeta-200); line-height:1.5; }
+
+/* process (Polar contrast) */
+.contrast{ background:var(--polar); color:var(--tinta); padding:clamp(60px,8vw,104px) 0; }
+.contrast .k-eyebrow{ color:var(--violeta-600); }
+.contrast h2{ color:var(--indigo-700); }
+.contrast .sec-head p{ color:var(--gris); }
+.flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.fstep{ position:relative; padding-top:30px; }
+.fstep::before{ content:""; position:absolute; top:0; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--nexus),transparent); }
+.fstep__n{ font-family:var(--font-display); font-weight:700; font-size:.85rem; color:var(--nexus); }
+.fstep h3{ font-size:1.2rem; color:var(--indigo-700); margin-top:14px; }
+.fstep__when{ display:inline-block; margin-top:8px; font-family:var(--font-display); font-weight:600; font-size:.68rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--violeta-600); }
+.fstep p{ margin-top:12px; color:var(--gris); font-size:.95rem; line-height:1.5; }
+.model-note{ display:flex; align-items:center; gap:22px; margin-top:clamp(36px,4vw,48px);
+  padding:24px 30px; background:#fff; border:1px solid var(--polar-3); border-left:4px solid var(--nexus);
+  border-radius:14px; box-shadow:0 18px 44px -34px rgba(38,33,92,.5); }
+.model-note__wing{ width:46px; flex:none; }
+.model-note__text{ font-size:1.04rem; line-height:1.55; color:var(--tinta); }
+.model-note__text b{ color:var(--indigo-700); font-weight:600; font-family:var(--font-display); }
+
+/* metrics */
+.metrics{ padding:clamp(56px,7vw,96px) 0; }
+.mgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(159,143,232,.16);
+  border:1px solid rgba(159,143,232,.16); border-radius:18px; overflow:hidden; }
+.mgrid > div{ background:var(--noche); padding:30px 26px; }
+.mgrid dt{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.9rem,2.8vw,2.6rem); color:#fff; line-height:1; white-space:nowrap; }
+.mgrid dd{ margin:10px 0 0; font-size:.86rem; color:var(--violeta-300); line-height:1.4; }
+.metrics__note{ font-size:.78rem; color:var(--violeta-600); margin-top:16px; line-height:1.5; max-width:78ch; }
+
+/* faq */
+.faq{ padding:clamp(56px,7vw,96px) 0; }
+.faq__list{ border-top:1px solid rgba(159,143,232,.16); }
+.faq__item{ border-bottom:1px solid rgba(159,143,232,.16); }
+.faq__q{ width:100%; background:none; border:0; cursor:pointer; text-align:left; color:#fff;
+  font-family:var(--font-display); font-weight:600; font-size:clamp(1.05rem,1.6vw,1.24rem);
+  padding:24px 48px 24px 0; position:relative; display:block; }
+.faq__q::after{ content:"+"; position:absolute; right:6px; top:50%; transform:translateY(-50%);
+  font-weight:400; font-size:1.5rem; color:var(--violeta-300); transition:.25s; }
+.faq__item.is-open .faq__q::after{ transform:translateY(-50%) rotate(45deg); color:#fff; }
+.faq__a{ max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.2,.7,.2,1); }
+.faq__a p{ padding:0 48px 26px 0; color:var(--violeta-200); font-size:1rem; line-height:1.6; max-width:72ch; }
+
+/* closing */
+.closeF{ position:relative; overflow:hidden; text-align:center; padding:clamp(64px,8vw,120px) 0; }
+.closeF .glow--3{ width:560px; height:560px; background:radial-gradient(circle,rgba(83,74,183,.5),transparent 62%); top:-180px; left:50%; transform:translateX(-50%); }
+.closeF__in{ position:relative; z-index:2; }
+.closeF h2{ font-size:clamp(2.1rem,4.4vw,3.4rem); color:#fff; max-width:18ch; margin:0 auto; }
+.closeF p{ margin:22px auto 0; max-width:50ch; color:var(--violeta-200); font-size:1.12rem; line-height:1.55; }
+.closeF__cta{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; justify-content:center; }
+
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+
+@media (max-width:900px){
+  .crit{ grid-template-columns:1fr 1fr; } .flow{ grid-template-columns:1fr 1fr; } .mgrid{ grid-template-columns:repeat(3,1fr); }
+}
+@media (max-width:560px){
+  .crit{ grid-template-columns:1fr; } .flow{ grid-template-columns:1fr; } .mgrid{ grid-template-columns:1fr; }
+  .model-note{ flex-direction:column; align-items:flex-start; gap:14px; }
+}
+@media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; } }
+</style>
+</head>
+<body class="F">
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a href="index.html" data-bac-logo="dark" aria-label="BAC — inicio"></a>
+    <nav class="nav">
+      <a href="index.html#club" data-es="El club" data-en="The club">El club</a>
+      <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
+      <a href="para-inversores.html" aria-current="page" data-es="Para inversores" data-en="For investors">Para inversores</a>
+      <a href="portfolio.html" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
+      <a href="index.html#equipo" data-es="Equipo" data-en="Team">Equipo</a>
+      <div class="lang"><button data-lang-btn="es">ES</button><span>/</span><button data-lang-btn="en">EN</button></div>
+      <a class="btn btn--solid" href="#sumarme" data-es="Sumarme" data-en="Join">Sumarme</a>
+    </nav>
+    <button class="btn btn--ghost nav-toggle" data-nav-toggle=".nav" aria-label="Menú">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="fhero">
+    <span class="glow glow--1"></span>
+    <span class="glow glow--2"></span>
+    <div class="wrap">
+      <div class="fhero__in">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Para inversores" data-en="For investors">Para inversores</span></div>
+        <h1 data-es-html="Invertí en startups <em>junto</em> a quienes ya lo hacen." data-en-html="Invest in startups <em>alongside</em> those who already do.">Invertí en startups <em>junto</em> a quienes ya lo hacen.</h1>
+        <p class="fhero__lead" data-es="Deal flow curado, due diligence compartida y co-inversión flexible. Cada socio decide con capital propio; el club aporta la estructura y la experiencia colectiva." data-en="Curated deal flow, shared due diligence, and flexible co-investment. Each member decides with their own capital; the club brings the structure and collective experience.">Deal flow curado, due diligence compartida y co-inversión flexible. Cada socio decide con capital propio; el club aporta la estructura y la experiencia colectiva.</p>
+        <div class="fhero__cta">
+          <a class="btn btn--solid btn--lg" href="#sumarme" data-es="Sumarme al club →" data-en="Join the club →">Sumarme al club →</a>
+          <a class="btn btn--ghost btn--lg" href="portfolio.html" data-es="Ver el portfolio" data-en="See the portfolio">Ver el portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="thesis">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Por qué el BAC" data-en="Why the BAC">Por qué el BAC</span></div>
+        <h2 data-es="La experiencia del club, de tu lado." data-en="The club's experience, on your side.">La experiencia del club, de tu lado.</h2>
+        <p data-es="No invertís en soledad. Accedés a oportunidades filtradas, compartís el análisis y entrás con la flexibilidad que quieras." data-en="You don't invest alone. You get filtered opportunities, share the analysis, and invest with the flexibility you want.">No invertís en soledad. Accedés a oportunidades filtradas, compartís el análisis y entrás con la flexibilidad que quieras.</p>
+      </div>
+      <div class="crit reveal">
+        <div class="crit__card">
+          <span class="crit__k" data-es="Deal flow" data-en="Deal flow">Deal flow</span>
+          <span class="crit__v" data-es="Curado" data-en="Curated">Curado</span>
+          <span class="crit__d" data-es="Más de 60 startups evaluadas al año. Llegan filtradas y se presentan en vivo." data-en="More than 60 startups evaluated per year. They arrive filtered and pitch live.">Más de 60 startups evaluadas al año. Llegan filtradas y se presentan en vivo.</span>
+        </div>
+        <div class="crit__card">
+          <span class="crit__k" data-es="Co-inversión" data-en="Co-investment">Co-inversión</span>
+          <span class="crit__v" data-es="Flexible" data-en="Flexible">Flexible</span>
+          <span class="crit__d" data-es="Entrás en las rondas que te interesan, sin mínimos rígidos." data-en="You join the rounds that interest you, with no rigid minimums.">Entrás en las rondas que te interesan, sin mínimos rígidos.</span>
+        </div>
+        <div class="crit__card">
+          <span class="crit__k" data-es="Decisión" data-en="Decision">Decisión</span>
+          <span class="crit__v" data-es="Tuya" data-en="Yours">Tuya</span>
+          <span class="crit__d" data-es="Cada socio elige en qué invertir y con cuánto. El club no decide por vos." data-en="Each member chooses what to invest in and how much. The club doesn't decide for you.">Cada socio elige en qué invertir y con cuánto. El club no decide por vos.</span>
+        </div>
+        <div class="crit__card">
+          <span class="crit__k" data-es="Comunidad" data-en="Community">Comunidad</span>
+          <span class="crit__v" data-es="+80 socios" data-en="+80 members">+80 socios</span>
+          <span class="crit__d" data-es="Pares que ya construyeron, invirtieron y operaron compañías." data-en="Peers who have already built, invested in, and operated companies.">Pares que ya construyeron, invirtieron y operaron compañías.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="contrast">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Cómo funciona" data-en="How it works">Cómo funciona</span></div>
+        <h2 data-es="De socio a inversión, paso a paso." data-en="From member to investment, step by step.">De socio a inversión, paso a paso.</h2>
+        <p data-es="Te sumás una vez y empezás a recibir oportunidades. Cada decisión es tuya." data-en="You join once and start receiving opportunities. Every decision is yours.">Te sumás una vez y empezás a recibir oportunidades. Cada decisión es tuya.</p>
+      </div>
+      <div class="flow">
+        <div class="fstep reveal">
+          <span class="fstep__n">01</span>
+          <h3 data-es="Te sumás" data-en="You join">Te sumás</h3>
+          <span class="fstep__when" data-es="Como socio" data-en="As a member">Como socio</span>
+          <p data-es="Te incorporás a la red de socios inversores del BAC y empezás a recibir el deal flow del club." data-en="You join the BAC's network of investor members and start receiving the club's deal flow.">Te incorporás a la red de socios inversores del BAC y empezás a recibir el deal flow del club.</p>
+        </div>
+        <div class="fstep reveal">
+          <span class="fstep__n">02</span>
+          <h3 data-es="Recibís el deal flow" data-en="You get the deal flow">Recibís el deal flow</h3>
+          <span class="fstep__when" data-es="Curado" data-en="Curated">Curado</span>
+          <p data-es="Las startups seleccionadas se presentan en vivo. Recibís la información para evaluar cada oportunidad." data-en="The selected startups pitch live. You get the information to evaluate each opportunity.">Las startups seleccionadas se presentan en vivo. Recibís la información para evaluar cada oportunidad.</p>
+        </div>
+        <div class="fstep reveal">
+          <span class="fstep__n">03</span>
+          <h3 data-es="Evaluás" data-en="You evaluate">Evaluás</h3>
+          <span class="fstep__when" data-es="Análisis compartido" data-en="Shared analysis">Análisis compartido</span>
+          <p data-es="Due diligence en conjunto: el equipo y otros socios suman su mirada y experiencia al análisis." data-en="Joint due diligence: the team and other members add their perspective and experience to the analysis.">Due diligence en conjunto: el equipo y otros socios suman su mirada y experiencia al análisis.</p>
+        </div>
+        <div class="fstep reveal">
+          <span class="fstep__n">04</span>
+          <h3 data-es="Co-invertís" data-en="You co-invest">Co-invertís</h3>
+          <span class="fstep__when" data-es="Sindicado" data-en="Syndicated">Sindicado</span>
+          <p data-es="Entrás con el monto que definas. Se sindica el ticket entre los socios interesados y se firma." data-en="You invest the amount you decide. The ticket gets syndicated among interested members and you sign.">Entrás con el monto que definas. Se sindica el ticket entre los socios interesados y se firma.</p>
+        </div>
+      </div>
+      <div class="model-note reveal">
+        <div data-bac-wing="light" class="model-note__wing"></div>
+        <p class="model-note__text" data-es-html="<b>El BAC no administra un fondo.</b> Cada socio invierte con capital propio y de forma individual. El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento." data-en-html="<b>The BAC does not manage a fund.</b> Each member invests individually, with their own capital. The Club structures the process, facilitates syndication, and sustains the follow-up."><b>El BAC no administra un fondo.</b> Cada socio invierte con capital propio y de forma individual. El Club estructura el proceso, facilita la sindicación y sostiene el seguimiento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section class="metrics">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="El club en números" data-en="The club in numbers">El club en números</span></div>
+        <h2 data-es="Una red que ya está invirtiendo." data-en="A network that's already investing.">Una red que ya está invirtiendo.</h2>
+      </div>
+      <dl class="mgrid reveal">
+        <div><dt>80</dt><dd data-es="Socios inversores activos" data-en="Active investor members">Socios inversores activos</dd></div>
+        <div><dt>US$2M+</dt><dd data-es="Capital invertido" data-en="Capital invested">Capital invertido</dd></div>
+        <div><dt>+80</dt><dd data-es="Startups evaluadas en 2025" data-en="Startups evaluated in 2025">Startups evaluadas en 2025</dd></div>
+      </dl>
+      <p class="metrics__note" data-es="Datos del club de septiembre 2023 a febrero 2026." data-en="Club data from September 2023 to February 2026.">Datos del club de septiembre 2023 a febrero 2026.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</span></div>
+        <h2 data-es="Lo que casi siempre nos preguntan." data-en="What we get asked most.">Lo que casi siempre nos preguntan.</h2>
+      </div>
+      <div class="faq__list reveal">
+        <div class="faq__item">
+          <button class="faq__q" data-faq data-es="¿Tengo que invertir en todo lo que se presenta?" data-en="Do I have to invest in everything presented?">¿Tengo que invertir en todo lo que se presenta?</button>
+          <div class="faq__a"><p data-es="No. Cada socio elige en qué entrar y con cuánto. No hay obligación de invertir en ninguna ronda: vos decidís oportunidad por oportunidad." data-en="No. Each member chooses what to invest in and how much. There's no obligation to invest in any round: you decide opportunity by opportunity.">No. Cada socio elige en qué entrar y con cuánto. No hay obligación de invertir en ninguna ronda: vos decidís oportunidad por oportunidad.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" data-faq data-es="¿El BAC administra mi dinero?" data-en="Does the BAC manage my money?">¿El BAC administra mi dinero?</button>
+          <div class="faq__a"><p data-es="No. El BAC no administra un fondo. Cada socio invierte con capital propio y de forma individual; el club estructura el proceso, facilita la sindicación del ticket y sostiene el seguimiento." data-en="No. The BAC does not manage a fund. Each member invests individually with their own capital; the club structures the process, facilitates ticket syndication, and sustains the follow-up.">No. El BAC no administra un fondo. Cada socio invierte con capital propio y de forma individual; el club estructura el proceso, facilita la sindicación del ticket y sostiene el seguimiento.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" data-faq data-es="¿Hay un ticket mínimo?" data-en="Is there a minimum ticket?">¿Hay un ticket mínimo?</button>
+          <div class="faq__a"><p data-es="La co-inversión es flexible, sin mínimos rígidos. El ticket promedio por inversor ronda los US$12k, pero vos definís tu monto en cada ronda." data-en="Co-investment is flexible, with no rigid minimums. The average ticket per investor is around US$12k, but you set your amount in each round.">La co-inversión es flexible, sin mínimos rígidos. El ticket promedio por inversor ronda los US$12k, pero vos definís tu monto en cada ronda.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" data-faq data-es="¿Cómo se eligen las startups?" data-en="How are the startups chosen?">¿Cómo se eligen las startups?</button>
+          <div class="faq__a"><p data-es="Llegan por el deal flow del club (+80 al año), pasan un screening del equipo y solo las seleccionadas se presentan en vivo a los socios." data-en="They come through the club's deal flow (80+ per year), pass a screening by the team, and only the selected ones pitch live to members.">Llegan por el deal flow del club (+80 al año), pasan un screening del equipo y solo las seleccionadas se presentan en vivo a los socios.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" data-faq data-es="¿Quiénes son los demás socios?" data-en="Who are the other members?">¿Quiénes son los demás socios?</button>
+          <div class="faq__a"><p data-es="Una comunidad de +80 personas que ya construyeron, invirtieron y operaron compañías, con el respaldo de EmprendeIAE y su red del ecosistema emprendedor." data-en="A community of 80+ people who have already built, invested in, and operated companies, backed by EmprendeIAE and its entrepreneurial-ecosystem network.">Una comunidad de +80 personas que ya construyeron, invirtieron y operaron compañías, con el respaldo de EmprendeIAE y su red del ecosistema emprendedor.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section id="sumarme" class="closeF">
+    <span class="glow glow--3"></span>
+    <div class="wrap closeF__in reveal">
+      <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow" data-es="Sumate a la red" data-en="Join the network">Sumate a la red</span></div>
+      <h2 data-es="Invertí donde otros ya están construyendo." data-en="Invest where others are already building.">Invertí donde otros ya están construyendo.</h2>
+      <p data-es="Sumate como socio inversor del BAC y empezá a recibir oportunidades curadas." data-en="Join the BAC as an investor member and start receiving curated opportunities.">Sumate como socio inversor del BAC y empezá a recibir oportunidades curadas.</p>
+      <div class="closeF__cta">
+        <a class="btn btn--solid btn--lg" href="#" data-es="Sumarme como socio →" data-en="Join as a member →">Sumarme como socio →</a>
+        <a class="btn btn--ghost btn--lg" href="#" data-es="Hablar con el equipo" data-en="Talk to the team">Hablar con el equipo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div>
+        <span data-bac-logo="dark"></span>
+        <p data-es="Business Angels Club EmprendeIAE. Conectamos capital y talento emprendedor." data-en="Business Angels Club EmprendeIAE. We connect capital and entrepreneurial talent.">Business Angels Club EmprendeIAE. Conectamos capital y talento emprendedor.</p>
+      </div>
+      <div><h4 data-es="Club" data-en="Club">Club</h4>
+        <a href="index.html#club" data-es="Sobre el BAC" data-en="About BAC">Sobre el BAC</a>
+        <a href="index.html#equipo" data-es="Equipo" data-en="Team">Equipo</a>
+        <a href="portfolio.html" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
+      </div>
+      <div><h4 data-es="Participar" data-en="Get involved">Participar</h4>
+        <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
+        <a href="para-inversores.html" data-es="Para inversores" data-en="For investors">Para inversores</a>
+        <a href="#" data-es="Eventos" data-en="Events">Eventos</a>
+      </div>
+      <div><h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+        <a href="#" data-es="hola@bac.iae" data-en="hola@bac.iae">hola@bac.iae</a>
+        <a href="#" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+        <a href="https://www.iae.edu.ar/minisitio/entrepreneurship/" target="_blank" rel="noopener" data-es="EmprendeIAE" data-en="EmprendeIAE">EmprendeIAE</a>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <span>© 2026 Business Angels Club · EmprendeIAE</span>
+      <span data-es="Buenos Aires, Argentina" data-en="Buenos Aires, Argentina">Buenos Aires, Argentina</span>
+      <span class="ftr__credit" data-es-html="Desarrollado por el equipo de <a href=&quot;https://www.orugga.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Orugga AI</a>" data-en-html="Built by the <a href=&quot;https://www.orugga.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Orugga AI</a> team">Desarrollado por el equipo de <a href="https://www.orugga.com" target="_blank" rel="noopener">Orugga AI</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="bac.js"></script>
+<script>
+/* FAQ accordion — page-local, complements bac.js */
+document.querySelectorAll('[data-faq]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.faq__item');
+    var ans = item.querySelector('.faq__a');
+    var open = item.classList.toggle('is-open');
+    ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0px';
+  });
+});
+</script>
+</body>
+</html>

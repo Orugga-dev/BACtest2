@@ -1,0 +1,60 @@
+/* ============================================================
+   BAC · shared chrome — header + footer + buttons
+   Identical across the home and all section pages.
+   Load AFTER bac-core.css and BEFORE the page's own <style>.
+   ============================================================ */
+
+/* ---------------- header ---------------- */
+.hdr{ position:sticky; top:0; z-index:50; background:rgba(26,16,37,.72);
+  backdrop-filter:blur(16px); border-bottom:1px solid rgba(159,143,232,.14); }
+.hdr__in{ display:flex; align-items:center; gap:32px; height:78px; max-width:var(--maxw);
+  margin:0 auto; padding-inline:var(--gutter); }
+.hdr [data-bac-logo]{ width:152px; flex:none; }
+.nav{ display:flex; align-items:center; gap:28px; margin-left:auto; }
+.nav a{ font-weight:500; font-size:.92rem; color:var(--niebla); text-decoration:none; opacity:.78; transition:.2s; }
+.nav a:hover{ opacity:1; color:#fff; }
+.nav a[aria-current]{ opacity:1; color:#fff; }
+.lang{ display:flex; gap:2px; align-items:center; font-family:var(--font-display); font-size:.74rem; font-weight:600; }
+.lang button{ background:none; border:0; cursor:pointer; color:var(--violeta-300); padding:4px 6px; border-radius:6px; }
+.lang button[aria-pressed="true"]{ color:var(--noche); background:var(--niebla); }
+.lang span{ color:var(--violeta-600); }
+
+/* ---------------- buttons ---------------- */
+.btn{ font-family:var(--font-display); font-weight:600; font-size:.9rem; display:inline-flex; align-items:center;
+  gap:.5em; padding:.72em 1.25em; border-radius:999px; text-decoration:none; cursor:pointer;
+  border:1.5px solid transparent; transition:.2s; white-space:nowrap; }
+.btn--solid{ background:var(--nexus); color:#fff; }
+.btn--solid:hover{ background:var(--violeta-600); }
+.btn--ghost{ border-color:rgba(159,143,232,.45); color:var(--niebla); }
+.btn--ghost:hover{ border-color:var(--nexus); color:#fff; background:rgba(127,119,221,.12); }
+.btn--lg{ padding:.95em 1.7em; font-size:1rem; }
+.nav-toggle{ display:none; }
+
+/* ---------------- footer ---------------- */
+.ftr{ border-top:1px solid rgba(159,143,232,.16); padding:60px 0 36px; }
+.ftr .wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
+.ftr__top{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; }
+.ftr [data-bac-logo]{ width:182px; }
+.ftr__top p{ margin-top:18px; font-size:.92rem; line-height:1.6; color:var(--violeta-200); max-width:30ch; }
+.ftr h4{ font-family:var(--font-display); font-weight:600; font-size:.78rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--violeta-300); margin:0 0 16px; }
+.ftr a{ display:block; color:var(--niebla); text-decoration:none; font-size:.95rem; padding:6px 0; opacity:.85; }
+.ftr a:hover{ opacity:1; color:#fff; }
+.ftr__bot{ display:flex; justify-content:space-between; gap:16px 28px; margin-top:48px; padding-top:24px;
+  border-top:1px solid rgba(159,143,232,.16); font-size:.82rem; color:var(--violeta-300); flex-wrap:wrap; }
+.ftr__bot a{ display:inline; color:var(--niebla); text-decoration:underline; text-underline-offset:2px; }
+.ftr__bot a:hover{ color:#fff; }
+
+/* ---------------- responsive ---------------- */
+@media (max-width:900px){
+  .nav{ display:none; position:absolute; top:78px; left:0; right:0; flex-direction:column; align-items:flex-start;
+    gap:4px; margin-left:0; padding:16px var(--gutter) 26px; background:rgba(26,16,37,.98);
+    border-bottom:1px solid rgba(159,143,232,.16); backdrop-filter:blur(16px); }
+  .nav.is-open{ display:flex; }
+  .nav a{ font-size:1.05rem; padding:9px 0; }
+  .nav .lang{ margin-top:10px; }
+  .nav .btn{ margin-top:10px; }
+  .nav-toggle{ display:inline-flex; margin-left:auto; }
+  .ftr__top{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:560px){ .ftr__top{ grid-template-columns:1fr; } }

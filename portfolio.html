@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BAC · Portfolio</title>
+<link rel="stylesheet" href="bac-core.css">
+<link rel="stylesheet" href="bac-chrome.css">
+<style>
+.P{ background:var(--noche); color:var(--niebla); min-height:100vh; display:flex; flex-direction:column; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); width:100%; }
+
+/* (header + buttons → bac-chrome.css) */
+
+/* hero */
+.phero{ position:relative; overflow:hidden; padding:clamp(48px,7vw,86px) 0 clamp(28px,4vw,44px); }
+.glow{ position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none;
+  width:520px; height:520px; background:radial-gradient(circle,rgba(83,74,183,.42),transparent 62%);
+  top:-220px; right:-120px; }
+.eyebrowrow{ display:flex; align-items:center; gap:14px; margin-bottom:22px; position:relative; }
+.redrule{ width:46px; height:3px; background:var(--rojo); }
+.k-eyebrow{ color:var(--violeta-300); }
+.phero h1{ font-size:clamp(2.4rem,5vw,3.7rem); color:#fff; max-width:17ch; position:relative; }
+.phero p{ margin-top:18px; max-width:56ch; color:var(--violeta-200); font-size:1.14rem; line-height:1.55; position:relative; }
+
+/* indicators */
+.ind{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(159,143,232,.16);
+  border:1px solid rgba(159,143,232,.16); border-radius:18px; overflow:hidden; margin-top:clamp(34px,5vw,52px); }
+.ind > div{ background:var(--noche); padding:28px 26px; }
+.ind dt{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.8rem,2.6vw,2.5rem); color:#fff; line-height:1; white-space:nowrap; }
+.ind dt.dt--range{ font-size:clamp(1.45rem,2vw,1.95rem); letter-spacing:-.01em; }
+.ind dd{ margin:9px 0 0; font-size:.84rem; color:var(--violeta-300); line-height:1.4; }
+.ind-note{ font-size:.72rem; color:var(--violeta-600); margin-top:12px; text-align:right; }
+
+/* filters */
+.fbar{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:clamp(48px,6vw,72px) 0 26px; }
+.fbar__label{ font-family:var(--font-display); font-weight:600; font-size:.72rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gris); margin-right:6px; }
+.chip{ font-family:var(--font-body); font-weight:500; font-size:.88rem; color:var(--niebla);
+  background:transparent; border:1px solid rgba(159,143,232,.28); padding:7px 15px; border-radius:999px;
+  cursor:pointer; transition:.18s; }
+.chip:hover{ border-color:var(--nexus); color:#fff; }
+.chip.is-active{ background:var(--nexus); border-color:var(--nexus); color:#fff; }
+
+/* companies grid */
+.cos{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.co{ display:flex; flex-direction:column; text-decoration:none; border:1px solid rgba(159,143,232,.22);
+  border-radius:18px; overflow:hidden; background:linear-gradient(180deg,rgba(127,119,221,.06),rgba(127,119,221,0));
+  transition:.25s; }
+.co:hover{ border-color:var(--nexus); transform:translateY(-3px); box-shadow:0 26px 50px -36px rgba(83,74,183,.6); }
+.co.is-hidden{ display:none; }
+.co__logo{ height:124px; display:flex; align-items:center; justify-content:center; gap:13px; padding:20px 24px;
+  border-bottom:1px solid rgba(159,143,232,.16); background:#fff; }
+.co__logoimg{ height:50px; width:auto; max-width:64%; object-fit:contain; }
+.co__logoimg--wide{ height:34px; max-width:82%; }
+.co__logoimg--tile{ height:74px; border-radius:14px; }
+.co__logoimg--tall{ height:84px; max-width:72%; }
+.co__lockimg{ height:46px; width:auto; flex:none; object-fit:contain; }
+.co__lockimg--tile{ height:42px; border-radius:10px; }
+.co__logoname{ font-family:var(--font-display); font-weight:600; font-size:1.2rem; color:var(--indigo-700); letter-spacing:-.01em; line-height:1.05; text-wrap:balance; }
+.co__mark{ font-family:var(--font-display); font-weight:700; font-size:1.45rem; color:var(--indigo-700); text-align:center; letter-spacing:-.01em; line-height:1.1; }
+.co__meta{ padding:18px 20px; display:flex; flex-direction:column; gap:7px; flex:1; }
+.co__tags{ display:flex; flex-wrap:wrap; gap:6px; align-self:flex-start; }
+.co__tag{ font-family:var(--font-display); font-weight:600; font-size:.62rem;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--violeta-300); white-space:nowrap;
+  border:1px solid rgba(159,143,232,.3); padding:4px 9px; border-radius:999px; }
+.co__dom{ font-family:'Space Mono',ui-monospace,monospace; font-size:.78rem; color:var(--gris); margin-top:auto; }
+.co__visit{ display:flex; align-items:center; justify-content:space-between; padding:13px 20px;
+  border-top:1px solid rgba(159,143,232,.14); font-family:var(--font-display); font-weight:600;
+  font-size:.82rem; color:var(--violeta-300); }
+.co:hover .co__visit{ color:#fff; }
+.notes{ font-size:.82rem; color:var(--violeta-600); margin-top:22px; line-height:1.5; }
+
+/* featured case */
+.feat{ margin-top:clamp(56px,7vw,96px); display:grid; grid-template-columns:1fr 1fr; gap:0;
+  border:1px solid rgba(159,143,232,.22); border-radius:24px; overflow:hidden; }
+.feat__media{ position:relative; min-height:320px;
+  background:repeating-linear-gradient(45deg,rgba(159,143,232,.1) 0 12px,rgba(159,143,232,0) 12px 24px), #221634;
+  display:flex; align-items:center; justify-content:center; }
+.feat__mark{ font-family:var(--font-display); font-weight:700; font-size:2.4rem; color:#fff; }
+.feat__body{ padding:clamp(34px,4vw,56px); display:flex; flex-direction:column; }
+.feat__tag{ font-family:var(--font-display); font-weight:600; font-size:.72rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--violeta-300); }
+.feat__body h2{ font-size:clamp(1.7rem,3vw,2.4rem); color:#fff; margin-top:14px; }
+.feat__body p{ margin-top:14px; color:var(--violeta-200); line-height:1.55; }
+.feat__metrics{ display:flex; gap:32px; margin-top:auto; padding-top:30px; flex-wrap:wrap; }
+.feat__metrics dt{ font-family:var(--font-display); font-weight:700; font-size:1.8rem; color:#fff; line-height:1; }
+.feat__metrics dd{ margin:5px 0 0; font-size:.8rem; color:var(--violeta-300); }
+
+/* closing CTA */
+.cta{ margin:clamp(56px,7vw,96px) 0; border-radius:24px; padding:clamp(40px,5vw,64px);
+  background:linear-gradient(150deg,var(--indigo-700),var(--noche)); border:1px solid rgba(159,143,232,.22);
+  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; }
+.cta h2{ font-size:clamp(1.6rem,3vw,2.3rem); color:#fff; max-width:20ch; }
+.cta__btns{ display:flex; gap:12px; flex-wrap:wrap; }
+
+/* footer */
+.ftr{ margin-top:auto; }  /* full footer styles → bac-chrome.css */
+
+.reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+
+@media (max-width:860px){
+  .ind{ grid-template-columns:1fr 1fr; } .cos{ grid-template-columns:1fr 1fr; }
+  .feat{ grid-template-columns:1fr; } .feat__media{ min-height:200px; }
+}
+@media (max-width:540px){ .ind{ grid-template-columns:1fr 1fr; } .cos{ grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; } }
+</style>
+</head>
+<body class="P">
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a href="index.html" data-bac-logo="dark" aria-label="BAC — inicio"></a>
+    <nav class="nav">
+      <a href="index.html#club" data-es="El club" data-en="The club">El club</a>
+      <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
+      <a href="para-inversores.html" data-es="Para inversores" data-en="For investors">Para inversores</a>
+      <a href="portfolio.html" aria-current="page" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
+      <a href="index.html#equipo" data-es="Equipo" data-en="Team">Equipo</a>
+      <div class="lang"><button data-lang-btn="es">ES</button><span>/</span><button data-lang-btn="en">EN</button></div>
+      <a class="btn btn--solid" href="index.html#aplicar" data-es="Aplicar" data-en="Apply">Aplicar</a>
+    </nav>
+    <button class="btn btn--ghost nav-toggle" data-nav-toggle=".nav" aria-label="Menú">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="phero">
+    <span class="glow"></span>
+    <div class="wrap">
+      <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Portfolio" data-en="Portfolio">Portfolio</span></div>
+      <h1 data-es="Compañías invertidas por el BAC." data-en="Companies the BAC has invested in.">Compañías invertidas por el BAC.</h1>
+      <p data-es="Startups que recibieron capital de nuestros socios desde septiembre de 2023. Cada inversión es individual; el BAC estructura, sindica y acompaña. Datos a febrero 2026." data-en="Startups that received capital from our members since September 2023. Each investment is individual; the BAC structures, syndicates, and supports. Data as of February 2026.">Startups que recibieron capital de nuestros socios desde septiembre de 2023. Cada inversión es individual; el BAC estructura, sindica y acompaña. Datos a febrero 2026.</p>
+
+      <dl class="ind reveal">
+        <div><dt>12</dt><dd data-es="Compañías invertidas" data-en="Companies funded">Compañías invertidas</dd></div>
+        <div><dt>US$2M+</dt><dd data-es="Capital invertido" data-en="Capital invested">Capital invertido</dd></div>
+        <div><dt class="dt--range">US$100 a 200k</dt><dd data-es="Ticket promedio por compañía" data-en="Average ticket per company">Ticket promedio por compañía</dd></div>
+        <div><dt>7</dt><dd data-es="Invertidas en 2025" data-en="Funded in 2025">Invertidas en 2025</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FILTER + GRID -->
+  <section>
+    <div class="wrap">
+      <div class="cos reveal">
+        <a class="co" data-sector="consumo" href="https://www.chocorisimo.com/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__logoimg co__logoimg--wide" src="assets/logo-chocorisimo.png" alt="Chocorísimo"></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">Food &amp; Beverage</span><span class="co__tag">Consumer Packaged Goods</span></div><span class="co__dom">chocorisimo.com</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="sustentabilidad" href="https://wecircular.co/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__lockimg" src="assets/logo-wecircular.png" alt="WeCircular"><span class="co__logoname">WeCircular</span></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">CleanTech</span><span class="co__tag">Advanced Materials</span></div><span class="co__dom">wecircular.co</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="consumo" href="https://www.chillit.com" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__logoimg co__logoimg--wide" src="assets/logo-chillit.png" alt="Chill it"></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">CleanTech</span><span class="co__tag">Deep Tech</span></div><span class="co__dom">chillit.com</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="energia" href="https://dynami-battery.com/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__lockimg" src="assets/logo-dynami.png" alt="Dynami"><span class="co__logoname">Dynami</span></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">CleanTech</span><span class="co__tag">Deep Tech</span></div><span class="co__dom">dynami-battery.com</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="salud" href="https://www.xspheres.com/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__lockimg" src="assets/logo-spherebio.png" alt="SphereBio"><span class="co__logoname">SphereBio</span></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">Biotech</span><span class="co__tag">HealthTech</span></div><span class="co__dom">xspheres.com</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="proptech" href="https://siloreal.com/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__logoimg co__logoimg--tile" src="assets/logo-siloreal.png" alt="Silo Real"></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">AgriFintech</span><span class="co__tag">RWA Infrastructure</span></div><span class="co__dom">siloreal.com</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="software" href="https://home.ldptech.ai/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__lockimg co__lockimg--tile" src="assets/logo-ldp.jpg" alt="LDP Tech"><span class="co__logoname">LDP Tech</span></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">SportsTech</span><span class="co__tag">AI SaaS</span></div><span class="co__dom">ldptech.ai</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="salud" href="https://oncoprecision.bio/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__lockimg" src="assets/logo-oncoprecision.png" alt="OncoPrecision"><span class="co__logoname">OncoPrecision</span></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">Biotech</span><span class="co__tag">HealthTech</span></div><span class="co__dom">oncoprecision.bio</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="software" href="https://zite.co/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__lockimg co__lockimg--tile" src="assets/logo-zite.jpg" alt="Zite"><span class="co__logoname">Zite</span></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">FinTech</span><span class="co__tag">WealthTech</span></div><span class="co__dom">zite.co</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="software" href="https://teramot.com/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__logoimg co__logoimg--wide" src="assets/logo-teramot.png" alt="Teramot"></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">AI Infrastructure</span><span class="co__tag">Enterprise SaaS</span></div><span class="co__dom">teramot.com</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <a class="co" data-sector="sustentabilidad" href="https://www.satellitesonfire.com/" target="_blank" rel="noopener">
+          <div class="co__logo"><img class="co__logoimg co__logoimg--wide" src="assets/logo-satellitesonfire.png" alt="Satellites on Fire"></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">CleanTech</span><span class="co__tag">Disaster Prevention Tech</span></div><span class="co__dom">satellitesonfire.com</span></div>
+          <span class="co__visit"><span data-es="Visitar sitio" data-en="Visit site">Visitar sitio</span><span>↗</span></span>
+        </a>
+        <div class="co">
+          <div class="co__logo"><img class="co__logoimg co__logoimg--tall" src="assets/logo-ladolfina.png" alt="La Dolfina Polo Café"></div>
+          <div class="co__meta"><div class="co__tags"><span class="co__tag">Food &amp; Beverage</span><span class="co__tag">Hospitality</span></div></div>
+          <span class="co__visit"><span data-es="Sitio próximamente" data-en="Site coming soon">Sitio próximamente</span></span>
+        </div>
+      </div>
+      <p class="notes" data-es="Faltan año de inversión y ticket por compañía — los sumamos cuando los confirmes." data-en="Investment year and ticket per company are pending — we'll add them once confirmed.">Faltan año de inversión y ticket por compañía — los sumamos cuando los confirmes.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2 data-es="¿Tu compañía podría ser la próxima?" data-en="Could your company be next?">¿Tu compañía podría ser la próxima?</h2>
+        <div class="cta__btns">
+          <a class="btn btn--solid btn--lg" href="para-fundadores.html#aplicar" data-es="Aplicar al club →" data-en="Apply to the club →">Aplicar al club →</a>
+          <a class="btn btn--ghost btn--lg" href="para-inversores.html" data-es="Invertir con el BAC" data-en="Invest with the BAC">Invertir con el BAC</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div>
+        <span data-bac-logo="dark"></span>
+        <p data-es="Business Angels Club EmprendeIAE. Conectamos capital y talento emprendedor." data-en="Business Angels Club EmprendeIAE. We connect capital and entrepreneurial talent.">Business Angels Club EmprendeIAE. Conectamos capital y talento emprendedor.</p>
+      </div>
+      <div><h4 data-es="Club" data-en="Club">Club</h4>
+        <a href="index.html#club" data-es="Sobre el BAC" data-en="About BAC">Sobre el BAC</a>
+        <a href="index.html#equipo" data-es="Equipo" data-en="Team">Equipo</a>
+        <a href="portfolio.html" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
+      </div>
+      <div><h4 data-es="Participar" data-en="Get involved">Participar</h4>
+        <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
+        <a href="para-inversores.html" data-es="Para inversores" data-en="For investors">Para inversores</a>
+        <a href="#" data-es="Eventos" data-en="Events">Eventos</a>
+      </div>
+      <div><h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+        <a href="#" data-es="hola@bac.iae" data-en="hola@bac.iae">hola@bac.iae</a>
+        <a href="#" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+        <a href="https://www.iae.edu.ar/minisitio/entrepreneurship/" target="_blank" rel="noopener" data-es="EmprendeIAE" data-en="EmprendeIAE">EmprendeIAE</a>
+      </div>
+    </div>
+    <div class="ftr__bot">
+      <span>© 2026 Business Angels Club · EmprendeIAE</span>
+      <span data-es="Buenos Aires, Argentina" data-en="Buenos Aires, Argentina">Buenos Aires, Argentina</span>
+      <span class="ftr__credit" data-es-html="Desarrollado por el equipo de <a href=&quot;https://www.orugga.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Orugga AI</a>" data-en-html="Built by the <a href=&quot;https://www.orugga.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Orugga AI</a> team">Desarrollado por el equipo de <a href="https://www.orugga.com" target="_blank" rel="noopener">Orugga AI</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="bac.js"></script>
+</body>
+</html>
