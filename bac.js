@@ -90,10 +90,12 @@
   /* ---------- mobile nav ---------- */
   function initNav(){
     document.querySelectorAll('[data-nav-toggle]').forEach(function(btn){
+      btn.setAttribute('aria-expanded', 'false');
       btn.addEventListener('click', function(){
         var nav = document.querySelector(btn.getAttribute('data-nav-toggle'));
-        if(nav) nav.classList.toggle('is-open');
-        btn.classList.toggle('is-open');
+        var isOpen = nav ? nav.classList.toggle('is-open') : btn.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     });
   }
