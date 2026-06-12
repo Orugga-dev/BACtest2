@@ -340,9 +340,9 @@ section{ position:relative; }
     <div class="wrap closeF__in reveal">
 
       <div class="closeF__head">
-        <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow">Sumate a la red</span></div>
-        <h2>Invertí donde otros ya están construyendo.</h2>
-        <p class="closeF__lead">Completá el formulario y el equipo del BAC se pone en contacto para contarte más sobre la membresía.</p>
+        <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow" data-es="Sumate a la red" data-en="Join the network">Sumate a la red</span></div>
+        <h2 data-es="Invertí donde otros ya están construyendo." data-en="Invest where others are already building.">Invertí donde otros ya están construyendo.</h2>
+        <p class="closeF__lead" data-es="Completá el formulario y el equipo del BAC se pone en contacto para contarte más sobre la membresía." data-en="Fill out the form and the BAC team will get in touch to tell you more about membership.">Completá el formulario y el equipo del BAC se pone en contacto para contarte más sobre la membresía.</p>
       </div>
 
       <div class="ivf" id="ivf">
@@ -350,8 +350,8 @@ section{ position:relative; }
         <!-- Success -->
         <div id="ivf-success" style="display:none;" class="ivf__success">
           <div class="ivf__success__icon">✓</div>
-          <h3>¡Solicitud recibida!</h3>
-          <p>Gracias por tu interés. El equipo del BAC te va a contactar en los próximos días.</p>
+          <h3 data-es="¡Solicitud recibida!" data-en="Request received!">¡Solicitud recibida!</h3>
+          <p data-es="Gracias por tu interés. El equipo del BAC te va a contactar en los próximos días." data-en="Thanks for your interest. The BAC team will get in touch with you shortly.">Gracias por tu interés. El equipo del BAC te va a contactar en los próximos días.</p>
         </div>
 
         <form id="ivf-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
@@ -362,25 +362,25 @@ section{ position:relative; }
           <input type="hidden" name="botcheck" value="" style="display:none">
 
           <div class="ivf__card">
-            <p class="ivf__section-label">Datos de contacto</p>
+            <p class="ivf__section-label" data-es="Datos de contacto" data-en="Contact details">Datos de contacto</p>
             <div class="ifg ifg--2">
               <div class="ifl">
-                <label for="iv-first">Nombre *</label>
+                <label for="iv-first" data-es="Nombre *" data-en="First name *">Nombre *</label>
                 <input id="iv-first" name="nombre" type="text" placeholder="Nombre" required autocomplete="given-name">
               </div>
               <div class="ifl">
-                <label for="iv-last">Apellido *</label>
+                <label for="iv-last" data-es="Apellido *" data-en="Last name *">Apellido *</label>
                 <input id="iv-last" name="apellido" type="text" placeholder="Apellido" required autocomplete="family-name">
               </div>
             </div>
             <div class="ifg ifg--2" style="margin-top:18px">
               <div class="ifl">
-                <label for="iv-email">Email profesional *</label>
+                <label for="iv-email" data-es="Email profesional *" data-en="Professional email *">Email profesional *</label>
                 <input id="iv-email" name="email" type="email" placeholder="nombre@empresa.com" required autocomplete="email">
-                <p class="ifl__hint">Preferimos email corporativo si aplica.</p>
+                <p class="ifl__hint" data-es="Preferimos email corporativo si aplica." data-en="We prefer a corporate email if applicable.">Preferimos email corporativo si aplica.</p>
               </div>
               <div class="ifl">
-                <label for="iv-phone">Nro de móvil</label>
+                <label for="iv-phone" data-es="Nro de móvil" data-en="Mobile number">Nro de móvil</label>
                 <input id="iv-phone" name="movil" type="tel" placeholder="+54 9 11 ..." autocomplete="tel">
               </div>
             </div>
@@ -392,18 +392,18 @@ section{ position:relative; }
             </div>
             <div class="ifg" style="margin-top:18px">
               <div class="ifl">
-                <label for="iv-bio">Contanos sobre tu experiencia <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)">(opcional)</span></label>
+                <label for="iv-bio" data-es-html="Contanos sobre tu experiencia <span style='font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)'>(opcional)</span>" data-en-html="Tell us about your experience <span style='font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)'>(optional)</span>">Contanos sobre tu experiencia <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)">(opcional)</span></label>
                 <textarea id="iv-bio" name="experiencia" rows="4" placeholder="Experiencia operativa, mentoría, sectores de interés, inversiones previas…"></textarea>
               </div>
             </div>
           </div>
 
           <div class="ivf__footer">
-            <p>Los datos se manejan con confidencialidad institucional. Los datos de contacto de miembros no se divulgan públicamente.</p>
+            <p data-es="Los datos se manejan con confidencialidad institucional. Los datos de contacto de miembros no se divulgan públicamente." data-en="Data is handled with institutional confidentiality. Member contact details are not disclosed publicly.">Los datos se manejan con confidencialidad institucional. Los datos de contacto de miembros no se divulgan públicamente.</p>
           </div>
 
           <div class="ivf__nav">
-            <button type="submit" id="ivf-submit" class="btn btn--solid btn--lg">Enviar solicitud →</button>
+            <button type="submit" id="ivf-submit" class="btn btn--solid btn--lg" data-es="Enviar solicitud →" data-en="Submit request →">Enviar solicitud →</button>
             <p id="ivf-msg" class="ivf__msg" style="display:none"></p>
           </div>
         </form>
@@ -428,11 +428,10 @@ section{ position:relative; }
       <div><h4 data-es="Participar" data-en="Get involved">Participar</h4>
         <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
         <a href="para-inversores.html" data-es="Para inversores" data-en="For investors">Para inversores</a>
-        <a href="#" data-es="Eventos" data-en="Events">Eventos</a>
       </div>
       <div><h4 data-es="Contacto" data-en="Contact">Contacto</h4>
-        <a href="#" data-es="hola@bac.iae" data-en="hola@bac.iae">hola@bac.iae</a>
-        <a href="#" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+        <a href="contacto.html" data-es="Escribinos" data-en="Contact us">Escribinos</a>
+        <a href="https://www.linkedin.com/company/business-angels-club-emprendeiae" target="_blank" rel="noopener" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
         <a href="https://www.iae.edu.ar/minisitio/entrepreneurship/" target="_blank" rel="noopener" data-es="EmprendeIAE" data-en="EmprendeIAE">EmprendeIAE</a>
       </div>
     </div>
@@ -477,8 +476,9 @@ section{ position:relative; }
       if(v && !/^https?:\/\//i.test(v)) linkedinEl.value = 'https://' + v;
     }
     if(!form.checkValidity()){ form.reportValidity(); return; }
+    var isEN = document.documentElement.lang === 'en';
     btnSub.disabled = true;
-    btnSub.textContent = 'Enviando…';
+    btnSub.textContent = isEN ? 'Sending…' : 'Enviando…';
     setMsg('');
     fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
       .then(function(r){ return r.json(); })
@@ -488,15 +488,15 @@ section{ position:relative; }
           success.style.display = '';
           document.getElementById('sumarme').scrollIntoView({behavior:'smooth', block:'start'});
         } else {
-          setMsg('No se pudo enviar. Intentá de nuevo.', true);
+          setMsg(isEN ? 'Could not send. Please try again.' : 'No se pudo enviar. Intentá de nuevo.', true);
           btnSub.disabled = false;
-          btnSub.textContent = 'Enviar solicitud →';
+          btnSub.textContent = isEN ? 'Submit request →' : 'Enviar solicitud →';
         }
       })
       .catch(function(){
-        setMsg('Error de red. Verificá tu conexión e intentá de nuevo.', true);
+        setMsg(isEN ? 'Network error. Check your connection and try again.' : 'Error de red. Verificá tu conexión e intentá de nuevo.', true);
         btnSub.disabled = false;
-        btnSub.textContent = 'Enviar solicitud →';
+        btnSub.textContent = isEN ? 'Submit request →' : 'Enviar solicitud →';
       });
   });
 })();
