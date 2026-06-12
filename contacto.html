@@ -117,23 +117,23 @@ section{ position:relative; }
             <div class="ifg ifg--2">
               <div class="ifl">
                 <label for="cf-name" data-es="Nombre *" data-en="Name *">Nombre *</label>
-                <input id="cf-name" name="nombre" type="text" placeholder="Tu nombre" required autocomplete="name">
+                <input id="cf-name" name="nombre" type="text" placeholder="Tu nombre" data-placeholder-es="Tu nombre" data-placeholder-en="Your name" required autocomplete="name">
               </div>
               <div class="ifl">
                 <label for="cf-email" data-es="Email *" data-en="Email *">Email *</label>
-                <input id="cf-email" name="email" type="email" placeholder="nombre@empresa.com" required autocomplete="email">
+                <input id="cf-email" name="email" type="email" placeholder="nombre@empresa.com" data-placeholder-es="nombre@empresa.com" data-placeholder-en="name@company.com" required autocomplete="email">
               </div>
             </div>
             <div class="ifg" style="margin-top:18px">
               <div class="ifl">
                 <label for="cf-subject" data-es="Asunto" data-en="Subject">Asunto</label>
-                <input id="cf-subject" name="asunto" type="text" placeholder="¿Sobre qué querés escribirnos?">
+                <input id="cf-subject" name="asunto" type="text" placeholder="¿Sobre qué querés escribirnos?" data-placeholder-es="¿Sobre qué querés escribirnos?" data-placeholder-en="What would you like to write to us about?">
               </div>
             </div>
             <div class="ifg" style="margin-top:18px">
               <div class="ifl">
                 <label for="cf-msg" data-es="Mensaje *" data-en="Message *">Mensaje *</label>
-                <textarea id="cf-msg" name="mensaje" rows="5" placeholder="Contanos en qué podemos ayudarte…" required></textarea>
+                <textarea id="cf-msg" name="mensaje" rows="5" placeholder="Contanos en qué podemos ayudarte…" data-placeholder-es="Contanos en qué podemos ayudarte…" data-placeholder-en="Tell us how we can help you…" required></textarea>
               </div>
             </div>
           </div>
@@ -196,6 +196,17 @@ section{ position:relative; }
     msgEl.className = 'cf__msg' + (isErr ? '' : ' ok');
     msgEl.style.display = '';
   }
+
+  function updatePlaceholders(){
+    var isEN = document.documentElement.lang === 'en';
+    document.querySelectorAll('[data-placeholder-es]').forEach(function(el){
+      el.placeholder = isEN ? (el.dataset.placeholderEn || el.placeholder) : el.dataset.placeholderEs;
+    });
+  }
+  updatePlaceholders();
+  document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(updatePlaceholders, 50); });
+  });
 
   form && form.addEventListener('submit', function(e){
     e.preventDefault();
