@@ -88,12 +88,39 @@ section{ position:relative; }
 .faq__a p{ padding:0 48px 26px 0; color:var(--violeta-200); font-size:1rem; line-height:1.6; max-width:72ch; }
 
 /* closing */
-.closeF{ position:relative; overflow:hidden; text-align:center; padding:clamp(64px,8vw,120px) 0; }
+.closeF{ position:relative; overflow:hidden; padding:clamp(64px,8vw,120px) 0; }
 .closeF .glow--3{ width:560px; height:560px; background:radial-gradient(circle,rgba(83,74,183,.5),transparent 62%); top:-180px; left:50%; transform:translateX(-50%); }
 .closeF__in{ position:relative; z-index:2; }
+.closeF__head{ text-align:center; margin-bottom:clamp(40px,5vw,60px); }
 .closeF h2{ font-size:clamp(2.1rem,4.4vw,3.4rem); color:#fff; max-width:18ch; margin:0 auto; }
-.closeF p{ margin:22px auto 0; max-width:50ch; color:var(--violeta-200); font-size:1.12rem; line-height:1.55; }
-.closeF__cta{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; justify-content:center; }
+.closeF__lead{ margin:22px auto 0; max-width:50ch; color:var(--violeta-200); font-size:1.12rem; line-height:1.55; }
+
+/* investor form */
+.ivf{ max-width:680px; margin:0 auto; }
+.ivf__card{ background:rgba(255,255,255,.04); border:1px solid rgba(159,143,232,.2); border-radius:20px; padding:clamp(28px,4vw,44px); }
+.ivf__section-label{ font-family:var(--font-display); font-weight:600; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--violeta-300); margin-bottom:22px; }
+.ifg{ display:grid; gap:18px; }
+.ifg--2{ grid-template-columns:1fr 1fr; }
+@media(max-width:560px){ .ifg--2{ grid-template-columns:1fr; } }
+.ifl label{ display:block; font-family:var(--font-display); font-weight:600; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--violeta-400); margin-bottom:7px; }
+.ifl input,.ifl textarea{
+  width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(159,143,232,.22);
+  border-radius:10px; padding:12px 16px; font-family:var(--font-body); font-size:.97rem;
+  color:#fff; outline:none; transition:border-color .2s; box-sizing:border-box;
+}
+.ifl input::placeholder,.ifl textarea::placeholder{ color:rgba(159,143,232,.45); }
+.ifl input:focus,.ifl textarea:focus{ border-color:var(--nexus); background:rgba(127,119,221,.1); }
+.ifl textarea{ resize:vertical; min-height:100px; }
+.ifl__hint{ font-size:.78rem; color:var(--violeta-500); margin-top:5px; line-height:1.4; }
+.ivf__footer{ margin-top:22px; padding:14px 18px; background:rgba(255,255,255,.03); border:1px solid rgba(159,143,232,.12); border-radius:12px; }
+.ivf__footer p{ font-size:.8rem; color:var(--violeta-500); line-height:1.5; }
+.ivf__nav{ margin-top:26px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.ivf__msg{ font-family:var(--font-display); font-size:.88rem; font-weight:600; color:var(--violeta-300); }
+.ivf__msg.error{ color:#f87171; }
+.ivf__success{ text-align:center; padding:clamp(40px,6vw,72px) 0; }
+.ivf__success__icon{ width:56px; height:56px; border-radius:50%; background:rgba(127,119,221,.15); border:2px solid var(--nexus); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.5rem; }
+.ivf__success h3{ font-size:clamp(1.4rem,3vw,2rem); color:#fff; margin-bottom:12px; }
+.ivf__success p{ color:var(--violeta-200); font-size:1rem; line-height:1.6; max-width:42ch; margin:0 auto; }
 
 .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
 .reveal.in{ opacity:1; transform:none; }
@@ -266,17 +293,81 @@ section{ position:relative; }
     </div>
   </section>
 
-  <!-- CLOSING -->
+  <!-- CLOSING / FORM -->
   <section id="sumarme" class="closeF">
     <span class="glow glow--3"></span>
     <div class="wrap closeF__in reveal">
-      <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow" data-es="Sumate a la red" data-en="Join the network">Sumate a la red</span></div>
-      <h2 data-es="Invertí donde otros ya están construyendo." data-en="Invest where others are already building.">Invertí donde otros ya están construyendo.</h2>
-      <p data-es="Sumate como socio inversor del BAC y empezá a recibir oportunidades curadas." data-en="Join the BAC as an investor member and start receiving curated opportunities.">Sumate como socio inversor del BAC y empezá a recibir oportunidades curadas.</p>
-      <div class="closeF__cta">
-        <a class="btn btn--solid btn--lg" href="#" data-es="Sumarme como socio →" data-en="Join as a member →">Sumarme como socio →</a>
-        <a class="btn btn--ghost btn--lg" href="#" data-es="Hablar con el equipo" data-en="Talk to the team">Hablar con el equipo</a>
+
+      <div class="closeF__head">
+        <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow">Sumate a la red</span></div>
+        <h2>Invertí donde otros ya están construyendo.</h2>
+        <p class="closeF__lead">Completá el formulario y el equipo del BAC se pone en contacto para contarte más sobre la membresía.</p>
       </div>
+
+      <div class="ivf" id="ivf">
+
+        <!-- Success -->
+        <div id="ivf-success" style="display:none;" class="ivf__success">
+          <div class="ivf__success__icon">✓</div>
+          <h3>¡Solicitud recibida!</h3>
+          <p>Gracias por tu interés. El equipo del BAC te va a contactar en los próximos días.</p>
+        </div>
+
+        <form id="ivf-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="dc412aa1-00d7-45eb-a584-476ea47ba61e">
+          <input type="hidden" name="subject" value="Nueva solicitud de membresía BAC — inversor">
+          <input type="hidden" name="from_name" value="BAC · Formulario de inversores">
+          <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="botcheck" value="" style="display:none">
+
+          <div class="ivf__card">
+            <p class="ivf__section-label">Datos de contacto</p>
+            <div class="ifg ifg--2">
+              <div class="ifl">
+                <label for="iv-first">Nombre *</label>
+                <input id="iv-first" name="nombre" type="text" placeholder="Nombre" required autocomplete="given-name">
+              </div>
+              <div class="ifl">
+                <label for="iv-last">Apellido *</label>
+                <input id="iv-last" name="apellido" type="text" placeholder="Apellido" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="ifg ifg--2" style="margin-top:18px">
+              <div class="ifl">
+                <label for="iv-email">Email profesional *</label>
+                <input id="iv-email" name="email" type="email" placeholder="nombre@empresa.com" required autocomplete="email">
+                <p class="ifl__hint">Preferimos email corporativo si aplica.</p>
+              </div>
+              <div class="ifl">
+                <label for="iv-phone">Nro de móvil</label>
+                <input id="iv-phone" name="movil" type="tel" placeholder="+54 9 11 ..." autocomplete="tel">
+              </div>
+            </div>
+            <div class="ifg" style="margin-top:18px">
+              <div class="ifl">
+                <label for="iv-linkedin">LinkedIn *</label>
+                <input id="iv-linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/..." required inputmode="url">
+              </div>
+            </div>
+            <div class="ifg" style="margin-top:18px">
+              <div class="ifl">
+                <label for="iv-bio">Contanos sobre tu experiencia <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)">(opcional)</span></label>
+                <textarea id="iv-bio" name="experiencia" rows="4" placeholder="Experiencia operativa, mentoría, sectores de interés, inversiones previas…"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="ivf__footer">
+            <p>Los datos se manejan con confidencialidad institucional. Los datos de contacto de miembros no se divulgan públicamente.</p>
+          </div>
+
+          <div class="ivf__nav">
+            <button type="submit" id="ivf-submit" class="btn btn--solid btn--lg">Enviar solicitud →</button>
+            <p id="ivf-msg" class="ivf__msg" style="display:none"></p>
+          </div>
+        </form>
+      </div>
+
     </div>
   </section>
 </main>
@@ -314,6 +405,61 @@ section{ position:relative; }
 </footer>
 
 <script src="bac.js"></script>
+<script>
+/* Investor form */
+(function(){
+  var form    = document.getElementById('ivf-form');
+  var success = document.getElementById('ivf-success');
+  var btnSub  = document.getElementById('ivf-submit');
+  var msgEl   = document.getElementById('ivf-msg');
+  var linkedinEl = document.getElementById('iv-linkedin');
+
+  function setMsg(txt, isErr){
+    if(!msgEl) return;
+    if(!txt){ msgEl.style.display='none'; return; }
+    msgEl.textContent = txt;
+    msgEl.className = 'ivf__msg' + (isErr ? ' error' : '');
+    msgEl.style.display = '';
+  }
+
+  /* Auto-prepend https:// on LinkedIn field */
+  linkedinEl && linkedinEl.addEventListener('blur', function(){
+    var v = linkedinEl.value.trim();
+    if(v && !/^https?:\/\//i.test(v)) linkedinEl.value = 'https://' + v;
+  });
+
+  form && form.addEventListener('submit', function(e){
+    e.preventDefault();
+    /* Normalize LinkedIn before validation */
+    if(linkedinEl){
+      var v = linkedinEl.value.trim();
+      if(v && !/^https?:\/\//i.test(v)) linkedinEl.value = 'https://' + v;
+    }
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    btnSub.disabled = true;
+    btnSub.textContent = 'Enviando…';
+    setMsg('');
+    fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(form) })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res.success){
+          form.style.display = 'none';
+          success.style.display = '';
+          document.getElementById('sumarme').scrollIntoView({behavior:'smooth', block:'start'});
+        } else {
+          setMsg('No se pudo enviar. Intentá de nuevo.', true);
+          btnSub.disabled = false;
+          btnSub.textContent = 'Enviar solicitud →';
+        }
+      })
+      .catch(function(){
+        setMsg('Error de red. Verificá tu conexión e intentá de nuevo.', true);
+        btnSub.disabled = false;
+        btnSub.textContent = 'Enviar solicitud →';
+      });
+  });
+})();
+</script>
 <script>
 /* FAQ accordion — page-local, complements bac.js */
 document.querySelectorAll('[data-faq]').forEach(function(btn){
