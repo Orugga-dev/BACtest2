@@ -347,9 +347,9 @@ section{ position:relative; }
     <div class="wrap closeF__in reveal">
 
       <div class="closeF__head">
-        <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow">Convocatoria abierta</span></div>
-        <h2>Contanos qué construís.</h2>
-        <p class="closeF__lead">Completá el formulario, compartinos tu deck y, si hay fit, el equipo te responde a la brevedad.</p>
+        <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow" data-es="Convocatoria abierta" data-en="Applications open">Convocatoria abierta</span></div>
+        <h2 data-es="Contanos qué construís." data-en="Tell us what you're building.">Contanos qué construís.</h2>
+        <p class="closeF__lead" data-es="Completá el formulario, compartinos tu deck y, si hay fit, el equipo te responde a la brevedad." data-en="Fill out the form, share your deck, and if there's a fit, the team gets back to you promptly.">Completá el formulario, compartinos tu deck y, si hay fit, el equipo te responde a la brevedad.</p>
       </div>
 
       <!-- ===== APPLICATION FORM ===== -->
@@ -358,8 +358,8 @@ section{ position:relative; }
         <!-- Success state -->
         <div id="apf-success" style="display:none;" class="apf__success">
           <div class="apf__success__icon">✓</div>
-          <h3>¡Postulación recibida!</h3>
-          <p>Gracias por postularte al BAC. Revisamos tu información y te respondemos en los próximos días con feedback claro.</p>
+          <h3 data-es="¡Postulación recibida!" data-en="Application received!">¡Postulación recibida!</h3>
+          <p data-es="Gracias por postularte al BAC. Revisamos tu información y te respondemos en los próximos días con feedback claro." data-en="Thanks for applying to BAC. We'll review your information and get back to you within the next few days with clear feedback.">Gracias por postularte al BAC. Revisamos tu información y te respondemos en los próximos días con feedback claro.</p>
         </div>
 
         <!-- Form -->
@@ -384,54 +384,54 @@ section{ position:relative; }
           <!-- STEP 1: Identificación -->
           <div class="apf__panel is-active" data-step="1">
             <div class="apf__card">
-              <p class="apf__section-label">A · Startup y contacto</p>
+              <p class="apf__section-label" data-es="A · Startup y contacto" data-en="A · Startup & contact">A · Startup y contacto</p>
               <div class="fg fg--2">
                 <div class="fl">
-                  <label for="f-startup">Nombre de la startup *</label>
-                  <input id="f-startup" name="startup" type="text" placeholder="Nombre comercial" required autocomplete="organization">
+                  <label for="f-startup" data-es="Nombre de la startup *" data-en="Startup name *">Nombre de la startup *</label>
+                  <input id="f-startup" name="startup" type="text" placeholder="Nombre comercial" data-placeholder-es="Nombre comercial" data-placeholder-en="Commercial name" required autocomplete="organization">
                 </div>
                 <div class="fl">
-                  <label for="f-web">Sitio web *</label>
+                  <label for="f-web" data-es="Sitio web *" data-en="Website *">Sitio web *</label>
                   <input id="f-web" name="website" type="url" placeholder="https://..." required inputmode="url">
                 </div>
               </div>
               <div class="fg fg--2" style="margin-top:18px">
                 <div class="fl">
-                  <label for="f-name">Tu nombre y apellido *</label>
-                  <input id="f-name" name="contact_name" type="text" placeholder="Nombre y apellido" required autocomplete="name">
+                  <label for="f-name" data-es="Tu nombre y apellido *" data-en="Your full name *">Tu nombre y apellido *</label>
+                  <input id="f-name" name="contact_name" type="text" placeholder="Nombre y apellido" data-placeholder-es="Nombre y apellido" data-placeholder-en="First and last name" required autocomplete="name">
                 </div>
                 <div class="fl">
-                  <label for="f-role">Rol *</label>
+                  <label for="f-role" data-es="Rol *" data-en="Role *">Rol *</label>
                   <input id="f-role" name="contact_role" type="text" placeholder="CEO / Co-founder / CTO…" required>
                 </div>
               </div>
               <div class="fg fg--2" style="margin-top:18px">
                 <div class="fl">
-                  <label for="f-email">Email *</label>
-                  <input id="f-email" name="email" type="email" placeholder="vos@startup.com" required autocomplete="email">
+                  <label for="f-email" data-es="Email *" data-en="Email *">Email *</label>
+                  <input id="f-email" name="email" type="email" placeholder="vos@startup.com" data-placeholder-es="vos@startup.com" data-placeholder-en="you@startup.com" required autocomplete="email">
                 </div>
                 <div class="fl">
-                  <label for="f-linkedin">LinkedIn (recomendado)</label>
+                  <label for="f-linkedin" data-es="LinkedIn (recomendado)" data-en="LinkedIn (recommended)">LinkedIn (recomendado)</label>
                   <input id="f-linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/…" inputmode="url">
                 </div>
               </div>
               <div class="fg fg--2" style="margin-top:18px">
                 <div class="fl">
-                  <label for="f-country">País base *</label>
+                  <label for="f-country" data-es="País base *" data-en="Home country *">País base *</label>
                   <select id="f-country" name="pais_base" required>
-                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Argentina</option><option>Brasil</option><option>Chile</option>
                     <option>Colombia</option><option>México</option><option>Uruguay</option>
-                    <option>Estados Unidos</option><option>Europa</option><option>Otro</option>
+                    <option data-es="Estados Unidos" data-en="United States">Estados Unidos</option><option data-es="Europa" data-en="Europe">Europa</option><option data-es="Otro" data-en="Other">Otro</option>
                   </select>
                 </div>
                 <div class="fl">
-                  <label for="f-market">Mercado principal *</label>
+                  <label for="f-market" data-es="Mercado principal *" data-en="Primary market *">Mercado principal *</label>
                   <select id="f-market" name="mercado_principal" required>
-                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Argentina</option><option>Brasil</option><option>Chile</option>
                     <option>Colombia</option><option>México</option><option>Uruguay</option>
-                    <option>Estados Unidos</option><option>Regional Latam</option><option>Global</option>
+                    <option data-es="Estados Unidos" data-en="United States">Estados Unidos</option><option data-es="Regional Latam" data-en="Regional Latam">Regional Latam</option><option data-es="Global" data-en="Global">Global</option>
                   </select>
                 </div>
               </div>
@@ -441,75 +441,75 @@ section{ position:relative; }
           <!-- STEP 2: Negocio y ronda -->
           <div class="apf__panel" data-step="2">
             <div class="apf__card">
-              <p class="apf__section-label">B · Negocio y ronda</p>
+              <p class="apf__section-label" data-es="B · Negocio y ronda" data-en="B · Business & round">B · Negocio y ronda</p>
               <div class="fg">
                 <div class="fl">
-                  <label for="f-oneliner">One-liner (máx. 200 caracteres) *</label>
-                  <input id="f-oneliner" name="one_liner" type="text" maxlength="200" placeholder="Qué hacen, para quién y por qué importa" required>
+                  <label for="f-oneliner" data-es="One-liner (máx. 200 caracteres) *" data-en="One-liner (max. 200 characters) *">One-liner (máx. 200 caracteres) *</label>
+                  <input id="f-oneliner" name="one_liner" type="text" maxlength="200" placeholder="Qué hacen, para quién y por qué importa" data-placeholder-es="Qué hacen, para quién y por qué importa" data-placeholder-en="What you do, for whom, and why it matters" required>
                   <p class="fl__hint"><span id="f-oneliner-count">0</span>/200</p>
                 </div>
                 <div class="fl">
-                  <label for="f-what">Qué vendés y a quién *</label>
-                  <textarea id="f-what" name="que_venden" rows="3" placeholder="Producto/servicio + cliente objetivo + caso de uso principal" required></textarea>
+                  <label for="f-what" data-es="Qué vendés y a quién *" data-en="What you sell and to whom *">Qué vendés y a quién *</label>
+                  <textarea id="f-what" name="que_venden" rows="3" placeholder="Producto/servicio + cliente objetivo + caso de uso principal" data-placeholder-es="Producto/servicio + cliente objetivo + caso de uso principal" data-placeholder-en="Product/service + target customer + main use case" required></textarea>
                 </div>
               </div>
             </div>
             <div class="apf__card">
-              <p class="apf__section-label">C · Etapa y ronda</p>
+              <p class="apf__section-label" data-es="C · Etapa y ronda" data-en="C · Stage & round">C · Etapa y ronda</p>
               <div class="fg fg--2">
                 <div class="fl">
-                  <label for="f-stage">Etapa *</label>
+                  <label for="f-stage" data-es="Etapa *" data-en="Stage *">Etapa *</label>
                   <select id="f-stage" name="etapa" required>
-                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Pre-Seed</option><option>Seed</option>
-                    <option>Pre-Serie A</option><option>Serie A o posterior</option>
+                    <option data-es="Pre-Serie A" data-en="Pre-Series A">Pre-Serie A</option><option data-es="Serie A o posterior" data-en="Series A or later">Serie A o posterior</option>
                   </select>
-                  <p class="fl__hint">Preferente Seed / Pre-Serie A</p>
+                  <p class="fl__hint" data-es="Preferente Seed / Pre-Serie A" data-en="Preferred: Seed / Pre-Series A">Preferente Seed / Pre-Serie A</p>
                 </div>
                 <div class="fl">
-                  <label for="f-industry">Industria *</label>
+                  <label for="f-industry" data-es="Industria *" data-en="Industry *">Industria *</label>
                   <select id="f-industry" name="industria" required>
-                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Artificial Intelligence</option><option>FinTech</option>
                     <option>HealthTech / BioTech</option><option>EdTech</option>
                     <option>Enterprise SaaS</option><option>E-Commerce / Marketplace</option>
                     <option>ClimateTech</option><option>AgTech</option>
                     <option>Logistics / Mobility</option><option>Cybersecurity</option>
-                    <option>Otros</option>
+                    <option data-es="Otros" data-en="Other">Otros</option>
                   </select>
                 </div>
               </div>
               <div class="fg fg--3" style="margin-top:18px">
                 <div class="fl">
-                  <label for="f-round-open">¿Ronda abierta? *</label>
+                  <label for="f-round-open" data-es="¿Ronda abierta? *" data-en="Round open? *">¿Ronda abierta? *</label>
                   <select id="f-round-open" name="ronda_abierta" required>
-                    <option value="" disabled selected>Seleccionar</option>
-                    <option>Sí</option><option>No</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
+                    <option data-es="Sí" data-en="Yes">Sí</option><option data-es="No" data-en="No">No</option>
                   </select>
                 </div>
                 <div class="fl">
-                  <label for="f-raise">Monto buscado (USD) *</label>
+                  <label for="f-raise" data-es="Monto buscado (USD) *" data-en="Target raise (USD) *">Monto buscado (USD) *</label>
                   <select id="f-raise" name="monto_buscado" required>
-                    <option value="" disabled selected>Seleccionar</option>
-                    <option>Menos de 100.000</option><option>100.000 – 250.000</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
+                    <option data-es="Menos de 100.000" data-en="Less than 100,000">Menos de 100.000</option><option>100.000 – 250.000</option>
                     <option>250.000 – 500.000</option><option>500.000 – 1.000.000</option>
-                    <option>1.000.000 – 2.500.000</option><option>Más de 2.500.000</option>
+                    <option>1.000.000 – 2.500.000</option><option data-es="Más de 2.500.000" data-en="More than 2,500,000">Más de 2.500.000</option>
                   </select>
                 </div>
                 <div class="fl">
-                  <label for="f-instrument">Instrumento *</label>
+                  <label for="f-instrument" data-es="Instrumento *" data-en="Instrument *">Instrumento *</label>
                   <select id="f-instrument" name="instrumento" required>
-                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Equity</option><option>SAFE</option>
-                    <option>Nota convertible</option><option>En definición</option>
+                    <option data-es="Nota convertible" data-en="Convertible note">Nota convertible</option><option data-es="En definición" data-en="TBD">En definición</option>
                   </select>
                 </div>
               </div>
               <div class="fg" style="margin-top:18px">
                 <div class="fl">
-                  <label for="f-deck">Link al deck *</label>
-                  <input id="f-deck" name="deck_link" type="url" placeholder="Google Drive / DocSend / Dropbox (con permisos de lectura)" required inputmode="url">
-                  <p class="fl__hint">Asegurate de que el link tenga permisos de lectura activos.</p>
+                  <label for="f-deck" data-es="Link al deck *" data-en="Deck link *">Link al deck *</label>
+                  <input id="f-deck" name="deck_link" type="url" placeholder="Google Drive / DocSend / Dropbox (con permisos de lectura)" data-placeholder-es="Google Drive / DocSend / Dropbox (con permisos de lectura)" data-placeholder-en="Google Drive / DocSend / Dropbox (with read access)" required inputmode="url">
+                  <p class="fl__hint" data-es="Asegurate de que el link tenga permisos de lectura activos." data-en="Make sure the link has active read permissions.">Asegurate de que el link tenga permisos de lectura activos.</p>
                 </div>
               </div>
             </div>
@@ -518,47 +518,47 @@ section{ position:relative; }
           <!-- STEP 3: Tracción -->
           <div class="apf__panel" data-step="3">
             <div class="apf__card">
-              <p class="apf__section-label">D · Validación de mercado</p>
+              <p class="apf__section-label" data-es="D · Validación de mercado" data-en="D · Market validation">D · Validación de mercado</p>
               <div class="fg fg--2">
                 <div class="fl">
-                  <label for="f-traction">Estado de tracción *</label>
+                  <label for="f-traction" data-es="Estado de tracción *" data-en="Traction status *">Estado de tracción *</label>
                   <select id="f-traction" name="traccion" required>
-                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Revenue (MRR/ARR)</option>
-                    <option>Pilotos pagos</option>
-                    <option>Contratos firmados</option>
-                    <option>Usuarios activos (B2C)</option>
-                    <option>Pre-revenue con LOIs/PoCs</option>
-                    <option>Deeptech/Biotech — hitos técnicos/regulatorios</option>
+                    <option data-es="Pilotos pagos" data-en="Paid pilots">Pilotos pagos</option>
+                    <option data-es="Contratos firmados" data-en="Signed contracts">Contratos firmados</option>
+                    <option data-es="Usuarios activos (B2C)" data-en="Active users (B2C)">Usuarios activos (B2C)</option>
+                    <option data-es="Pre-revenue con LOIs/PoCs" data-en="Pre-revenue with LOIs/PoCs">Pre-revenue con LOIs/PoCs</option>
+                    <option data-es="Deeptech/Biotech — hitos técnicos/regulatorios" data-en="Deeptech/Biotech — technical/regulatory milestones">Deeptech/Biotech — hitos técnicos/regulatorios</option>
                   </select>
                 </div>
                 <div class="fl">
-                  <label for="f-metric">Métrica principal *</label>
-                  <input id="f-metric" name="metrica_principal" type="text" placeholder="Ej: MRR USD 25.000 / 12 clientes pagos" required>
-                  <p class="fl__hint">Una métrica concreta que represente validación.</p>
+                  <label for="f-metric" data-es="Métrica principal *" data-en="Key metric *">Métrica principal *</label>
+                  <input id="f-metric" name="metrica_principal" type="text" placeholder="Ej: MRR USD 25.000 / 12 clientes pagos" data-placeholder-es="Ej: MRR USD 25.000 / 12 clientes pagos" data-placeholder-en="E.g.: MRR USD 25,000 / 12 paying customers" required>
+                  <p class="fl__hint" data-es="Una métrica concreta que represente validación." data-en="One concrete metric that represents validation.">Una métrica concreta que represente validación.</p>
                 </div>
               </div>
               <div class="fg" style="margin-top:18px">
                 <div class="fl">
-                  <label for="f-evidence">Evidencia más fuerte *</label>
-                  <textarea id="f-evidence" name="evidencia" rows="4" placeholder="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" required></textarea>
+                  <label for="f-evidence" data-es="Evidencia más fuerte *" data-en="Strongest evidence *">Evidencia más fuerte *</label>
+                  <textarea id="f-evidence" name="evidencia" rows="4" placeholder="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" data-placeholder-es="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" data-placeholder-en="What concrete proof shows this works (customers, revenue, contracts, technical or regulatory milestones…)" required></textarea>
                 </div>
               </div>
             </div>
             <div class="apf__card">
-              <p class="apf__section-label">E · Validación institucional previa</p>
+              <p class="apf__section-label" data-es="E · Validación institucional previa" data-en="E · Prior institutional backing">E · Validación institucional previa</p>
               <div class="fg fg--2">
                 <div class="fl">
-                  <label for="f-inst">¿Inversión institucional previa? *</label>
+                  <label for="f-inst" data-es="¿Inversión institucional previa? *" data-en="Prior institutional investment? *">¿Inversión institucional previa? *</label>
                   <select id="f-inst" name="inversion_previa" required>
-                    <option value="" disabled selected>Seleccionar</option>
-                    <option>Sí</option><option>No</option>
+                    <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
+                    <option data-es="Sí" data-en="Yes">Sí</option><option data-es="No" data-en="No">No</option>
                   </select>
-                  <p class="fl__hint">Fondos, clubes, organismos, grants competitivos.</p>
+                  <p class="fl__hint" data-es="Fondos, clubes, organismos, grants competitivos." data-en="Funds, clubs, organizations, competitive grants.">Fondos, clubes, organismos, grants competitivos.</p>
                 </div>
                 <div class="fl">
-                  <label for="f-inst-detail">Si Sí: quién + año</label>
-                  <input id="f-inst-detail" name="inversion_detalle" type="text" placeholder="Ej: Fondo X (2024), Club Y (2023)">
+                  <label for="f-inst-detail" data-es="Si Sí: quién + año" data-en="If Yes: who + year">Si Sí: quién + año</label>
+                  <input id="f-inst-detail" name="inversion_detalle" type="text" placeholder="Ej: Fondo X (2024), Club Y (2023)" data-placeholder-es="Ej: Fondo X (2024), Club Y (2023)" data-placeholder-en="E.g.: Fund X (2024), Club Y (2023)">
                 </div>
               </div>
             </div>
@@ -567,19 +567,19 @@ section{ position:relative; }
           <!-- STEP 4: Cierre -->
           <div class="apf__panel" data-step="4">
             <div class="apf__card">
-              <p class="apf__section-label">F · Competencia y cierre</p>
+              <p class="apf__section-label" data-es="F · Competencia y cierre" data-en="F · Competition & close">F · Competencia y cierre</p>
               <div class="fg">
                 <div class="fl">
-                  <label for="f-competition">Competidores / alternativa actual *</label>
-                  <textarea id="f-competition" name="competencia" rows="4" placeholder="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" required></textarea>
+                  <label for="f-competition" data-es="Competidores / alternativa actual *" data-en="Competitors / current alternative *">Competidores / alternativa actual *</label>
+                  <textarea id="f-competition" name="competencia" rows="4" placeholder="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" data-placeholder-es="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" data-placeholder-en="Direct competitor + non-tech alternative (Excel/agency/in-house) + why customers choose you" required></textarea>
                 </div>
                 <div class="fl">
-                  <label for="f-notes">Comentario final (opcional)</label>
-                  <textarea id="f-notes" name="notas" rows="3" placeholder="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba."></textarea>
+                  <label for="f-notes" data-es="Comentario final (opcional)" data-en="Final comment (optional)">Comentario final (opcional)</label>
+                  <textarea id="f-notes" name="notas" rows="3" placeholder="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba." data-placeholder-es="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba." data-placeholder-en="Exact post-money, round context, or anything relevant that doesn't fit above."></textarea>
                 </div>
               </div>
               <div style="margin-top:22px; padding:16px 20px; background:rgba(255,255,255,.04); border:1px solid rgba(159,143,232,.15); border-radius:12px;">
-                <p style="font-size:.82rem; color:var(--violeta-500); line-height:1.5;">Al enviar, aceptás que la información será utilizada solo para evaluación interna del BAC. No compartimos tus datos con terceros.</p>
+                <p style="font-size:.82rem; color:var(--violeta-500); line-height:1.5;" data-es="Al enviar, aceptás que la información será utilizada solo para evaluación interna del BAC. No compartimos tus datos con terceros." data-en="By submitting, you agree that the information will be used solely for internal evaluation by BAC. We do not share your data with third parties.">Al enviar, aceptás que la información será utilizada solo para evaluación interna del BAC. No compartimos tus datos con terceros.</p>
               </div>
             </div>
           </div>
@@ -763,6 +763,21 @@ section{ position:relative; }
     });
   });
 
+})();
+</script>
+<script>
+/* Placeholder translation — updates data-placeholder-es/en fields on lang toggle */
+(function(){
+  function updatePlaceholders(){
+    var isEN = document.documentElement.lang === 'en';
+    document.querySelectorAll('[data-placeholder-es]').forEach(function(el){
+      el.placeholder = isEN ? (el.dataset.placeholderEn || el.placeholder) : el.dataset.placeholderEs;
+    });
+  }
+  updatePlaceholders();
+  document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(updatePlaceholders, 50); });
+  });
 })();
 </script>
 <script>
