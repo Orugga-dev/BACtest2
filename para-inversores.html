@@ -74,6 +74,19 @@ section{ position:relative; }
 .mgrid dd{ margin:10px 0 0; font-size:.86rem; color:var(--violeta-300); line-height:1.4; }
 .metrics__note{ font-size:.78rem; color:var(--violeta-600); margin-top:16px; line-height:1.5; max-width:78ch; }
 
+/* community */
+.community{ padding:clamp(56px,7vw,96px) 0; }
+.comm-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+.comm-card{ border:1px solid rgba(159,143,232,.22); border-radius:18px; padding:32px 28px;
+  background:linear-gradient(180deg,rgba(127,119,221,.06),rgba(127,119,221,0)); display:flex; flex-direction:column; gap:12px; transition:.25s; }
+.comm-card:hover{ border-color:var(--nexus); transform:translateY(-3px); }
+.comm-card__i{ width:40px; height:40px; border-radius:11px; border:1px solid rgba(159,143,232,.3);
+  display:flex; align-items:center; justify-content:center; background:rgba(127,119,221,.1); flex:none; }
+.comm-card__i span{ width:14px; height:14px; border-radius:4px; background:var(--nexus); }
+.comm-card h3{ font-family:var(--font-display); font-weight:600; font-size:1.2rem; color:#fff; }
+.comm-card p{ color:var(--violeta-200); font-size:.96rem; line-height:1.55; }
+@media(max-width:900px){ .comm-grid{ grid-template-columns:1fr; } }
+
 /* faq */
 .faq{ padding:clamp(56px,7vw,96px) 0; }
 .faq__list{ border-top:1px solid rgba(159,143,232,.16); }
@@ -258,6 +271,34 @@ section{ position:relative; }
         <div><dt>+80</dt><dd data-es="Startups evaluadas en 2025" data-en="Startups evaluated in 2025">Startups evaluadas en 2025</dd></div>
       </dl>
       <p class="metrics__note" data-es="Datos del club de septiembre 2023 a febrero 2026." data-en="Club data from September 2023 to February 2026.">Datos del club de septiembre 2023 a febrero 2026.</p>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="community">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="La comunidad" data-en="The community">La comunidad</span></div>
+        <h2 data-es="Más que invertir. Pertenecer." data-en="More than investing. Belonging.">Más que invertir. Pertenecer.</h2>
+        <p data-es="Ser socio del BAC es acceder a una red activa de más de 80 inversores con trayectoria real. El capital es la entrada; la comunidad es el valor." data-en="Being a BAC member means accessing an active network of over 80 investors with real track records. Capital is the entry; community is the value.">Ser socio del BAC es acceder a una red activa de más de 80 inversores con trayectoria real. El capital es la entrada; la comunidad es el valor.</p>
+      </div>
+      <div class="comm-grid reveal">
+        <div class="comm-card">
+          <span class="comm-card__i"><span></span></span>
+          <h3 data-es="Jornadas de conocimiento" data-en="Knowledge sessions">Jornadas de conocimiento</h3>
+          <p data-es="Charlas periódicas con referentes de industria, tecnología, management y tendencias del ecosistema. Acceso exclusivo para socios." data-en="Regular talks with industry, technology, management, and ecosystem thought leaders. Exclusive access for members.">Charlas periódicas con referentes de industria, tecnología, management y tendencias del ecosistema. Acceso exclusivo para socios.</p>
+        </div>
+        <div class="comm-card">
+          <span class="comm-card__i"><span></span></span>
+          <h3 data-es="Eventos del ecosistema" data-en="Ecosystem events">Eventos del ecosistema</h3>
+          <p data-es="Acceso preferencial a demos days, conferencias y encuentros del ecosistema emprendedor e inversor de la región." data-en="Priority access to demo days, conferences, and networking events across the regional entrepreneurial and investor ecosystem.">Acceso preferencial a demos days, conferencias y encuentros del ecosistema emprendedor e inversor de la región.</p>
+        </div>
+        <div class="comm-card">
+          <span class="comm-card__i"><span></span></span>
+          <h3 data-es="Red de socios activa" data-en="Active member network">Red de socios activa</h3>
+          <p data-es="Más de 80 socios con trayectoria en operaciones, inversión y gestión. Una red que se activa cuando la necesitás — para abrir puertas, conseguir talento o cerrar una ronda." data-en="Over 80 members with backgrounds in operations, investing, and management. A network that activates when you need it — to open doors, find talent, or close a round.">Más de 80 socios con trayectoria en operaciones, inversión y gestión. Una red que se activa cuando la necesitás — para abrir puertas, conseguir talento o cerrar una ronda.</p>
+        </div>
+      </div>
     </div>
   </section>
 
