@@ -753,6 +753,11 @@ section{ position:relative; }
 
   updateUI();
 
+  /* Re-render progress label when language changes */
+  new MutationObserver(function(mutations){
+    mutations.forEach(function(m){ if(m.attributeName === 'lang') updateUI(); });
+  }).observe(document.documentElement, { attributes: true });
+
   /* Auto-prepend https:// on URL fields so "www.x.com" passes native validation */
   ['f-web','f-linkedin','f-deck'].forEach(function(id){
     var el = document.getElementById(id);
@@ -766,18 +771,18 @@ section{ position:relative; }
 })();
 </script>
 <script>
-/* Placeholder translation — updates data-placeholder-es/en fields on lang toggle */
+/* Placeholder + progress label translation — watches html[lang] via MutationObserver */
 (function(){
   function updatePlaceholders(){
     var isEN = document.documentElement.lang === 'en';
     document.querySelectorAll('[data-placeholder-es]').forEach(function(el){
-      el.placeholder = isEN ? (el.dataset.placeholderEn || el.placeholder) : el.dataset.placeholderEs;
+      el.placeholder = isEN ? (el.getAttribute('data-placeholder-en') || el.placeholder) : el.getAttribute('data-placeholder-es');
     });
   }
   updatePlaceholders();
-  document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
-    btn.addEventListener('click', function(){ setTimeout(updatePlaceholders, 50); });
-  });
+  new MutationObserver(function(mutations){
+    mutations.forEach(function(m){ if(m.attributeName === 'lang') updatePlaceholders(); });
+  }).observe(document.documentElement, { attributes: true });
 })();
 </script>
 <script>
