@@ -688,7 +688,18 @@ section{ position:relative; }
     setMsg('');
   }
 
+  /* Normalize URL fields before validation: add https:// if missing */
+  function normalizeUrls(){
+    ['f-web','f-linkedin','f-deck'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      var v = el.value.trim();
+      if(v && !/^https?:\/\//i.test(v)){ el.value = 'https://' + v; }
+    });
+  }
+
   function validateStep(){
+    normalizeUrls();
     var panel = panels[cur-1];
     if(!panel) return true;
     var fields = Array.from(panel.querySelectorAll('input[required],select[required],textarea[required]'));
