@@ -100,12 +100,54 @@ section{ position:relative; }
 .faq__a p{ padding:0 48px 26px 0; color:var(--violeta-200); font-size:1rem; line-height:1.6; max-width:72ch; }
 
 /* closing */
-.closeF{ position:relative; overflow:hidden; text-align:center; padding:clamp(64px,8vw,120px) 0; }
+.closeF{ position:relative; overflow:hidden; padding:clamp(64px,8vw,120px) 0; }
 .closeF .glow--3{ width:560px; height:560px; background:radial-gradient(circle,rgba(83,74,183,.5),transparent 62%); top:-180px; left:50%; transform:translateX(-50%); }
 .closeF__in{ position:relative; z-index:2; }
+.closeF__head{ text-align:center; margin-bottom:clamp(40px,5vw,64px); }
 .closeF h2{ font-size:clamp(2.1rem,4.4vw,3.4rem); color:#fff; max-width:18ch; margin:0 auto; }
-.closeF p{ margin:22px auto 0; max-width:50ch; color:var(--violeta-200); font-size:1.12rem; line-height:1.55; }
-.closeF__cta{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; justify-content:center; }
+.closeF__lead{ margin:22px auto 0; max-width:50ch; color:var(--violeta-200); font-size:1.12rem; line-height:1.55; }
+
+/* form */
+.apf{ max-width:760px; margin:0 auto; }
+.apf__progress{ display:flex; align-items:center; gap:0; margin-bottom:40px; }
+.apf__prog-step{ flex:1; height:3px; background:rgba(159,143,232,.18); transition:background .3s; }
+.apf__prog-step.done{ background:var(--nexus); }
+.apf__prog-step.active{ background:var(--violeta-300); }
+.apf__prog-label{ font-family:var(--font-display); font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--violeta-400); margin-bottom:14px; }
+
+.apf__panel{ display:none; }
+.apf__panel.is-active{ display:block; }
+
+.apf__card{ background:rgba(255,255,255,.04); border:1px solid rgba(159,143,232,.2); border-radius:20px; padding:clamp(28px,4vw,44px); }
+.apf__card + .apf__card{ margin-top:18px; }
+.apf__section-label{ font-family:var(--font-display); font-weight:600; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--violeta-300); margin-bottom:22px; }
+
+.fg{ display:grid; gap:18px; }
+.fg--2{ grid-template-columns:1fr 1fr; }
+.fg--3{ grid-template-columns:1fr 1fr 1fr; }
+@media(max-width:600px){ .fg--2,.fg--3{ grid-template-columns:1fr; } }
+
+.fl label{ display:block; font-family:var(--font-display); font-weight:600; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--violeta-400); margin-bottom:7px; }
+.fl input,.fl select,.fl textarea{
+  width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(159,143,232,.22);
+  border-radius:10px; padding:12px 16px; font-family:var(--font-body); font-size:.97rem;
+  color:#fff; outline:none; transition:border-color .2s; box-sizing:border-box;
+}
+.fl select option{ background:#1A1025; color:#fff; }
+.fl input::placeholder,.fl textarea::placeholder{ color:rgba(159,143,232,.45); }
+.fl input:focus,.fl select:focus,.fl textarea:focus{ border-color:var(--nexus); background:rgba(127,119,221,.1); }
+.fl textarea{ resize:vertical; min-height:90px; }
+.fl__hint{ font-size:.78rem; color:var(--violeta-500); margin-top:5px; line-height:1.4; }
+
+.apf__nav{ display:flex; align-items:center; justify-content:space-between; margin-top:30px; gap:14px; flex-wrap:wrap; }
+.apf__nav-left{ display:flex; gap:10px; }
+.apf__msg{ font-family:var(--font-display); font-size:.88rem; font-weight:600; color:var(--violeta-300); }
+.apf__msg.error{ color:#f87171; }
+
+.apf__success{ text-align:center; padding:clamp(40px,6vw,72px) 0; }
+.apf__success__icon{ width:60px; height:60px; border-radius:50%; background:rgba(127,119,221,.15); border:2px solid var(--nexus); display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:1.6rem; }
+.apf__success h3{ font-size:clamp(1.5rem,3vw,2.2rem); color:#fff; margin-bottom:14px; }
+.apf__success p{ color:var(--violeta-200); font-size:1rem; line-height:1.6; max-width:44ch; margin:0 auto; }
 
 .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
 .reveal.in{ opacity:1; transform:none; }
@@ -299,17 +341,267 @@ section{ position:relative; }
     </div>
   </section>
 
-  <!-- CLOSING -->
+  <!-- CLOSING / FORM -->
   <section id="aplicar" class="closeF">
     <span class="glow glow--3"></span>
     <div class="wrap closeF__in reveal">
-      <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow" data-es="Convocatoria abierta" data-en="Applications open">Convocatoria abierta</span></div>
-      <h2 data-es="Contanos qué construís." data-en="Tell us what you're building.">Contanos qué construís.</h2>
-      <p data-es="Completás el formulario, nos compartís tu deck y, si hay fit, el equipo te responde en días." data-en="Fill out the form, share your deck, and if there's a fit, the team replies in days.">Completás el formulario, nos compartís tu deck y, si hay fit, el equipo te responde en días.</p>
-      <div class="closeF__cta">
-        <a class="btn btn--solid btn--lg" href="#" data-es="Aplicar al club →" data-en="Apply to the club →">Aplicar al club →</a>
-        <a class="btn btn--ghost btn--lg" href="para-inversores.html" data-es="¿Querés invertir? Mirá acá" data-en="Want to invest? Look here">¿Querés invertir? Mirá acá</a>
+
+      <div class="closeF__head">
+        <div class="eyebrowrow" style="justify-content:center;"><span class="redrule"></span><span class="k-eyebrow">Convocatoria abierta</span></div>
+        <h2>Contanos qué construís.</h2>
+        <p class="closeF__lead">Completá el formulario, compartinos tu deck y, si hay fit, el equipo te responde en días.</p>
       </div>
+
+      <!-- ===== APPLICATION FORM ===== -->
+      <div class="apf" id="apf">
+
+        <!-- Success state -->
+        <div id="apf-success" style="display:none;" class="apf__success">
+          <div class="apf__success__icon">✓</div>
+          <h3>¡Postulación recibida!</h3>
+          <p>Gracias por postularte al BAC. Revisamos tu información y te respondemos en los próximos días con feedback claro.</p>
+        </div>
+
+        <!-- Form -->
+        <form id="apf-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+
+          <!-- Web3Forms config -->
+          <input type="hidden" name="access_key" value="REEMPLAZAR_CON_TU_KEY">
+          <input type="hidden" name="subject" id="apf-subject" value="Nueva postulación BAC">
+          <input type="hidden" name="from_name" value="BAC · Formulario de postulación">
+          <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="botcheck" value="" style="display:none">
+
+          <!-- Progress bar -->
+          <div class="apf__progress" id="apf-progress">
+            <div class="apf__prog-step active" data-prog="1"></div>
+            <div class="apf__prog-step" data-prog="2"></div>
+            <div class="apf__prog-step" data-prog="3"></div>
+            <div class="apf__prog-step" data-prog="4"></div>
+          </div>
+          <p class="apf__prog-label" id="apf-prog-label">Paso 1 de 4 — Datos básicos</p>
+
+          <!-- STEP 1: Identificación -->
+          <div class="apf__panel is-active" data-step="1">
+            <div class="apf__card">
+              <p class="apf__section-label">A · Startup y contacto</p>
+              <div class="fg fg--2">
+                <div class="fl">
+                  <label for="f-startup">Nombre de la startup *</label>
+                  <input id="f-startup" name="startup" type="text" placeholder="Nombre comercial" required autocomplete="organization">
+                </div>
+                <div class="fl">
+                  <label for="f-web">Sitio web *</label>
+                  <input id="f-web" name="website" type="url" placeholder="https://..." required inputmode="url">
+                </div>
+              </div>
+              <div class="fg fg--2" style="margin-top:18px">
+                <div class="fl">
+                  <label for="f-name">Tu nombre y apellido *</label>
+                  <input id="f-name" name="contact_name" type="text" placeholder="Nombre y apellido" required autocomplete="name">
+                </div>
+                <div class="fl">
+                  <label for="f-role">Rol *</label>
+                  <input id="f-role" name="contact_role" type="text" placeholder="CEO / Co-founder / CTO…" required>
+                </div>
+              </div>
+              <div class="fg fg--2" style="margin-top:18px">
+                <div class="fl">
+                  <label for="f-email">Email *</label>
+                  <input id="f-email" name="email" type="email" placeholder="vos@startup.com" required autocomplete="email">
+                </div>
+                <div class="fl">
+                  <label for="f-linkedin">LinkedIn (recomendado)</label>
+                  <input id="f-linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/…" inputmode="url">
+                </div>
+              </div>
+              <div class="fg fg--2" style="margin-top:18px">
+                <div class="fl">
+                  <label for="f-country">País base *</label>
+                  <select id="f-country" name="pais_base" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Argentina</option><option>Brasil</option><option>Chile</option>
+                    <option>Colombia</option><option>México</option><option>Uruguay</option>
+                    <option>Estados Unidos</option><option>Europa</option><option>Otro</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="f-market">Mercado principal *</label>
+                  <select id="f-market" name="mercado_principal" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Argentina</option><option>Brasil</option><option>Chile</option>
+                    <option>Colombia</option><option>México</option><option>Uruguay</option>
+                    <option>Estados Unidos</option><option>Regional Latam</option><option>Global</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Negocio y ronda -->
+          <div class="apf__panel" data-step="2">
+            <div class="apf__card">
+              <p class="apf__section-label">B · Negocio y ronda</p>
+              <div class="fg">
+                <div class="fl">
+                  <label for="f-oneliner">One-liner (máx. 200 caracteres) *</label>
+                  <input id="f-oneliner" name="one_liner" type="text" maxlength="200" placeholder="Qué hacen, para quién y por qué importa" required>
+                  <p class="fl__hint"><span id="f-oneliner-count">0</span>/200</p>
+                </div>
+                <div class="fl">
+                  <label for="f-what">Qué vendés y a quién *</label>
+                  <textarea id="f-what" name="que_venden" rows="3" placeholder="Producto/servicio + cliente objetivo + caso de uso principal" required></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="apf__card">
+              <p class="apf__section-label">C · Etapa y ronda</p>
+              <div class="fg fg--2">
+                <div class="fl">
+                  <label for="f-stage">Etapa *</label>
+                  <select id="f-stage" name="etapa" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Pre-Seed</option><option>Seed</option>
+                    <option>Pre-Serie A</option><option>Serie A o posterior</option>
+                  </select>
+                  <p class="fl__hint">Preferente Seed / Pre-Serie A</p>
+                </div>
+                <div class="fl">
+                  <label for="f-industry">Industria *</label>
+                  <select id="f-industry" name="industria" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Artificial Intelligence</option><option>FinTech</option>
+                    <option>HealthTech / BioTech</option><option>EdTech</option>
+                    <option>Enterprise SaaS</option><option>E-Commerce / Marketplace</option>
+                    <option>ClimateTech</option><option>AgTech</option>
+                    <option>Logistics / Mobility</option><option>Cybersecurity</option>
+                    <option>Otros</option>
+                  </select>
+                </div>
+              </div>
+              <div class="fg fg--3" style="margin-top:18px">
+                <div class="fl">
+                  <label for="f-round-open">¿Ronda abierta? *</label>
+                  <select id="f-round-open" name="ronda_abierta" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Sí</option><option>No</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="f-raise">Monto buscado (USD) *</label>
+                  <select id="f-raise" name="monto_buscado" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Menos de 100.000</option><option>100.000 – 250.000</option>
+                    <option>250.000 – 500.000</option><option>500.000 – 1.000.000</option>
+                    <option>1.000.000 – 2.500.000</option><option>Más de 2.500.000</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="f-instrument">Instrumento *</label>
+                  <select id="f-instrument" name="instrumento" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Equity</option><option>SAFE</option>
+                    <option>Nota convertible</option><option>En definición</option>
+                  </select>
+                </div>
+              </div>
+              <div class="fg" style="margin-top:18px">
+                <div class="fl">
+                  <label for="f-deck">Link al deck *</label>
+                  <input id="f-deck" name="deck_link" type="url" placeholder="Google Drive / DocSend / Dropbox (con permisos de lectura)" required inputmode="url">
+                  <p class="fl__hint">Asegurate de que el link tenga permisos de lectura activos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Tracción -->
+          <div class="apf__panel" data-step="3">
+            <div class="apf__card">
+              <p class="apf__section-label">D · Validación de mercado</p>
+              <div class="fg fg--2">
+                <div class="fl">
+                  <label for="f-traction">Estado de tracción *</label>
+                  <select id="f-traction" name="traccion" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Revenue (MRR/ARR)</option>
+                    <option>Pilotos pagos</option>
+                    <option>Contratos firmados</option>
+                    <option>Usuarios activos (B2C)</option>
+                    <option>Pre-revenue con LOIs/PoCs</option>
+                    <option>Deeptech/Biotech — hitos técnicos/regulatorios</option>
+                  </select>
+                </div>
+                <div class="fl">
+                  <label for="f-metric">Métrica principal *</label>
+                  <input id="f-metric" name="metrica_principal" type="text" placeholder="Ej: MRR USD 25.000 / 12 clientes pagos" required>
+                  <p class="fl__hint">Una métrica concreta que represente validación.</p>
+                </div>
+              </div>
+              <div class="fg" style="margin-top:18px">
+                <div class="fl">
+                  <label for="f-evidence">Evidencia más fuerte *</label>
+                  <textarea id="f-evidence" name="evidencia" rows="4" placeholder="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" required></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="apf__card">
+              <p class="apf__section-label">E · Validación institucional previa</p>
+              <div class="fg fg--2">
+                <div class="fl">
+                  <label for="f-inst">¿Inversión institucional previa? *</label>
+                  <select id="f-inst" name="inversion_previa" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option>Sí</option><option>No</option>
+                  </select>
+                  <p class="fl__hint">Fondos, clubes, organismos, grants competitivos.</p>
+                </div>
+                <div class="fl">
+                  <label for="f-inst-detail">Si Sí: quién + año</label>
+                  <input id="f-inst-detail" name="inversion_detalle" type="text" placeholder="Ej: Fondo X (2024), Club Y (2023)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Cierre -->
+          <div class="apf__panel" data-step="4">
+            <div class="apf__card">
+              <p class="apf__section-label">F · Competencia y cierre</p>
+              <div class="fg">
+                <div class="fl">
+                  <label for="f-competition">Competidores / alternativa actual *</label>
+                  <textarea id="f-competition" name="competencia" rows="4" placeholder="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" required></textarea>
+                </div>
+                <div class="fl">
+                  <label for="f-notes">Comentario final (opcional)</label>
+                  <textarea id="f-notes" name="notas" rows="3" placeholder="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba."></textarea>
+                </div>
+              </div>
+              <div style="margin-top:22px; padding:16px 20px; background:rgba(255,255,255,.04); border:1px solid rgba(159,143,232,.15); border-radius:12px;">
+                <p style="font-size:.82rem; color:var(--violeta-500); line-height:1.5;">Al enviar, aceptás que la información será utilizada solo para evaluación interna del BAC. No compartimos tus datos con terceros.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="apf__nav">
+            <div class="apf__nav-left">
+              <button type="button" id="apf-prev" class="btn btn--ghost" style="display:none">← Atrás</button>
+              <button type="button" id="apf-next" class="btn btn--solid">Continuar →</button>
+              <button type="submit" id="apf-submit" class="btn btn--solid" style="display:none">Enviar postulación →</button>
+            </div>
+            <p id="apf-msg" class="apf__msg" style="display:none"></p>
+          </div>
+
+        </form>
+      </div>
+      <!-- ===== / APPLICATION FORM ===== -->
+
+      <div style="text-align:center; margin-top:48px;">
+        <a class="btn btn--ghost" href="para-inversores.html">¿Querés invertir? Mirá acá</a>
+      </div>
+
     </div>
   </section>
 </main>
@@ -347,6 +639,106 @@ section{ position:relative; }
 </footer>
 
 <script src="bac.js"></script>
+<script>
+/* Application form wizard */
+(function(){
+  var form    = document.getElementById('apf-form');
+  var success = document.getElementById('apf-success');
+  var panels  = Array.from(document.querySelectorAll('.apf__panel'));
+  var progSteps = Array.from(document.querySelectorAll('[data-prog]'));
+  var progLabel = document.getElementById('apf-prog-label');
+  var btnPrev = document.getElementById('apf-prev');
+  var btnNext = document.getElementById('apf-next');
+  var btnSub  = document.getElementById('apf-submit');
+  var msgEl   = document.getElementById('apf-msg');
+  var counter = document.getElementById('f-oneliner-count');
+  var oneliner= document.getElementById('f-oneliner');
+  var subjectInput = document.getElementById('apf-subject');
+  var startupInput = document.getElementById('f-startup');
+
+  var LABELS = ['Datos básicos','Negocio y ronda','Tracción y respaldo','Competencia y cierre'];
+  var total  = panels.length;
+  var cur    = 1;
+
+  if(oneliner && counter){
+    oneliner.addEventListener('input', function(){ counter.textContent = oneliner.value.length; });
+  }
+
+  function setMsg(txt, isErr){
+    if(!msgEl) return;
+    if(!txt){ msgEl.style.display='none'; return; }
+    msgEl.textContent = txt;
+    msgEl.className   = 'apf__msg' + (isErr?' error':'');
+    msgEl.style.display = '';
+  }
+
+  function updateUI(){
+    panels.forEach(function(p, i){
+      p.classList.toggle('is-active', i+1 === cur);
+    });
+    progSteps.forEach(function(s, i){
+      s.classList.remove('done','active');
+      if(i+1 < cur)  s.classList.add('done');
+      if(i+1 === cur) s.classList.add('active');
+    });
+    if(progLabel) progLabel.textContent = 'Paso '+cur+' de '+total+' — '+LABELS[cur-1];
+    btnPrev.style.display = cur === 1 ? 'none' : '';
+    btnNext.style.display = cur === total ? 'none' : '';
+    btnSub.style.display  = cur === total ? '' : 'none';
+    setMsg('');
+  }
+
+  function validateStep(){
+    var panel = panels[cur-1];
+    if(!panel) return true;
+    var fields = Array.from(panel.querySelectorAll('input[required],select[required],textarea[required]'));
+    for(var i=0; i<fields.length; i++){
+      if(!fields[i].reportValidity()) return false;
+    }
+    return true;
+  }
+
+  btnNext && btnNext.addEventListener('click', function(){
+    if(!validateStep()){ setMsg('Revisá los campos marcados.',true); return; }
+    if(cur < total){ cur++; updateUI(); window.scrollTo({top: document.getElementById('aplicar').offsetTop - 80, behavior:'smooth'}); }
+  });
+
+  btnPrev && btnPrev.addEventListener('click', function(){
+    if(cur > 1){ cur--; updateUI(); }
+  });
+
+  form && form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!validateStep()){ setMsg('Revisá los campos marcados.',true); return; }
+    if(startupInput && subjectInput){
+      subjectInput.value = 'Nueva postulación BAC — ' + (startupInput.value || 'startup');
+    }
+    btnSub.disabled = true;
+    btnSub.textContent = 'Enviando…';
+    setMsg('');
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', { method:'POST', body: data })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res.success){
+          form.style.display = 'none';
+          success.style.display = '';
+        } else {
+          setMsg('No se pudo enviar. Revisá el access key o intentá más tarde.', true);
+          btnSub.disabled = false;
+          btnSub.textContent = 'Enviar postulación →';
+        }
+      })
+      .catch(function(){
+        setMsg('Error de red. Verificá tu conexión e intentá de nuevo.',true);
+        btnSub.disabled = false;
+        btnSub.textContent = 'Enviar postulación →';
+      });
+  });
+
+  updateUI();
+})();
+</script>
 <script>
 /* FAQ accordion — page-local, complements bac.js */
 document.querySelectorAll('[data-faq]').forEach(function(btn){
