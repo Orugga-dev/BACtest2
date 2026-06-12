@@ -737,6 +737,17 @@ section{ position:relative; }
   });
 
   updateUI();
+
+  /* Auto-prepend https:// on URL fields so "www.x.com" passes native validation */
+  ['f-web','f-linkedin','f-deck'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('blur', function(){
+      var v = el.value.trim();
+      if(v && !/^https?:\/\//i.test(v)){ el.value = 'https://' + v; }
+    });
+  });
+
 })();
 </script>
 <script>
