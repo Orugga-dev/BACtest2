@@ -209,7 +209,7 @@ section{ position:relative; }
       .then(function(res){
         if(res.success){
           form.style.display = 'none';
-          success.style.display = '';
+          success.style.display = 'block';
           window.scrollTo({top:0, behavior:'smooth'});
         } else {
           setMsg(isEN ? 'Could not send. Please try again.' : 'No se pudo enviar. Intentá de nuevo.', true);
