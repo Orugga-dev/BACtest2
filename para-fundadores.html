@@ -587,9 +587,9 @@ section{ position:relative; }
           <!-- Navigation -->
           <div class="apf__nav">
             <div class="apf__nav-left">
-              <button type="button" id="apf-prev" class="btn btn--ghost" style="display:none">← Atrás</button>
-              <button type="button" id="apf-next" class="btn btn--solid">Continuar →</button>
-              <button type="submit" id="apf-submit" class="btn btn--solid" style="display:none">Enviar postulación →</button>
+              <button type="button" id="apf-prev" class="btn btn--ghost" style="display:none" data-es="← Atrás" data-en="← Back">← Atrás</button>
+              <button type="button" id="apf-next" class="btn btn--solid" data-es="Continuar →" data-en="Continue →">Continuar →</button>
+              <button type="submit" id="apf-submit" class="btn btn--solid" style="display:none" data-es="Enviar postulación →" data-en="Submit application →">Enviar postulación →</button>
             </div>
             <p id="apf-msg" class="apf__msg" style="display:none"></p>
           </div>
@@ -599,7 +599,7 @@ section{ position:relative; }
       <!-- ===== / APPLICATION FORM ===== -->
 
       <div style="text-align:center; margin-top:48px;">
-        <a class="btn btn--ghost" href="para-inversores.html">¿Querés invertir? Mirá acá</a>
+        <a class="btn btn--ghost" href="para-inversores.html" data-es="¿Querés invertir? Mirá acá" data-en="Looking to invest? Check this out">¿Querés invertir? Mirá acá</a>
       </div>
 
     </div>
@@ -621,11 +621,10 @@ section{ position:relative; }
       <div><h4 data-es="Participar" data-en="Get involved">Participar</h4>
         <a href="para-fundadores.html" data-es="Para fundadores" data-en="For founders">Para fundadores</a>
         <a href="para-inversores.html" data-es="Para inversores" data-en="For investors">Para inversores</a>
-        <a href="#" data-es="Eventos" data-en="Events">Eventos</a>
       </div>
       <div><h4 data-es="Contacto" data-en="Contact">Contacto</h4>
-        <a href="#" data-es="hola@bac.iae" data-en="hola@bac.iae">hola@bac.iae</a>
-        <a href="#" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+        <a href="contacto.html" data-es="Escribinos" data-en="Contact us">Escribinos</a>
+        <a href="https://www.linkedin.com/company/business-angels-club-emprendeiae" target="_blank" rel="noopener" data-es="LinkedIn" data-en="LinkedIn">LinkedIn</a>
         <a href="https://www.iae.edu.ar/minisitio/entrepreneurship/" target="_blank" rel="noopener" data-es="EmprendeIAE" data-en="EmprendeIAE">EmprendeIAE</a>
       </div>
     </div>
@@ -656,7 +655,12 @@ section{ position:relative; }
   var subjectInput = document.getElementById('apf-subject');
   var startupInput = document.getElementById('f-startup');
 
-  var LABELS = ['Datos básicos','Negocio y ronda','Tracción y respaldo','Competencia y cierre'];
+  var LABELS = {
+    es: ['Datos básicos','Negocio y ronda','Tracción y respaldo','Competencia y cierre'],
+    en: ['Basic info','Business & round','Traction & backing','Competition & close']
+  };
+  function lang(){ return document.documentElement.lang === 'en' ? 'en' : 'es'; }
+  function t(es, en){ return lang() === 'en' ? en : es; }
   var total  = panels.length;
   var cur    = 1;
 
@@ -681,7 +685,7 @@ section{ position:relative; }
       if(i+1 < cur)  s.classList.add('done');
       if(i+1 === cur) s.classList.add('active');
     });
-    if(progLabel) progLabel.textContent = 'Paso '+cur+' de '+total+' — '+LABELS[cur-1];
+    if(progLabel) progLabel.textContent = t('Paso ','Step ')+cur+t(' de ',' of ')+total+' — '+LABELS[lang()][cur-1];
     btnPrev.style.display = cur === 1 ? 'none' : '';
     btnNext.style.display = cur === total ? 'none' : '';
     btnSub.style.display  = cur === total ? '' : 'none';
@@ -710,7 +714,7 @@ section{ position:relative; }
   }
 
   btnNext && btnNext.addEventListener('click', function(){
-    if(!validateStep()){ setMsg('Revisá los campos marcados.',true); return; }
+    if(!validateStep()){ setMsg(t('Revisá los campos marcados.','Please check the marked fields.'),true); return; }
     if(cur < total){ cur++; updateUI(); window.scrollTo({top: document.getElementById('aplicar').offsetTop - 80, behavior:'smooth'}); }
   });
 
@@ -720,12 +724,12 @@ section{ position:relative; }
 
   form && form.addEventListener('submit', function(e){
     e.preventDefault();
-    if(!validateStep()){ setMsg('Revisá los campos marcados.',true); return; }
+    if(!validateStep()){ setMsg(t('Revisá los campos marcados.','Please check the marked fields.'),true); return; }
     if(startupInput && subjectInput){
       subjectInput.value = 'Nueva postulación BAC — ' + (startupInput.value || 'startup');
     }
     btnSub.disabled = true;
-    btnSub.textContent = 'Enviando…';
+    btnSub.textContent = t('Enviando…','Sending…');
     setMsg('');
     var data = new FormData(form);
     fetch('https://api.web3forms.com/submit', { method:'POST', body: data })
@@ -735,15 +739,15 @@ section{ position:relative; }
           form.style.display = 'none';
           success.style.display = '';
         } else {
-          setMsg('No se pudo enviar. Revisá el access key o intentá más tarde.', true);
+          setMsg(t('No se pudo enviar. Intentá de nuevo más tarde.','Could not send. Please try again later.'), true);
           btnSub.disabled = false;
-          btnSub.textContent = 'Enviar postulación →';
+          btnSub.textContent = t('Enviar postulación →','Submit application →');
         }
       })
       .catch(function(){
-        setMsg('Error de red. Verificá tu conexión e intentá de nuevo.',true);
+        setMsg(t('Error de red. Verificá tu conexión e intentá de nuevo.','Network error. Check your connection and try again.'),true);
         btnSub.disabled = false;
-        btnSub.textContent = 'Enviar postulación →';
+        btnSub.textContent = t('Enviar postulación →','Submit application →');
       });
   });
 
