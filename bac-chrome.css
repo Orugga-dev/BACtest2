@@ -10,7 +10,8 @@
 .hdr__in{ display:flex; align-items:center; gap:32px; height:78px; max-width:var(--maxw);
   margin:0 auto; padding-inline:var(--gutter); }
 .hdr [data-bac-logo]{ width:152px; flex:none; }
-.nav{ display:flex; align-items:center; gap:28px; margin-left:auto; }
+.nav{ display:flex; align-items:center; gap:28px; margin-left:clamp(32px,4vw,64px); }
+.nav .lang{ margin-left:auto; }
 .nav a{ font-weight:500; font-size:.92rem; color:var(--niebla); text-decoration:none; opacity:.78; transition:.2s; }
 .nav a:hover{ opacity:1; color:#fff; }
 .nav a[aria-current]{ opacity:1; color:#fff; }
