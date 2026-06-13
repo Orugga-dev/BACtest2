@@ -19,15 +19,16 @@
 /* (header + buttons → bac-chrome.css) */
 
 /* hero */
-.phero{ position:relative; overflow:hidden; padding:clamp(48px,7vw,86px) 0 clamp(28px,4vw,44px); }
-.glow{ position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none;
-  width:520px; height:520px; background:radial-gradient(circle,rgba(83,74,183,.42),transparent 62%);
-  top:-220px; right:-120px; }
+.phero{ position:relative; overflow:hidden; padding:clamp(54px,8vw,104px) 0 clamp(34px,5vw,56px); }
+.phero .glow--1{ position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; width:620px; height:620px; background:radial-gradient(circle,rgba(83,74,183,.5),transparent 62%); top:-240px; right:-140px; }
+.phero .glow--2{ position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; width:420px; height:420px; background:radial-gradient(circle,rgba(127,119,221,.28),transparent 62%); bottom:-200px; left:-160px; }
+.phero__in{ position:relative; z-index:2; max-width:62ch; }
 .eyebrowrow{ display:flex; align-items:center; gap:14px; margin-bottom:22px; position:relative; }
 .redrule{ width:46px; height:3px; background:var(--rojo); }
 .k-eyebrow{ color:var(--violeta-300); }
-.phero h1{ font-size:clamp(2.4rem,5vw,3.7rem); color:#fff; max-width:17ch; position:relative; }
-.phero p{ margin-top:18px; max-width:56ch; color:var(--violeta-200); font-size:1.14rem; line-height:1.55; position:relative; }
+.phero h1{ font-size:clamp(2.5rem,5.6vw,4.4rem); color:#fff; max-width:16ch; }
+.phero h1 em{ font-style:normal; background:linear-gradient(100deg,var(--violeta-300),var(--niebla)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.phero__lead{ margin-top:24px; max-width:52ch; color:var(--violeta-200); font-size:clamp(1.05rem,1.5vw,1.24rem); line-height:1.55; }
 
 /* indicators */
 .ind{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(159,143,232,.16);
@@ -135,17 +136,20 @@
 <main>
   <!-- HERO -->
   <section class="phero">
-    <span class="glow"></span>
+    <span class="glow--1"></span>
+    <span class="glow--2"></span>
     <div class="wrap">
+      <div class="phero__in">
       <div class="eyebrowrow"><span class="redrule"></span><span class="k-eyebrow" data-es="Portfolio" data-en="Portfolio">Portfolio</span></div>
       <h1 data-es="Compañías invertidas por el BAC." data-en="Companies the BAC has invested in.">Compañías invertidas por el BAC.</h1>
-      <p data-es="Startups que recibieron capital de nuestros socios desde septiembre de 2023. Cada inversión es individual; el BAC estructura y acompaña. Datos a febrero 2026." data-en="Startups that received capital from our members since September 2023. Each investment is individual; the BAC structures and supports. Data as of February 2026.">Startups que recibieron capital de nuestros socios desde septiembre de 2023. Cada inversión es individual; el BAC estructura y acompaña. Datos a febrero 2026.</p>
+      <p class="phero__lead" data-es="Startups que recibieron capital de nuestros socios desde septiembre de 2023. Cada inversión es individual; el BAC estructura y acompaña. Datos a febrero 2026." data-en="Startups that received capital from our members since September 2023. Each investment is individual; the BAC structures and supports. Data as of February 2026.">Startups que recibieron capital de nuestros socios desde septiembre de 2023. Cada inversión es individual; el BAC estructura y acompaña. Datos a febrero 2026.</p>
 
       <dl class="ind reveal">
         <div><dt>12</dt><dd data-es="Compañías invertidas" data-en="Companies funded">Compañías invertidas</dd></div>
         <div><dt>US$2M+</dt><dd data-es="Capital invertido" data-en="Capital invested">Capital invertido</dd></div>
-        <div><dt class="dt--range" data-es="~US$150k" data-en="~US$150k">Hasta US$200k</dt><dd data-es="Ticket promedio por inversión" data-en="Average ticket per investment">Por ronda por compañía</dd></div>
+        <div><dt class="dt--range" data-es="~US$150k" data-en="~US$150k">~US$150k</dt><dd data-es="Ticket promedio por inversión" data-en="Average ticket per investment">Ticket promedio por inversión</dd></div>
       </dl>
+      </div>
     </div>
   </section>
 
