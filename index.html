@@ -11,33 +11,14 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#1A1025">
 <link rel="stylesheet" href="bac-core.css">
+<link rel="stylesheet" href="bac-chrome.css">
 <style>
 /* ================= DIRECCIÓN B · CAPITAL / PREMIUM (oscuro) ================= */
 .B{ background:var(--noche); color:var(--niebla); }
 .wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
 .B ::selection{ background:var(--nexus); color:#fff; }
 
-/* header */
-.hdr{ position:sticky; top:0; z-index:50; background:rgba(26,16,37,.72);
-  backdrop-filter:blur(16px); border-bottom:1px solid rgba(159,143,232,.14); }
-.hdr__in{ display:flex; align-items:center; gap:32px; height:78px; }
-.hdr [data-bac-logo]{ width:152px; flex:none; }
-.nav{ display:flex; align-items:center; gap:28px; margin-left:auto; }
-.nav a{ font-weight:500; font-size:.92rem; color:var(--niebla); text-decoration:none; opacity:.78; transition:.2s; }
-.nav a:hover{ opacity:1; color:#fff; }
-.lang{ display:flex; gap:2px; align-items:center; font-family:var(--font-display); font-size:.74rem; font-weight:600; }
-.lang button{ background:none; border:0; cursor:pointer; color:var(--violeta-300); padding:4px 6px; border-radius:6px; }
-.lang button[aria-pressed="true"]{ color:var(--noche); background:var(--niebla); }
-.lang span{ color:var(--violeta-600); }
-.btn{ font-family:var(--font-display); font-weight:600; font-size:.9rem; display:inline-flex; align-items:center;
-  gap:.5em; padding:.72em 1.25em; border-radius:999px; text-decoration:none; cursor:pointer;
-  border:1.5px solid transparent; transition:.2s; white-space:nowrap; }
-.btn--solid{ background:var(--nexus); color:#fff; }
-.btn--solid:hover{ background:var(--violeta-600); }
-.btn--ghost{ border-color:rgba(159,143,232,.45); color:var(--niebla); }
-.btn--ghost:hover{ border-color:var(--nexus); color:#fff; background:rgba(127,119,221,.12); }
-.btn--lg{ padding:.95em 1.7em; font-size:1rem; }
-.nav-toggle{ display:none; }
+
 
 /* glow scaffolding */
 .glow{ position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0; }
