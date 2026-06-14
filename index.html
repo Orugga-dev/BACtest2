@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -201,6 +201,9 @@ section{ position:relative; padding:clamp(64px,8vw,110px) 0; }
 /* team */
 .team__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
 .member{ display:flex; flex-direction:column; }
+a.member{ text-decoration:none; color:inherit; cursor:pointer; }
+a.member:hover .member__photo{ border-color:rgba(159,143,232,.55); }
+a.member:hover h3{ color:var(--violeta-200); }
 .member__photo{ aspect-ratio:4/5; border-radius:16px; border:1px solid rgba(159,143,232,.22); }
 img.member__photo{ width:100%; height:auto; object-fit:cover; object-position:center 22%; display:block; }
 .member__photo.ph--dark{ transition:.25s; }
@@ -438,30 +441,30 @@ img.member__photo{ width:100%; height:auto; object-fit:cover; object-position:ce
         <p data-es="Entre los socios del BAC hay personas que ya construyeron, invirtieron y operaron. No es un fondo anónimo: este es el equipo que lo coordina." data-en="Among the BAC's members are people who have already built, invested, and operated. It's not an anonymous fund: this is the team that coordinates it.">Entre los socios del BAC hay personas que ya construyeron, invirtieron y operaron. No es un fondo anónimo: este es el equipo que lo coordina.</p>
       </div>
       <div class="team__grid">
-        <div class="member reveal">
+        <a class="member reveal" href="https://www.linkedin.com/in/silvia-torres-carbonell-021390" target="_blank" rel="noopener">
           <img class="member__photo" src="assets/team-silvia.png" alt="Silvia Torres Carbonell">
           <h3>Silvia Torres Carbonell</h3>
           <span class="role" data-es="Fundadora y Presidenta" data-en="Founder & President">Fundadora y Presidenta</span>
-          <a class="ln" href="https://www.linkedin.com/in/silvia-torres-carbonell-021390" target="_blank" rel="noopener" aria-label="LinkedIn de Silvia Torres Carbonell">in · LinkedIn</a>
-        </div>
-        <div class="member reveal">
+          <span class="ln">in · LinkedIn</span>
+        </a>
+        <a class="member reveal" href="https://www.linkedin.com/in/jfugarte/" target="_blank" rel="noopener">
           <img class="member__photo" src="assets/team-jose.png" alt="Jose Ugarte">
           <h3>Jose Ugarte</h3>
           <span class="role" data-es="Vicepresidente" data-en="Vice President">Vicepresidente</span>
-          <a class="ln" href="https://www.linkedin.com/in/jfugarte/" target="_blank" rel="noopener" aria-label="LinkedIn de Jose Ugarte">in · LinkedIn</a>
-        </div>
-        <div class="member reveal">
+          <span class="ln">in · LinkedIn</span>
+        </a>
+        <a class="member reveal" href="https://www.linkedin.com/in/cecilia-lagocki-1597b830" target="_blank" rel="noopener">
           <img class="member__photo" src="assets/team-cecilia.png" alt="Cecilia Lagocki">
           <h3>Cecilia Lagocki</h3>
           <span class="role" data-es="Coordinadora general" data-en="General coordinator">Coordinadora general</span>
-          <a class="ln" href="https://www.linkedin.com/in/cecilia-lagocki-1597b830" target="_blank" rel="noopener" aria-label="LinkedIn de Cecilia Lagocki">in · LinkedIn</a>
-        </div>
-        <div class="member reveal">
+          <span class="ln">in · LinkedIn</span>
+        </a>
+        <a class="member reveal" href="https://www.linkedin.com/in/inesagote" target="_blank" rel="noopener">
           <img class="member__photo" src="assets/team-ines.png" alt="Ines Agote">
           <h3>Ines Agote</h3>
           <span class="role" data-es="Coordinadora" data-en="Coordinator">Coordinadora</span>
-          <a class="ln" href="https://www.linkedin.com/in/inesagote" target="_blank" rel="noopener" aria-label="LinkedIn de Ines Agote">in · LinkedIn</a>
-        </div>
+          <span class="ln">in · LinkedIn</span>
+        </a>
       </div>
       <div class="team__backing reveal">
         <div data-bac-wing="dark"></div>
