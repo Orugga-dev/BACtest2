@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -159,6 +159,14 @@ section{ position:relative; }
 .ifl input:focus,.ifl textarea:focus{ border-color:var(--nexus); background:rgba(127,119,221,.1); }
 .ifl textarea{ resize:vertical; min-height:100px; }
 .ifl__hint{ font-size:.78rem; color:var(--violeta-500); margin-top:5px; line-height:1.4; }
+
+/* combobox (país / provincia) */
+.combo{ position:relative; }
+.combo__list{ position:absolute; z-index:40; left:0; right:0; top:calc(100% + 6px); margin:0; padding:6px; list-style:none;
+  background:#241A3E; border:1px solid rgba(159,143,232,.3); border-radius:12px;
+  max-height:232px; overflow-y:auto; box-shadow:0 12px 32px rgba(10,6,24,.55); }
+.combo__list li{ padding:9px 12px; border-radius:8px; font-size:.93rem; color:var(--violeta-200); cursor:pointer; }
+.combo__list li:hover, .combo__list li.is-active{ background:rgba(127,119,221,.18); color:#fff; }
 .ivf__footer{ margin-top:22px; padding:14px 18px; background:rgba(255,255,255,.03); border:1px solid rgba(159,143,232,.12); border-radius:12px; }
 .ivf__footer p{ font-size:.8rem; color:var(--violeta-500); line-height:1.5; }
 .ivf__nav{ margin-top:26px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
@@ -420,9 +428,21 @@ section{ position:relative; }
               </div>
             </div>
             <div class="ifg ifg--2" style="margin-top:18px">
+              <div class="ifl combo">
+                <label for="iv-country" data-es="País *" data-en="Country *">País *</label>
+                <input id="iv-country" name="pais" type="text" placeholder="Escribí para buscar…" required autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="iv-country-list">
+                <ul class="combo__list" id="iv-country-list" role="listbox" hidden></ul>
+              </div>
+              <div class="ifl combo">
+                <label for="iv-region" id="iv-region-label" data-es="Provincia / Estado / Región *" data-en="State / Province / Region *">Provincia / Estado / Región *</label>
+                <input id="iv-region" name="provincia" type="text" placeholder="Ej: Buenos Aires" required autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="iv-region-list">
+                <ul class="combo__list" id="iv-region-list" role="listbox" hidden></ul>
+              </div>
+            </div>
+            <div class="ifg ifg--2" style="margin-top:18px">
               <div class="ifl">
-                <label for="iv-location" data-es="Provincia / Ciudad *" data-en="Province / City *">Provincia / Ciudad *</label>
-                <input id="iv-location" name="provincia_ciudad" type="text" placeholder="Ej: Buenos Aires, CABA" required autocomplete="address-level1">
+                <label for="iv-city" data-es="Ciudad / Localidad" data-en="City / Town">Ciudad / Localidad</label>
+                <input id="iv-city" name="ciudad" type="text" placeholder="Ej: Pilar" autocomplete="address-level2">
               </div>
               <div class="ifl">
                 <label for="iv-linkedin">LinkedIn *</label>
@@ -493,6 +513,126 @@ section{ position:relative; }
   var msgEl   = document.getElementById('ivf-msg');
   var linkedinEl = document.getElementById('iv-linkedin');
 
+  /* ---- País / Provincia: comboboxes con buscador ---- */
+  var countryEl  = document.getElementById('iv-country');
+  var regionEl   = document.getElementById('iv-region');
+  var regionLbl  = document.getElementById('iv-region-label');
+  var hasDN      = (typeof Intl !== 'undefined') && !!Intl.DisplayNames;
+  var countryCode = '';
+  var countryCombo = null;
+
+  /* ISO 3166-1 alpha-2 (se excluyen territorios deshabitados) */
+  var COUNTRY_CODES = ('AD AE AF AG AI AL AM AO AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GT GU GW GY HK HN HR HT HU ID IE IL IM IN IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW').split(' ');
+
+  var AR_PROVINCES = ['Buenos Aires','Catamarca','Chaco','Chubut','Ciudad Autónoma de Buenos Aires (CABA)','Córdoba','Corrientes','Entre Ríos','Formosa','Jujuy','La Pampa','La Rioja','Mendoza','Misiones','Neuquén','Río Negro','Salta','San Juan','San Luis','Santa Cruz','Santa Fe','Santiago del Estero','Tierra del Fuego','Tucumán']
+    .map(function(n){ return {code:n, name:n}; });
+
+  function pageLang(){ return document.documentElement.lang === 'en' ? 'en' : 'es'; }
+  function norm(s){
+    var t = s.toLowerCase();
+    return t.normalize ? t.normalize('NFD').replace(/[\u0300-\u036f]/g,'') : t;
+  }
+
+  var countryCache = {};
+  function countryList(lang){
+    if(countryCache[lang]) return countryCache[lang];
+    var dn = new Intl.DisplayNames([lang], {type:'region'});
+    var items = COUNTRY_CODES.map(function(c){ return {code:c, name: dn.of(c) || c}; })
+      .sort(function(a,b){ return a.name.localeCompare(b.name, lang); });
+    /* Argentina primero */
+    items = items.filter(function(i){ return i.code==='AR'; })
+      .concat(items.filter(function(i){ return i.code!=='AR'; }));
+    countryCache[lang] = items;
+    return items;
+  }
+
+  function updateRegionLabel(){
+    if(!regionLbl) return;
+    var isAR = countryCode === 'AR';
+    regionLbl.setAttribute('data-es', isAR ? 'Provincia *' : 'Provincia / Estado / Región *');
+    regionLbl.setAttribute('data-en', isAR ? 'Province *'  : 'State / Province / Region *');
+    regionLbl.textContent = regionLbl.getAttribute('data-' + pageLang());
+  }
+
+  function makeCombo(input, list, getItems, onSelect){
+    var active = -1, items = [];
+    function close(){ list.hidden = true; input.setAttribute('aria-expanded','false'); active = -1; }
+    function pick(idx){
+      var it = items[idx]; if(!it) return;
+      input.value = it.name;
+      input.setCustomValidity('');
+      close();
+      if(onSelect) onSelect(it);
+    }
+    function highlight(){
+      Array.prototype.forEach.call(list.children, function(li,i){ li.classList.toggle('is-active', i===active); });
+      if(active >= 0 && list.children[active]) list.children[active].scrollIntoView({block:'nearest'});
+    }
+    function render(filter){
+      var all = getItems();
+      var f = norm(filter || '');
+      items = f ? all.filter(function(i){ return norm(i.name).indexOf(f) !== -1; }) : all;
+      if(!items.length){ close(); return; }
+      list.innerHTML = '';
+      items.forEach(function(it, idx){
+        var li = document.createElement('li');
+        li.textContent = it.name;
+        li.setAttribute('role','option');
+        li.addEventListener('mousedown', function(e){ e.preventDefault(); pick(idx); });
+        list.appendChild(li);
+      });
+      active = -1;
+      list.hidden = false;
+      input.setAttribute('aria-expanded','true');
+      list.scrollTop = 0;
+    }
+    input.addEventListener('input', function(){
+      input.setCustomValidity('');
+      if(onSelect) onSelect(null);
+      render(input.value);
+    });
+    input.addEventListener('focus', function(){ render(input.value); });
+    input.addEventListener('keydown', function(e){
+      if(list.hidden && (e.key==='ArrowDown' || e.key==='ArrowUp')){ render(input.value); e.preventDefault(); return; }
+      if(list.hidden) return;
+      if(e.key==='ArrowDown'){ active = Math.min(active+1, items.length-1); highlight(); e.preventDefault(); }
+      else if(e.key==='ArrowUp'){ active = Math.max(active-1, 0); highlight(); e.preventDefault(); }
+      else if(e.key==='Enter'){
+        if(active >= 0){ pick(active); e.preventDefault(); }
+        else if(items.length === 1){ pick(0); e.preventDefault(); }
+      }
+      else if(e.key==='Escape'){ close(); }
+    });
+    input.addEventListener('blur', function(){ setTimeout(close, 120); });
+    return {
+      exactMatch: function(){
+        var f = norm(input.value.trim());
+        if(!f) return null;
+        var all = getItems();
+        for(var i=0; i<all.length; i++){ if(norm(all[i].name) === f) return all[i]; }
+        return null;
+      }
+    };
+  }
+
+  if(hasDN && countryEl && regionEl){
+    countryCombo = makeCombo(countryEl, document.getElementById('iv-country-list'),
+      function(){ return countryList(pageLang()); },
+      function(it){ countryCode = it ? it.code : ''; updateRegionLabel(); });
+    makeCombo(regionEl, document.getElementById('iv-region-list'),
+      function(){ return countryCode === 'AR' ? AR_PROVINCES : []; },
+      null);
+    /* Si cambia el idioma, traducir el país ya elegido */
+    if(window.MutationObserver){
+      new MutationObserver(function(){
+        if(countryCode){
+          var dn = new Intl.DisplayNames([pageLang()], {type:'region'});
+          countryEl.value = dn.of(countryCode) || countryEl.value;
+        }
+      }).observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
+    }
+  }
+
   function setMsg(txt, isErr){
     if(!msgEl) return;
     if(!txt){ msgEl.style.display='none'; return; }
@@ -513,6 +653,14 @@ section{ position:relative; }
     if(linkedinEl){
       var v = linkedinEl.value.trim();
       if(v && !/^https?:\/\//i.test(v)) linkedinEl.value = 'https://' + v;
+    }
+    /* País: debe coincidir con la lista */
+    if(countryCombo){
+      if(!countryCode){
+        var cm = countryCombo.exactMatch();
+        if(cm){ countryEl.value = cm.name; countryCode = cm.code; updateRegionLabel(); }
+      }
+      countryEl.setCustomValidity(countryCode ? '' : (document.documentElement.lang === 'en' ? 'Please select a country from the list.' : 'Elegí un país de la lista.'));
     }
     if(!form.checkValidity()){ form.reportValidity(); return; }
     var isEN = document.documentElement.lang === 'en';
