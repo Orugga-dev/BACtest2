@@ -33,9 +33,9 @@ El BAC no administra un fondo de inversión. En cambio:
 - Acceso a la red EmprendeIAE y su ecosistema de mentores, alumni y operadores
 - Estructura simple: el club hace el trabajo de coordinación
 
-## Portfolio (datos a junio 2026)
+## Portfolio (datos a septiembre 2026)
 
-12 compañías invertidas desde septiembre 2023:
+13 compañías invertidas desde septiembre 2023:
 - Chocorísimo (consumo / food & beverage) — chocorisimo.com
 - WeCircular (sustentabilidad / cleantech) — wecircular.co
 - Chill it (consumo / cleantech) — chillit.com
@@ -48,6 +48,7 @@ El BAC no administra un fondo de inversión. En cambio:
 - Teramot (software / AI infrastructure) — teramot.com
 - Satellites on Fire (sustentabilidad / disaster prevention) — satellitesonfire.com
 - La Dolfina Polo Café (food & beverage / hospitality)
+- Sylvarum (agritech / deep tech) — sylvarum.co
 
 Capital total invertido: US$2M+
 Socios inversores activos: +80
