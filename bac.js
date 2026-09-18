@@ -114,6 +114,18 @@
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   }
 
+  /* ---------- shuffle: randomize card order on each load ---------- */
+  function initShuffle(){
+    document.querySelectorAll('[data-shuffle]').forEach(function(el){
+      var items = Array.prototype.slice.call(el.children);
+      for(var i = items.length - 1; i > 0; i--){
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = items[i]; items[i] = items[j]; items[j] = tmp;
+      }
+      items.forEach(function(item){ el.appendChild(item); });
+    });
+  }
+
   /* ---------- carousel: smooth infinite auto-scroll (transform marquee) ---------- */
   function initCarousel(){
     document.querySelectorAll('[data-carousel]').forEach(function(car){
@@ -169,7 +181,7 @@
     });
   }
 
-  function start(){ injectLogos(); initLang(); initNav(); initReveal(); initCarousel(); }
+  function start(){ injectLogos(); initLang(); initNav(); initShuffle(); initReveal(); initCarousel(); }
   if(document.readyState!=='loading') start();
   else document.addEventListener('DOMContentLoaded', start);
 })();
