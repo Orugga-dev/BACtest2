@@ -19,7 +19,6 @@ El BAC no administra un fondo de inversión. En cambio:
 ## Para fundadores
 
 - Una sola presentación llega a toda la red
-- Respuesta en semanas, no meses
 - Ticket promedio: ~US$150k por inversión
 - Cap table limpio: un solo vehículo, una sola contraparte
 - Acompañamiento post-inversión: socio asignado, red EmprendeIAE, feedback del pitch, señal de credibilidad para rondas futuras
