@@ -9,7 +9,7 @@
   backdrop-filter:blur(16px); border-bottom:1px solid rgba(159,143,232,.14); }
 .hdr__in{ display:flex; align-items:center; gap:32px; height:78px; max-width:var(--maxw);
   margin:0 auto; padding-inline:var(--gutter); }
-.hdr [data-bac-logo]{ width:152px; flex:none; }
+.hdr [data-bac-logo]{ width:176px; flex:none; }
 .nav{ display:flex; align-items:center; gap:28px; margin-left:clamp(32px,4vw,64px); }
 .nav .lang{ margin-left:auto; }
 .nav a{ font-weight:500; font-size:.92rem; color:var(--niebla); text-decoration:none; opacity:.78; transition:.2s; }
@@ -35,7 +35,7 @@
 .ftr{ border-top:1px solid rgba(159,143,232,.16); padding:60px 0 36px; }
 .ftr .wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
 .ftr__top{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; }
-.ftr [data-bac-logo]{ width:182px; }
+.ftr [data-bac-logo]{ width:210px; }
 .ftr__top p{ margin-top:18px; font-size:.92rem; line-height:1.6; color:var(--violeta-200); max-width:30ch; }
 .ftr h4{ font-family:var(--font-display); font-weight:600; font-size:.78rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--violeta-300); margin:0 0 16px; }

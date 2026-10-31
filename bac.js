@@ -25,26 +25,30 @@
   }
 
   function lockup(variant){
-    // full horizontal lockup, transparent bg
-    var bac   = variant==='dark' ? '#FFFFFF' : '#26215C';
-    var desc  = variant==='dark' ? '#9B8FE8' : '#534AB7';
-    var endor = variant==='dark' ? '#FFFFFF' : '#26215C';
-    return '<svg class="bac-lockup" viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BAC Business Angels Club EmprendeIAE">'
-      + '<g transform="translate(2,6)">'
-      + (variant==='dark'
-          ? '<path d="M6,72 Q10,42 32,18 Q46,6 60,8 Q50,16 40,26 Q26,42 20,70 Z" fill="#26215C" stroke="#AFA9EC" stroke-width="0.7" opacity="0.55"/>'
-          : '<path d="M6,72 Q10,42 32,18 Q46,6 60,8 Q50,16 40,26 Q26,42 20,70 Z" fill="#3C3489" stroke="#7F77DD" stroke-width="0.7" opacity="0.35"/>')
-      + '<path d="M20,70 Q22,50 34,32" fill="none" stroke="'+(variant==='dark'?'#3C3489':'#26215C')+'" stroke-width="2.2" stroke-linecap="round"/>'
-      + '<path d="M26,63 Q30,44 42,26" fill="none" stroke="#3C3489" stroke-width="2" stroke-linecap="round"/>'
-      + '<path d="M32,56 Q38,40 50,24" fill="none" stroke="#534AB7" stroke-width="1.7" stroke-linecap="round"/>'
-      + '<path d="M38,48 Q46,34 58,20" fill="none" stroke="#7F77DD" stroke-width="1.4" stroke-linecap="round"/>'
-      + '<path d="M44,40 Q52,28 60,16" fill="none" stroke="#9B8FE8" stroke-width="1.1" stroke-linecap="round"/>'
-      + '<path d="M32,18 Q46,8 60,10" fill="none" stroke="'+(variant==='dark'?'#CCC8F7':'#AFA9EC')+'" stroke-width="0.9" stroke-linecap="round"/>'
+    // full horizontal lockup (BAC · Business Angels Club), transparent bg.
+    // 'dark' = for dark backgrounds (white wordmark), 'light' = for light backgrounds.
+    var dk = variant==='dark';
+    var bac  = dk ? '#FFFFFF' : '#26215C';
+    var desc = dk ? '#9B8FE8' : '#534AB7';
+    var body = dk
+      ? '<path d="M6,72 Q10,42 32,18 Q46,6 60,8 Q50,16 40,26 Q26,42 20,70 Z" fill="#26215C" stroke="#AFA9EC" stroke-width="0.7" opacity="0.55"/>'
+      : '<path d="M6,72 Q10,42 32,18 Q46,6 60,8 Q50,16 40,26 Q26,42 20,70 Z" fill="#3C3489" stroke="#7F77DD" stroke-width="0.7" opacity="0.4"/>';
+    var c = dk
+      ? ['#3C3489','#534AB7','#7F77DD','#9B8FE8','#AFA9EC','#CCC8F7']
+      : ['#26215C','#3C3489','#534AB7','#7F77DD','#9B8FE8','#AFA9EC'];
+    return '<svg class="bac-lockup" viewBox="0 0 340 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BAC Business Angels Club">'
+      + '<g transform="translate(10,6)">'
+      + body
+      + '<path d="M20,70 Q22,50 34,32" fill="none" stroke="'+c[0]+'" stroke-width="2.2" stroke-linecap="round"/>'
+      + '<path d="M26,63 Q30,44 42,26" fill="none" stroke="'+c[1]+'" stroke-width="2" stroke-linecap="round"/>'
+      + '<path d="M32,56 Q38,40 50,24" fill="none" stroke="'+c[2]+'" stroke-width="1.7" stroke-linecap="round"/>'
+      + '<path d="M38,48 Q46,34 58,20" fill="none" stroke="'+c[3]+'" stroke-width="1.4" stroke-linecap="round"/>'
+      + '<path d="M44,40 Q52,28 60,16" fill="none" stroke="'+c[4]+'" stroke-width="1.1" stroke-linecap="round"/>'
+      + '<path d="M32,18 Q46,8 60,10" fill="none" stroke="'+c[5]+'" stroke-width="0.9" stroke-linecap="round"/>'
       + '</g>'
-      + '<text x="84" y="40" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="34" fill="'+bac+'" letter-spacing="4">BAC</text>'
-      + '<line x1="84" y1="47" x2="270" y2="47" stroke="#CC0000" stroke-width="2.2"/>'
-      + '<text x="85" y="63" font-family="DM Sans, sans-serif" font-weight="300" font-size="10.5" fill="'+desc+'" letter-spacing="3" textLength="185" lengthAdjust="spacing">BUSINESS ANGELS CLUB</text>'
-      + '<text x="85" y="80" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="11" fill="'+endor+'" letter-spacing="1.5">EmprendeIAE</text>'
+      + '<text x="88" y="38" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="32" fill="'+bac+'" letter-spacing="4">BAC</text>'
+      + '<text x="88" y="60" font-family="DM Sans, sans-serif" font-weight="300" font-size="10" fill="'+desc+'" letter-spacing="3" textLength="178" lengthAdjust="spacing">BUSINESS ANGELS CLUB</text>'
+      + '<line x1="88" y1="44" x2="266" y2="44" stroke="#CC0000" stroke-width="2"/>'
       + '</svg>';
   }
 
