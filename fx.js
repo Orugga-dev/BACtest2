@@ -1,12 +1,12 @@
 /* ============================================================
-   BAC · efectos de prueba (GSAP + ScrollTrigger)
+   BAC · animaciones (GSAP + ScrollTrigger, alojados en assets/vendor/gsap)
    1) Cifras que cuentan hasta su número
    2) Tarjetas que aparecen escalonadas
    3) Movimiento suave del ala de la home
    4) Brillo que sigue al cursor sobre las tarjetas
    Se ejecuta ANTES de bac.js (que dibuja el logo, mezcla las tarjetas y arma el carrusel).
    Si GSAP no carga, o la persona tiene "reducir movimiento" (o usa ?sinmovimiento=1),
-   no hace nada y la página queda igual que la real.
+   no hace nada y la página queda con el comportamiento de siempre.
    ============================================================ */
 (function(){
   var root = document.documentElement;
@@ -21,12 +21,15 @@
   var CLEAR = 'transform,opacity,visibility';   // al terminar se quitan los estilos inline para no pisar los :hover del CSS
 
   /* ---------- 1) y 2) cifras + tarjetas escalonadas ---------- */
-  // Cifras: "90+" -> prefijo "", número 90, sufijo "+"  |  "US$2M+" -> "US$", 2, "M+"  |  "14" -> "", 14, ""
-  $('.metricbar > div').forEach(function(tile){
+  var STATS = '.metricbar > div, .ind > div, .mgrid > div';      // home, portfolio, para inversores
+  // Cifras: "90+" -> prefijo "", número 90, sufijo "+"  |  "US$2M+" -> "US$", 2, "M+"  |  "~US$150k" -> "~US$", 150, "k"
+  $(STATS).forEach(function(tile){
     var dt = tile.querySelector('dt');
     var m = dt && dt.textContent.trim().match(/^(\D*?)(\d+)(\D*)$/);
     if(!m) return;
     var pre = m[1], end = parseInt(m[2], 10), suf = m[3], final = dt.textContent.trim(), n = {v: 0};
+    // la cifra es igual en ES y EN: se quita el atributo de traducción para que bac.js no le reescriba el valor final antes de contar
+    dt.removeAttribute('data-es'); dt.removeAttribute('data-en');
     dt.textContent = pre + '0' + suf;
     tile._count = function(){
       gsap.to(n, {
@@ -37,17 +40,24 @@
     };
   });
 
-  var groups = [
-    $('.metricbar > div'),
-    $('.split > .card-aud'),
-    $('.steps > .step'),
-    $('.team__grid > .member')
+  var GROUPS = [
+    STATS,
+    '.split > .card-aud',          // home: fundadores / inversores
+    '.steps > .step',              // home: proceso
+    '.team__grid > .member',       // home: equipo
+    '.crit > .crit__card',         // fundadores / inversores: criterios
+    '.flow > .fstep',              // fundadores / inversores: proceso
+    '.bgrid > .bcard',             // fundadores: beneficios
+    '.comm-grid > .comm-card',     // inversores: comunidad
+    '.cos > .co'                   // portfolio: compañías
   ];
-  groups.forEach(function(items){
+  GROUPS.forEach(function(sel){
+    var items = $(sel);
     if(!items.length) return;
     items.forEach(function(el){
-      el.classList.remove('reveal');          // reemplaza el aparecer simple de bac.js
-      el.style.transition = 'none';           // las tarjetas tienen "transition: all": se apaga mientras anima GSAP para que no se pisen
+      el.classList.remove('reveal');                                              // reemplaza el aparecer simple de bac.js
+      if(el.parentElement) el.parentElement.classList.remove('reveal');           // idem si el contenedor lo tenía
+      el.style.transition = 'none';   // las tarjetas tienen "transition: all": se apaga mientras anima GSAP para que no se pisen
     });
     gsap.set(items, {autoAlpha: 0, y: 34});
     ST.batch(items, {
@@ -78,7 +88,7 @@
 
   /* ---------- 4) brillo que sigue al cursor (solo con mouse) ---------- */
   if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
-    $('.card-aud, .pfcard, .metricbar > div').forEach(function(el){ el.classList.add('fx-spot'); });
+    $('.card-aud, .pfcard, .crit__card, .bcard, .comm-card, ' + STATS).forEach(function(el){ el.classList.add('fx-spot'); });
     var raf = 0;
     document.addEventListener('pointermove', function(e){
       var el = e.target.closest && e.target.closest('.fx-spot');
@@ -92,5 +102,7 @@
     }, {passive: true});
   }
 
-  window.addEventListener('load', function(){ ST.refresh(); });   // recalcula posiciones cuando termina de cargar todo
+  // bac.js mezcla las tarjetas del portfolio justo después de este archivo: se recalculan las posiciones
+  setTimeout(function(){ ST.refresh(); }, 0);
+  window.addEventListener('load', function(){ ST.refresh(); });
 })();

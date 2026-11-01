@@ -140,6 +140,8 @@
 @media (max-width:540px){ .ind{ grid-template-columns:1fr 1fr; } .cos{ grid-template-columns:1fr; } }
 @media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; } }
 </style>
+<script>(function(){var d=document.documentElement;if(!(matchMedia("(prefers-reduced-motion: reduce)").matches||/[?&]sinmovimiento/.test(location.search))){d.classList.add("fx-pre");setTimeout(function(){d.classList.remove("fx-pre")},4000);}})();</script>
+<link rel="stylesheet" href="fx.css?v=1">
 </head>
 <body class="P">
 
@@ -306,6 +308,9 @@
   </div>
 </footer>
 
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="fx.js?v=2"></script>
 <script src="bac.js"></script>
 </body>
 </html>
