@@ -427,6 +427,7 @@ section{ position:relative; }
           <input type="hidden" name="subject" id="apf-subject" value="Nueva postulación BAC">
           <input type="hidden" name="from_name" value="BAC · Formulario de postulación">
           <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="00 Tipo de contacto" value="Postulación de startup">
           <input type="hidden" name="botcheck" value="" style="display:none">
 
           <!-- Progress bar -->
@@ -445,21 +446,21 @@ section{ position:relative; }
               <div class="fg fg--2">
                 <div class="fl">
                   <label for="f-startup" data-es="Nombre de la startup *" data-en="Startup name *">Nombre de la startup *</label>
-                  <input id="f-startup" name="startup" type="text" placeholder="Nombre comercial" data-placeholder-es="Nombre comercial" data-placeholder-en="Commercial name" required autocomplete="organization">
+                  <input id="f-startup" name="02 Startup" type="text" placeholder="Nombre comercial" data-placeholder-es="Nombre comercial" data-placeholder-en="Commercial name" required autocomplete="organization">
                 </div>
                 <div class="fl">
                   <label for="f-web" data-es="Sitio web *" data-en="Website *">Sitio web *</label>
-                  <input id="f-web" name="website" type="url" placeholder="https://..." required inputmode="url">
+                  <input id="f-web" name="16 Sitio web" type="url" placeholder="https://..." required inputmode="url">
                 </div>
               </div>
               <div class="fg fg--2" style="margin-top:18px">
                 <div class="fl">
                   <label for="f-name" data-es="Tu nombre y apellido *" data-en="Your full name *">Tu nombre y apellido *</label>
-                  <input id="f-name" name="contact_name" type="text" placeholder="Nombre y apellido" data-placeholder-es="Nombre y apellido" data-placeholder-en="First and last name" required autocomplete="name">
+                  <input id="f-name" name="04 Nombre" type="text" placeholder="Nombre y apellido" data-placeholder-es="Nombre y apellido" data-placeholder-en="First and last name" required autocomplete="name">
                 </div>
                 <div class="fl">
                   <label for="f-role" data-es="Rol *" data-en="Role *">Rol *</label>
-                  <input id="f-role" name="contact_role" type="text" placeholder="CEO / Co-founder / CTO…" required>
+                  <input id="f-role" name="06 Rol" type="text" placeholder="CEO / Co-founder / CTO…" required>
                 </div>
               </div>
               <div class="fg fg--2" style="margin-top:18px">
@@ -469,13 +470,13 @@ section{ position:relative; }
                 </div>
                 <div class="fl">
                   <label for="f-linkedin" data-es="LinkedIn (recomendado)" data-en="LinkedIn (recommended)">LinkedIn (recomendado)</label>
-                  <input id="f-linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/…" inputmode="url">
+                  <input id="f-linkedin" name="17 Linkedin" type="url" placeholder="https://linkedin.com/in/…" inputmode="url">
                 </div>
               </div>
               <div class="fg fg--2" style="margin-top:18px">
                 <div class="fl">
                   <label for="f-country" data-es="País base *" data-en="Home country *">País base *</label>
-                  <select id="f-country" name="pais_base" required>
+                  <select id="f-country" name="19 Pais" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Argentina</option><option>Brasil</option><option>Chile</option>
                     <option>Colombia</option><option>México</option><option>Uruguay</option>
@@ -484,7 +485,7 @@ section{ position:relative; }
                 </div>
                 <div class="fl">
                   <label for="f-market" data-es="Mercado principal *" data-en="Primary market *">Mercado principal *</label>
-                  <select id="f-market" name="mercado_principal" required>
+                  <select id="f-market" name="22 Mercado principal" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Argentina</option><option>Brasil</option><option>Chile</option>
                     <option>Colombia</option><option>México</option><option>Uruguay</option>
@@ -502,12 +503,12 @@ section{ position:relative; }
               <div class="fg">
                 <div class="fl">
                   <label for="f-oneliner" data-es="One-liner (máx. 200 caracteres) *" data-en="One-liner (max. 200 characters) *">One-liner (máx. 200 caracteres) *</label>
-                  <input id="f-oneliner" name="one_liner" type="text" maxlength="200" placeholder="Qué hacen, para quién y por qué importa" data-placeholder-es="Qué hacen, para quién y por qué importa" data-placeholder-en="What you do, for whom, and why it matters" required>
+                  <input id="f-oneliner" name="03 One liner" type="text" maxlength="200" placeholder="Qué hacen, para quién y por qué importa" data-placeholder-es="Qué hacen, para quién y por qué importa" data-placeholder-en="What you do, for whom, and why it matters" required>
                   <p class="fl__hint"><span id="f-oneliner-count">0</span>/200</p>
                 </div>
                 <div class="fl">
                   <label for="f-what" data-es="Qué vendés y a quién *" data-en="What you sell and to whom *">Qué vendés y a quién *</label>
-                  <textarea id="f-what" name="que_venden" rows="3" placeholder="Producto/servicio + cliente objetivo + caso de uso principal" data-placeholder-es="Producto/servicio + cliente objetivo + caso de uso principal" data-placeholder-en="Product/service + target customer + main use case" required></textarea>
+                  <textarea id="f-what" name="24 Que venden" rows="3" placeholder="Producto/servicio + cliente objetivo + caso de uso principal" data-placeholder-es="Producto/servicio + cliente objetivo + caso de uso principal" data-placeholder-en="Product/service + target customer + main use case" required></textarea>
                 </div>
               </div>
             </div>
@@ -516,7 +517,7 @@ section{ position:relative; }
               <div class="fg fg--2">
                 <div class="fl">
                   <label for="f-stage" data-es="Etapa *" data-en="Stage *">Etapa *</label>
-                  <select id="f-stage" name="etapa" required>
+                  <select id="f-stage" name="07 Etapa" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Pre-Seed</option><option>Seed</option>
                     <option data-es="Pre-Serie A" data-en="Pre-Series A">Pre-Serie A</option><option data-es="Serie A o posterior" data-en="Series A or later">Serie A o posterior</option>
@@ -525,7 +526,7 @@ section{ position:relative; }
                 </div>
                 <div class="fl">
                   <label for="f-industry" data-es="Industria *" data-en="Industry *">Industria *</label>
-                  <select id="f-industry" name="industria" required>
+                  <select id="f-industry" name="08 Industria" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Artificial Intelligence</option><option>FinTech</option>
                     <option>HealthTech / BioTech</option><option>EdTech</option>
@@ -539,14 +540,14 @@ section{ position:relative; }
               <div class="fg fg--3" style="margin-top:18px">
                 <div class="fl">
                   <label for="f-round-open" data-es="¿Ronda abierta? *" data-en="Round open? *">¿Ronda abierta? *</label>
-                  <select id="f-round-open" name="ronda_abierta" required>
+                  <select id="f-round-open" name="12 Ronda abierta" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option data-es="Sí" data-en="Yes">Sí</option><option data-es="No" data-en="No">No</option>
                   </select>
                 </div>
                 <div class="fl">
                   <label for="f-raise" data-es="Monto buscado (USD) *" data-en="Target raise (USD) *">Monto buscado (USD) *</label>
-                  <select id="f-raise" name="monto_buscado" required>
+                  <select id="f-raise" name="13 Monto buscado" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option data-es="Menos de 100.000" data-en="Less than 100,000">Menos de 100.000</option><option>100.000 – 250.000</option>
                     <option>250.000 – 500.000</option><option>500.000 – 1.000.000</option>
@@ -555,7 +556,7 @@ section{ position:relative; }
                 </div>
                 <div class="fl">
                   <label for="f-instrument" data-es="Instrumento *" data-en="Instrument *">Instrumento *</label>
-                  <select id="f-instrument" name="instrumento" required>
+                  <select id="f-instrument" name="14 Instrumento" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Equity</option><option>SAFE</option>
                     <option data-es="Nota convertible" data-en="Convertible note">Nota convertible</option><option data-es="En definición" data-en="TBD">En definición</option>
@@ -565,7 +566,7 @@ section{ position:relative; }
               <div class="fg" style="margin-top:18px">
                 <div class="fl">
                   <label for="f-deck" data-es="Link al deck *" data-en="Deck link *">Link al deck *</label>
-                  <input id="f-deck" name="deck_link" type="url" placeholder="Google Drive / DocSend / Dropbox (con permisos de lectura)" data-placeholder-es="Google Drive / DocSend / Dropbox (con permisos de lectura)" data-placeholder-en="Google Drive / DocSend / Dropbox (with read access)" required inputmode="url">
+                  <input id="f-deck" name="15 Deck link" type="url" placeholder="Google Drive / DocSend / Dropbox (con permisos de lectura)" data-placeholder-es="Google Drive / DocSend / Dropbox (con permisos de lectura)" data-placeholder-en="Google Drive / DocSend / Dropbox (with read access)" required inputmode="url">
                   <p class="fl__hint" data-es="Asegurate de que el link tenga permisos de lectura activos." data-en="Make sure the link has active read permissions.">Asegurate de que el link tenga permisos de lectura activos.</p>
                 </div>
               </div>
@@ -579,7 +580,7 @@ section{ position:relative; }
               <div class="fg fg--2">
                 <div class="fl">
                   <label for="f-traction" data-es="Estado de tracción *" data-en="Traction status *">Estado de tracción *</label>
-                  <select id="f-traction" name="traccion" required>
+                  <select id="f-traction" name="09 Traccion" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option>Revenue (MRR/ARR)</option>
                     <option data-es="Pilotos pagos" data-en="Paid pilots">Pilotos pagos</option>
@@ -591,14 +592,14 @@ section{ position:relative; }
                 </div>
                 <div class="fl">
                   <label for="f-metric" data-es="Métrica principal *" data-en="Key metric *">Métrica principal *</label>
-                  <input id="f-metric" name="metrica_principal" type="text" placeholder="Ej: MRR USD 25.000 / 12 clientes pagos" data-placeholder-es="Ej: MRR USD 25.000 / 12 clientes pagos" data-placeholder-en="E.g.: MRR USD 25,000 / 12 paying customers" required>
+                  <input id="f-metric" name="10 Metrica principal" type="text" placeholder="Ej: MRR USD 25.000 / 12 clientes pagos" data-placeholder-es="Ej: MRR USD 25.000 / 12 clientes pagos" data-placeholder-en="E.g.: MRR USD 25,000 / 12 paying customers" required>
                   <p class="fl__hint" data-es="Una métrica concreta que represente validación." data-en="One concrete metric that represents validation.">Una métrica concreta que represente validación.</p>
                 </div>
               </div>
               <div class="fg" style="margin-top:18px">
                 <div class="fl">
                   <label for="f-evidence" data-es="Evidencia más fuerte *" data-en="Strongest evidence *">Evidencia más fuerte *</label>
-                  <textarea id="f-evidence" name="evidencia" rows="4" placeholder="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" data-placeholder-es="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" data-placeholder-en="What concrete proof shows this works (customers, revenue, contracts, technical or regulatory milestones…)" required></textarea>
+                  <textarea id="f-evidence" name="25 Evidencia" rows="4" placeholder="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" data-placeholder-es="Qué prueba concreta demuestra que esto funciona (clientes, revenue, contratos, hitos técnicos o regulatorios…)" data-placeholder-en="What concrete proof shows this works (customers, revenue, contracts, technical or regulatory milestones…)" required></textarea>
                 </div>
               </div>
             </div>
@@ -607,7 +608,7 @@ section{ position:relative; }
               <div class="fg fg--2">
                 <div class="fl">
                   <label for="f-inst" data-es="¿Inversión institucional previa? *" data-en="Prior institutional investment? *">¿Inversión institucional previa? *</label>
-                  <select id="f-inst" name="inversion_previa" required>
+                  <select id="f-inst" name="11 Inversion previa" required>
                     <option value="" disabled selected data-es="Seleccionar" data-en="Select">Seleccionar</option>
                     <option data-es="Sí" data-en="Yes">Sí</option><option data-es="No" data-en="No">No</option>
                   </select>
@@ -615,7 +616,7 @@ section{ position:relative; }
                 </div>
                 <div class="fl">
                   <label for="f-inst-detail" data-es="Si Sí: quién + año" data-en="If Yes: who + year">Si Sí: quién + año</label>
-                  <input id="f-inst-detail" name="inversion_detalle" type="text" placeholder="Ej: Fondo X (2024), Club Y (2023)" data-placeholder-es="Ej: Fondo X (2024), Club Y (2023)" data-placeholder-en="E.g.: Fund X (2024), Club Y (2023)">
+                  <input id="f-inst-detail" name="23 Inversion detalle" type="text" placeholder="Ej: Fondo X (2024), Club Y (2023)" data-placeholder-es="Ej: Fondo X (2024), Club Y (2023)" data-placeholder-en="E.g.: Fund X (2024), Club Y (2023)">
                 </div>
               </div>
             </div>
@@ -628,11 +629,11 @@ section{ position:relative; }
               <div class="fg">
                 <div class="fl">
                   <label for="f-competition" data-es="Competidores / alternativa actual *" data-en="Competitors / current alternative *">Competidores / alternativa actual *</label>
-                  <textarea id="f-competition" name="competencia" rows="4" placeholder="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" data-placeholder-es="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" data-placeholder-en="Direct competitor + non-tech alternative (Excel/agency/in-house) + why customers choose you" required></textarea>
+                  <textarea id="f-competition" name="26 Competencia" rows="4" placeholder="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" data-placeholder-es="Competidor directo + alternativa no-tech (Excel/agencia/in-house) + por qué te eligen a vos" data-placeholder-en="Direct competitor + non-tech alternative (Excel/agency/in-house) + why customers choose you" required></textarea>
                 </div>
                 <div class="fl">
                   <label for="f-notes" data-es="Comentario final (opcional)" data-en="Final comment (optional)">Comentario final (opcional)</label>
-                  <textarea id="f-notes" name="notas" rows="3" placeholder="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba." data-placeholder-es="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba." data-placeholder-en="Exact post-money, round context, or anything relevant that doesn't fit above."></textarea>
+                  <textarea id="f-notes" name="29 Notas" rows="3" placeholder="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba." data-placeholder-es="Post-money exacto, contexto de la ronda, o cualquier cosa relevante que no encaje arriba." data-placeholder-en="Exact post-money, round context, or anything relevant that doesn't fit above."></textarea>
                 </div>
               </div>
               <div style="margin-top:22px; padding:16px 20px; background:rgba(255,255,255,.04); border:1px solid rgba(159,143,232,.15); border-radius:12px;">

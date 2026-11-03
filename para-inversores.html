@@ -404,6 +404,7 @@ section{ position:relative; }
           <input type="hidden" name="subject" value="Nueva solicitud de membresía BAC — inversor">
           <input type="hidden" name="from_name" value="BAC · Formulario de inversores">
           <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="00 Tipo de contacto" value="Solicitud de socio inversor">
           <input type="hidden" name="botcheck" value="" style="display:none">
 
           <div class="ivf__card">
@@ -411,11 +412,11 @@ section{ position:relative; }
             <div class="ifg ifg--2">
               <div class="ifl">
                 <label for="iv-first" data-es="Nombre *" data-en="First name *">Nombre *</label>
-                <input id="iv-first" name="nombre" type="text" placeholder="Nombre" required autocomplete="given-name">
+                <input id="iv-first" name="04 Nombre" type="text" placeholder="Nombre" required autocomplete="given-name">
               </div>
               <div class="ifl">
                 <label for="iv-last" data-es="Apellido *" data-en="Last name *">Apellido *</label>
-                <input id="iv-last" name="apellido" type="text" placeholder="Apellido" required autocomplete="family-name">
+                <input id="iv-last" name="05 Apellido" type="text" placeholder="Apellido" required autocomplete="family-name">
               </div>
             </div>
             <div class="ifg ifg--2" style="margin-top:18px">
@@ -426,35 +427,35 @@ section{ position:relative; }
               </div>
               <div class="ifl">
                 <label for="iv-phone" data-es="Nro de móvil" data-en="Mobile number">Nro de móvil</label>
-                <input id="iv-phone" name="movil" type="tel" placeholder="+54 9 11 ..." autocomplete="tel">
+                <input id="iv-phone" name="18 Movil" type="tel" placeholder="+54 9 11 ..." autocomplete="tel">
               </div>
             </div>
             <div class="ifg ifg--2" style="margin-top:18px">
               <div class="ifl combo">
                 <label for="iv-country" data-es="País *" data-en="Country *">País *</label>
-                <input id="iv-country" name="pais" type="text" placeholder="Escribí para buscar…" required autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="iv-country-list">
+                <input id="iv-country" name="19 Pais" type="text" placeholder="Escribí para buscar…" required autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="iv-country-list">
                 <ul class="combo__list" id="iv-country-list" role="listbox" hidden></ul>
               </div>
               <div class="ifl combo">
                 <label for="iv-region" id="iv-region-label" data-es="Provincia / Estado / Región *" data-en="State / Province / Region *">Provincia / Estado / Región *</label>
-                <input id="iv-region" name="provincia" type="text" placeholder="Ej: Buenos Aires" required autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="iv-region-list">
+                <input id="iv-region" name="20 Provincia" type="text" placeholder="Ej: Buenos Aires" required autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="iv-region-list">
                 <ul class="combo__list" id="iv-region-list" role="listbox" hidden></ul>
               </div>
             </div>
             <div class="ifg ifg--2" style="margin-top:18px">
               <div class="ifl">
                 <label for="iv-city" data-es="Ciudad / Localidad" data-en="City / Town">Ciudad / Localidad</label>
-                <input id="iv-city" name="ciudad" type="text" placeholder="Ej: Pilar" autocomplete="address-level2">
+                <input id="iv-city" name="21 Ciudad" type="text" placeholder="Ej: Pilar" autocomplete="address-level2">
               </div>
               <div class="ifl">
                 <label for="iv-linkedin">LinkedIn *</label>
-                <input id="iv-linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/..." required inputmode="url">
+                <input id="iv-linkedin" name="17 Linkedin" type="url" placeholder="https://linkedin.com/in/..." required inputmode="url">
               </div>
             </div>
             <div class="ifg" style="margin-top:18px">
               <div class="ifl">
                 <label for="iv-bio" data-es-html="Contanos sobre tu experiencia <span style='font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)'>(opcional)</span>" data-en-html="Tell us about your experience <span style='font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)'>(optional)</span>">Contanos sobre tu experiencia <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--violeta-500)">(opcional)</span></label>
-                <textarea id="iv-bio" name="experiencia" rows="4" placeholder="Experiencia operativa, mentoría, sectores de interés, inversiones previas…"></textarea>
+                <textarea id="iv-bio" name="27 Experiencia" rows="4" placeholder="Experiencia operativa, mentoría, sectores de interés, inversiones previas…"></textarea>
               </div>
             </div>
           </div>
